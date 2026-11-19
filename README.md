@@ -74,3 +74,19 @@ lualatex -interaction=nonstopmode 'Презентация-Статистика-J
 
 - В аналитику и в ИИ-сервисы не загружаются персональные данные пациентов (PHI) — только открытые и учебные наборы.
 - ИИ — инструмент, а не врач: любой предложенный им код или метод проверяется на учебных данных и в документации.
+
+## Литература
+
+**Книги** (все три есть в `Documents/Books/Subject/Math/Statistics/`):
+
+1. Vu J., Harrington D. *Introductory Statistics for the Life and Biomedical Sciences*. — OpenIntro, 2021. Основной учебник заседания; свободно: <https://openintro.org/book/biostat>
+2. Петри А., Сэбин К. *Наглядная медицинская статистика*. 4-е изд. / пер. с англ. под ред. В.П. Леонова. — М.: ГЭОТАР-Медиа, 2021.
+3. van Belle G., Fisher L., Heagerty P., Lumley T. *Biostatistics: A Methodology for the Health Sciences*. 2nd ed. — Wiley, 2008.
+4. Гланц С. *Медико-биологическая статистика* / пер. с англ. Ю.А. Данилова. — М.: Практика, 1999. — классика по интерпретации тестов.
+
+**Источники:**
+
+- Документация jamovi: <https://docs.jamovi.org>
+- Датасет: UCI Heart Disease — <https://archive.ics.uci.edu/dataset/451/heart+disease> (оригинал: Detrano R. et al. *Am J Cardiol.* 1989;63:895–900)
+- Wasserstein R.L., Lazar N.A. The ASA Statement on p-Values: Context, Process, and Purpose. — *The American Statistician*, 2016, 70(2):129–133.
+- Серия заметок BMJ «Statistics notes» (Bland J.M., Altman D.G.) — короткие разборы по каждой теме заседания.
