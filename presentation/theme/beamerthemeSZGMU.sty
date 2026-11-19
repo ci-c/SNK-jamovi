@@ -1,0 +1,130 @@
+% Академичная тема презентации для СЗГМУ им. И.И. Мечникова
+% Основана на фирменном стиле университета
+\ProvidesPackage{beamerthemeSZGMU}
+
+\mode<presentation>
+
+% ---------- Цвета СЗГМУ ----------
+% Основной синий
+\definecolor{SZGMUBlue}{RGB}{1,33,105}  % #012169
+% Вспомогательный серый
+\definecolor{SZGMUGray}{RGB}{147,150,148}  % #939694
+% Дополнительные оттенки
+\definecolor{SZGMUBlue80}{RGB}{51,71,131}
+\definecolor{SZGMUBlue60}{RGB}{102,110,157}
+\definecolor{SZGMUBlue40}{RGB}{153,148,183}
+\definecolor{SZGMUBlue20}{RGB}{204,187,209}
+
+% ---------- Настройка цветовой схемы ----------
+\setbeamercolor{structure}{fg=SZGMUBlue}
+\setbeamercolor{title}{fg=SZGMUBlue}
+\setbeamercolor{frametitle}{fg=white,bg=SZGMUBlue}
+\setbeamercolor{section in toc}{fg=SZGMUBlue}
+\setbeamercolor{itemize item}{fg=SZGMUBlue}
+\setbeamercolor{itemize subitem}{fg=SZGMUBlue80}
+\setbeamercolor{enumerate item}{fg=SZGMUBlue}
+\setbeamercolor{block title}{fg=white,bg=SZGMUBlue}
+\setbeamercolor{block body}{bg=SZGMUBlue20}
+\setbeamercolor{footline}{fg=SZGMUGray,bg=white}
+\setbeamercolor{author}{fg=SZGMUGray}
+\setbeamercolor{date}{fg=SZGMUGray}
+\setbeamercolor{subtitle}{fg=SZGMUGray}
+
+% ---------- Настройка шрифтов ----------
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{institute}{size=\footnotesize}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{footline}{size=\tiny}
+
+% ---------- Убрать навигационные символы ----------
+\setbeamertemplate{navigation symbols}{}
+
+% ---------- Настройка списков ----------
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+
+% ---------- Заголовок слайда ----------
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1cm,dp=0.3cm,leftskip=0.5cm,rightskip=0.5cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}
+}
+
+% ---------- Футер ----------
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left,leftskip=0.5cm]{footline}%
+      \usebeamerfont{footline}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,right,rightskip=0.5cm]{footline}%
+      \usebeamerfont{footline}\insertframenumber{} / \inserttotalframenumber\hspace*{0.5ex}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+% ---------- Титульная страница ----------
+\defbeamertemplate*{title page}{szgmu}[1][]
+{
+  \vspace{1cm}
+
+  % Логотип по центру (увеличенный)
+  \begin{beamercolorbox}[wd=\textwidth,center]{titlegraphic}
+    \ifx\inserttitlegraphic\@empty\else
+      \inserttitlegraphic\par
+    \fi
+  \end{beamercolorbox}
+
+  \vspace{0.5cm}
+
+  % Название института по центру (уменьшенный шрифт)
+  \begin{beamercolorbox}[wd=\textwidth,center]{institute}
+    {\fontsize{9}{11}\selectfont\insertinstitute}
+  \end{beamercolorbox}
+
+  \vfill
+
+  % Заголовок по центру
+  \begin{beamercolorbox}[wd=\textwidth,center]{title}
+    \usebeamerfont{title}\inserttitle\par
+    \ifx\insertsubtitle\@empty\else
+      \vspace{0.3cm}
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+    \fi
+  \end{beamercolorbox}
+
+  \vspace{0.5cm}
+
+  % Автор и дата по центру
+  \begin{beamercolorbox}[wd=\textwidth,center]{author}
+    \usebeamerfont{author}\insertauthor
+  \end{beamercolorbox}
+
+  \vspace{0.3cm}
+
+  \begin{beamercolorbox}[wd=\textwidth,center]{date}
+    \usebeamerfont{date}\insertdate
+  \end{beamercolorbox}
+
+  \vfill
+}
+
+% ---------- Разделитель секций ----------
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[center,wd=0.9\textwidth]{section}
+      \usebeamerfont{frametitle}\insertsectionhead
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+\mode<all>
