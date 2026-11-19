@@ -18,6 +18,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{colortbl}
+\usepackage{qrcode}
 \hypersetup{pdftitle={Практическая статистика в Jamovi},
   pdfauthor={Проханин И.Р.}, hidelinks}
 
@@ -27,15 +28,19 @@
 % Данные титульного листа
 % -----------------------------------------------------------------------------
 \newcommand{\Univ}{ФГБОУ ВО СЗГМУ им. И.И. Мечникова Минздрава России}
-\newcommand{\Org}{Студенческий научный кружок}
+\newcommand{\Org}{Совместное заседание СНК кафедры медицинской информатики и физики\\и СНК по педиатрии и детской кардиологии}
 \newcommand{\CityYear}{Санкт-Петербург, 27 ноября 2026}
+
+% TODO: репозиторий ещё не опубликован. После публикации заменить URL
+% на реальный и перекомпилировать PDF (lualatex ×2).
+\newcommand{\RepoURL}{https://github.com/USERNAME/SNK-jamovi}
 
 \title[Статистика в Jamovi]{Практическая статистика\\[0.15cm]в Jamovi}
 \subtitle{Вводное заседание: от импорта данных до p-value}
-\author[Проханин И.Р.]{Иван Русланович Проханин, студент, группа 305А}
+\author[Проханин И.Р.]{Иван Русланович Проханин, ВрИО старосты СНК\\кафедры медицинской информатики и физики, ORCID: 0009-0004-5142-3975}
 \institute[СЗГМУ им. И.И. Мечникова]{\Univ\\\Org}
 \date{\CityYear}
-\titlegraphic{\includegraphics[width=2.8cm]{logo.png}}
+\titlegraphic{\includegraphics[width=2.1cm]{logo.png}}
 
 % -----------------------------------------------------------------------------
 % Слайды
@@ -44,6 +49,24 @@
 
 \begin{frame}[plain]
   \titlepage
+\end{frame}
+
+\begin{frame}{Материалы заседания}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.42\linewidth}
+      \centering
+      \qrcode[height=3.6cm]{\RepoURL}
+    \column{0.54\linewidth}
+      \begin{itemize}
+        \item Презентация, сценарий и учебный датасет --- в репозитории
+        \item Сканируйте QR или введите ссылку вручную
+      \end{itemize}
+      \vspace{0.3cm}
+      {\small \texttt{github.com/USERNAME/SNK-jamovi}}
+      \vspace{0.2cm}
+
+      {\footnotesize Репозиторий будет открыт перед заседанием; ссылка на запись --- в посте о заседании.}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[plain]{План заседания}
