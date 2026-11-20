@@ -1,0 +1,773 @@
+                                                              RESEARCH ARTICLE
+
+
+
+
+      Aerobic Exercise Alters Brain Function
+       and Structure in Parkinson’s Disease:
+         A Randomized Controlled Trial
+                     Martin E. Johansson, MSc ,1,2† Ian G. M. Cameron, PhD ,3,4,5†
+ Nicolien M. Van der Kolk, MD, PhD ,2 Nienke M. de Vries, PhD ,2 Eva Klimars, MSc,1,2
+    Ivan Toni, PhD ,1 Bastiaan R. Bloem, MD, PhD,2 and Rick C. Helmich, MD, PhD                                                             1,2
+
+
+Objective: Randomized clinical trials have shown that aerobic exercise attenuates motor symptom progression in
+Parkinson’s disease, but the underlying neural mechanisms are unclear. Here, we investigated how aerobic exercise
+inﬂuences disease-related functional and structural changes in the corticostriatal sensorimotor network, which is
+involved in the emergence of motor deﬁcits in Parkinson’s disease. Additionally, we explored effects of aerobic exer-
+cise on tissue integrity of the substantia nigra, and on behavioral and cerebral indices of cognitive control.
+Methods: The Park-in-Shape trial is a single-center, double-blind randomized controlled trial in 130 Parkinson’s disease
+patients who were randomly assigned (1:1 ratio) to aerobic exercise (stationary home trainer) or stretching (active con-
+trol) interventions (duration = 6 months). An unselected subset from this trial (exercise, n = 25; stretching, n = 31)
+underwent resting-state functional and structural magnetic resonance imaging (MRI), and an oculomotor cognitive con-
+trol task (pro- and antisaccades), at baseline and at 6-month follow-up.
+Results: Aerobic exercise, but not stretching, led to increased functional connectivity of the anterior putamen with the
+sensorimotor cortex relative to the posterior putamen. Behaviorally, aerobic exercise also improved cognitive control.
+Furthermore, aerobic exercise increased functional connectivity in the right frontoparietal network, proportionally to ﬁt-
+ness improvements, and it reduced global brain atrophy.
+Interpretation: MRI, clinical, and behavioral results converge toward the conclusion that aerobic exercise stabilizes dis-
+ease progression in the corticostriatal sensorimotor network and enhances cognitive performance.
+                                                                                                                    ANN NEUROL 2022;91:203–216
+
+
+
+
+A    n increasing number of studies suggest that motor
+     symptoms associated with Parkinson’s disease (PD) can
+be improved through physical exercise. We recently com-
+                                                                               clinical trial that investigated exercise dosage in de novo PD
+                                                                               (SPARX trial).2 These two studies provide strong clinical
+                                                                               evidence that exercise can alleviate motor symptoms in
+pleted a clinical trial showing attenuated motor symptom                       PD. However, the cerebral mechanisms underlying this
+progression in PD following an aerobic exercise intervention                   effect remain unclear. Here, we investigated the effect of aer-
+(Park-in-Shape trial).1 Similar ﬁndings were observed in a                     obic exercise on cerebral changes using longitudinal,
+
+                                       View this article online at wileyonlinelibrary.com. DOI: 10.1002/ana.26291
+                            Received Feb 8, 2021, and in revised form Dec 7, 2021. Accepted for publication Dec 19, 2021.
+
+           Address correspondence to Dr Helmich, Radboud University Medical Center, PO Box 9101, 6500 HB Nijmegen, the Netherlands.
+                                                     E-mail: rick.helmich@radboudumc.nl
+                                          †
+                                           Martin E. Johansson and Ian G. M. Cameron contributed equally.
+
+  From the 1Donders Institute for Brain, Cognition and Behavior, Center for Cognitive Neuroimaging, Radboud University, Nijmegen, The Netherlands;
+2
+ Donders Institute for Brain, Cognition and Behavior, Center for Medical Neuroscience, Department of Neurology, Center of Expertise for Parkinson and
+  Movement Disorders, Radboud University Medical Center, Nijmegen, The Netherlands; 3Donders Institute for Brain, Cognition and Behavior, Radboud
+   University, Nijmegen, The Netherlands; 4Faculty of Electrical Engineering, Mathematics, and Computer Science, University of Twente, Enschede, The
+                   Netherlands; and 5Precision Health, Nutrition and Behavior, OnePlanet Research Center, Nijmegen, The Netherlands
+
+                                 Additional supporting information can be found in the online version of this article.
+
+
+           © 2021 The Authors. Annals of Neurology published by Wiley Periodicals LLC on behalf of American Neurological Association. 203
+This is an open access article under the terms of the Creative Commons Attribution-NonCommercial License, which permits use, distribution
+and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.
+ANNALS of Neurology
+
+
+multimodal magnetic resonance imaging (MRI) in a                double-blind, randomized, placebo-controlled trial evaluat-
+predeﬁned and unselected subset of individuals from the         ing the effect of aerobic exercise versus an active control
+Park-in-Shape trial. We tested the hypothesis that aerobic      (stretching) on symptom progression in PD.1 All partici-
+exercise slows the natural circuit-level progression of PD.     pants were assessed off medication (ie, >12 hours since last
+       PD is characterized by progressive loss of dopami-       dopaminergic medication dose). The ﬁnal sample size was
+nergic cells in the substantia nigra and dopamine deple-        predetermined by available budget and reﬂects an unse-
+tion in the striatum, which lead to dysfunction in              lected sample formed from the ﬁrst consecutive MRI-
+corticostriatal networks that are essential for control of      compatible participants who volunteered for this imaging
+movement and cognition.3 In early PD, the posterior             study after inclusion in the larger Park-in-Shape trial. Par-
+putamen is heavily affected by dopamine depletion,              ticipants were informed that the study would compare the
+whereas the anterior putamen is relatively spared.4–6 Using     effects of two home-based exercise programs on PD symp-
+resting-state functional MRI, we previously showed that         toms, brain function, and eye movements, and that they
+PD is associated with a shift in corticostriatal functional     would be randomly assigned to one of two intervention
+connectivity: cortical sensorimotor regions that normally       groups (1:1 ratio). Participants remained blinded to the
+communicate with the posterior putamen in healthy indi-         alternative intervention, and assessors remained blinded to
+viduals rely more on the anterior putamen in PD                 intervention assignment. Debrieﬁng showed that 93% of
+patients.7 Similar adaptive changes have been observed in       patients remained blinded until after the intervention. Full
+healthy LRRK2 mutation carriers at risk of developing           debrieﬁng followed publication of the clinical ﬁndings.1
+PD, indicating that reorganization of corticostriatal func-     Before randomization, all eligible participants of the Park-
+tion may be involved in compensating for posterior striatal     in-Shape trial were invited to simultaneously participate in
+dopamine depletion in early PD.8 Aerobic exercise may           this imaging study. Randomization in the original trial
+inﬂuence clinical disease progression by sustaining or          was independent of participation in this present study.26
+enhancing this form of adaptive neuroplasticity. This           participants were assigned to the aerobic exercise group
+hypothesis is grounded in data from animal models of PD         and 31 participants to the stretching group (see Fig 1;
+showing that physical exercise improves dopaminergic            Table 1). Further details on dropouts and exclusions can
+function in the striatum.9 Accordingly, a recent clinical       be found in the protocol and primary report of the Park-
+trial in PD patients showed that 3 months of aerobic exer-      in-Shape trial.1,13 Additional exclusion criteria speciﬁc to
+cise increased reward-related activity and dopamine release     this imaging study were use of antidepressants, history of
+in the anterior striatum,10 suggesting that aerobic exercise    epilepsy, structural brain abnormalities (eg, stroke, trau-
+may strengthen anterior striatal function. However, it          matic defects, large arachnoid cysts), brain surgery, claus-
+remains unknown whether this strengthening effect is            trophobia, implanted electrical devices (eg, pacemaker,
+accompanied by a shift in the balance of corticostriatal        deep brain stimulator, neurostimulator), metal implants
+sensorimotor connectivity away from the posterior puta-         (eg, prosthetics, metal plates), and pregnancy. Written
+men. Furthermore, exercise-related effects on cor-              informed consent was obtained from all participants. The
+ticostriatal connectivity may depend on structural changes      trial protocol was approved by the medical ethical com-
+upstream from the striatum, that is, in the sensorimotor        mittee of Arnhem-Nijmegen. Assessments were performed
+cortex and in the substantia nigra. Additionally, aerobic       at the Donders Center for Cognitive Neuroimaging in
+exercise may also improve nonmotor processes, such as           Nijmegen, the Netherlands between January 20, 2016
+cognitive control, which PD patients may use to manage          and June 1, 2018. The trial ended after assessment of all
+resources limited by motor dysfunction.3 To explore this        included participants. The Park-in-Shape trial has been
+possibility, we tested for exercise-related effects on behav-   registered at the Dutch Trial Register (NTR4743).
+ioral and cerebral indices of cognitive control, using an
+oculomotor task that is sensitive to executive dysfunction      Intervention
+in PD,11 as well as measures of resting-state functional        The aerobic exercise intervention involved cycling on a
+connectivity in 3 cortical networks known to be involved        stationary bike with “exergaming” features, whereas the
+in cognitive control.12                                         active control intervention involved stretching, ﬂexibility,
+                                                                and relaxation exercises. Both interventions took place in
+                                                                the participants’ own homes 3 times per week for 30 to
+Patients and Methods                                            45 minutes over 6 months. Participants in the aerobic
+Participants                                                    exercise intervention were instructed to cycle at 50 to
+We included 57 of the original 130 participants of the          80% of heart rate reserve. Intensity of exercise increased
+Park-in-Shape trial, which is a single-center, prospective,     progressively during each session, beginning with a short
+
+
+204                                                                                                         Volume 91, No. 2
+                                                                                       Johansson et al: Brain Plasticity in PD
+
+
+
+
+FIGURE 1: Trial proﬁle ﬂowchart diagram. DWI = diffusion-weighted imaging; fMRI = functional MRI; MRI = magnetic resonance
+imaging.
+
+
+warmup to get the participant into the target heart rate        these components, we selected sensorimotor (see Fig 2A),
+zone and ending with a cool-down period. The stretching         left frontoparietal, right frontoparietal, and executive con-
+routine of the active control intervention was varied every     trol networks (see Fig 2D) based on previous literature.17
+2 to 4 weeks to prevent loss of motivation.1                           To test the hypothesis that aerobic exercise shifts the
+                                                                balance of corticostriatal sensorimotor connectivity from
+Image Processing                                                posterior to anterior striatum, we quantiﬁed functional
+Resting-State Functional MRI. Image acquisition parame-         connectivity between different striatal subregions and the
+ters can be found in Supplementary Table SS1.                   sensorimotor network (ie, region of interest). Striatal seed
+Preprocessing and statistical analysis of MRI data were         regions (putamen, caudate nucleus, and nucleus
+done using FMRIB Software Library (FSL)14 and involved          accumbens) were generated by using FSL-FIRST18 to per-
+motion correction, smoothing to 6mm full width at half          form subcortical segmentation on preintervention subject-
+maximum, removal of motion-related variance using ICA-          speciﬁc structural scans.7,8 The putamen was split into
+AROMA,15 nuisance regression of average cerebrospinal           posterior and anterior sections at the anterior commissure
+ﬂuid and white matter time series together with 24              (see Fig 2A; 4mm gap).7,8 Average regional time series
+motion derivatives, and high-pass ﬁltering (>0.007Hz).          were used as regressors in a seed-based multiple-regression
+Resting-state networks were generated using Group ICA           analysis (functional connectivity) for each session.7,8
+(FSL-MELODIC),16 which decomposed MRI data from                 Global signal was included as a covariate to correct for
+all subjects and all sessions into 20 components. From          non-neuronal noise.19
+
+
+February 2022                                                                                                             205
+ANNALS of Neurology
+
+
+
+ TABLE 1. Demographic Characteristics and Clinical Measurements at Baseline
+                                                                Aerobic Exercise                Active Control                t/χ2/Fa
+
+     Participants                                                       26                             31
+     Age, yr                                                        58.9 (8.9)                    59.8 (10.1)                  p > 0.05
+     Sex, M/F                                                          20/6                          17/14                    p = 0.082
+     Disease duration, mo                                          44.4 (38.2)                    47.5 (32.9)                  p > 0.05
+     Handedness, R/L                                                   25/1                           26/5                     p > 0.05
+     Most affected side, R/L                                          13/13                          14/17                     p > 0.05
+     Years of education                                             14.9 (4.9)                     16.9 (5.6)                  p > 0.05
+     Baseline MDS-UPDRS-III                                        30.2 (11.4)                    26.7 (15.5)                  p > 0.05
+     Baseline VO2max                                                28.2 (7.1)                     26.7 (6.3)                  p > 0.05
+     Baseline TAP                                                    4.1 (12.4)                     4.5 (13.6)                 p > 0.05
+     Baseline MoCA                                                  26.5 (2.2)                     26.4 (2.6)                  p > 0.05
+     Completed intervention, yes/no                                    20/6                           26/5                     p > 0.05
+     Time spent exercising, min                                   1,860 (1,182)                       NA                          NA
+     Time spent exercising within target HRZ, min                  1,427 (988)                        NA                          NA
+     Between-session difference (Δ, follow-up   baseline) in clinical measurements
+       Δ Off-state MDS-UPDRS-III                                      0 (9.3)                      2.83 (8.6)                  p > 0.05
+       Δ On-state VO2max                                            1.86 (3.3)                       0.2 (4.1)                p = 0.052
+       Δ TAP                                                        0.09 (9.3)                     0.84 (11.2)                 p > 0.05
+       Δ MoCA                                                          1.2 (3)                       0.6 (2.9)                 p > 0.05
+ a
+  Total sample size varies slightly per test, given that 5 participants (2 exercise, 3 control) had at least 1 missing data point.
+ F = female; HRZ = heart rate zone; L = left; M = male; MDS-UPDRS-III = Movement Disorders Society Uniﬁed Parkinson’s Disease Rating Scale;
+ MoCA = Montreal Cognitive Assessment; NA = not applicable; R = right; TAP = Test of Attentional Performance; VO2max = maximal oxygen
+ consumption.
+ Values are given as mean (standard deviation).
+
+
+
+      To test the hypothesis that aerobic exercise inﬂu-                 image, and averaged to create an unbiased study-speciﬁc
+ences brain networks involved in cognitive control, we                   T1-weighted anatomical template. Nonlinear registrations
+quantiﬁed functional connectivity within 3 networks: left                to MNI space were subsequently estimated and applied to
+and right frontoparietal networks and the executive con-                 all halfway anatomical images with the study-speciﬁc ana-
+trol network (see Fig 2D).17 Dual regression was used to                 tomical template as the reference image. These nonlinear
+derive subject- and session-speciﬁc spatial maps of func-                registrations were initiated with linear registrations (FSL-
+tional connectivity between individual voxels and each                   FLIRT23) from native functional space to halfway anatom-
+network.20                                                               ical space and used to normalize beta images of functional
+      FSL-SIENA21 was used to minimize between-session                   connectivity in a single interpolation step.
+differences in normalizations. Each participant’s 2 anatomi-
+cal images were aligned to each other and resampled into                 Voxel-Based Morphometry and Global Brain Atrophy.  FSL-
+                                                                                  24
+halfway space. Twenty-one halfway anatomical images                      VBM was used to generate normalized, modulated, and
+from each group were selected, nonlinearly registered                    smoothed gray matter images. T1-weighted images in half-
+(FSL-FNIRT22) to Montreal Neurological Institute                         way space were brain-extracted and segmented into gray
+(MNI) space with the MNI152 2mm 6th generation                           matter before being normalized to the study-speciﬁc ana-
+asymmetrical template (FSL’s default) as the reference                   tomical MNI template deﬁned above through nonlinear
+
+
+206                                                                                                                       Volume 91, No. 2
+                                                                                          Johansson et al: Brain Plasticity in PD
+
+
+
+
+FIGURE 2: Methods. (A) Bilateral seed regions in posterior (yellow) and anterior (cyan) putamen and the sensorimotor network
+(red). (B) Average b0 image (right) and heat map (left) showing overlap between masks in posterior substantia nigra.
+(C) Conditions of the oculomotor cognitive control task. (D) Cognitive control networks (blue; left and right frontoparietal and
+executive control networks). (E) Longitudinal design.
+
+
+registration. The resulting images were then averaged and          color (green or red) indicated whether to make a sac-
+ﬂipped along the x-axis to create a symmetric, study-              cade toward (pro) or away (anti) from a peripherally
+speciﬁc gray matter template to which native gray matter           presented cue. For each trial, there was a 33% chance
+images were nonlinearly registered. Resulting images were          that the color of the central cue would switch from pro
+then modulated to compensate for the nonlinear compo-              to anti, or from anti to pro, requiring participants to
+nent of the normalization and smoothed to 10mm full                occasionally update their response strategy within single
+width at half maximum. Additionally, estimates of global           trials. Switches of central cue color could occur at
+percentage-based volume change were calculated using               different onsets ( 200 milliseconds, 100 milliseconds,
+FSL-SIENA.21                                                       0 milliseconds, or +100 milliseconds) relative to the
+                                                                   onset of the peripheral cue (switch time). Participants
+Posterior Substantia Nigra Free Water. Diffusion-weighted          performed between 2 and 4 blocks consisting of 192 tri-
+data were preprocessed using the Donders Institute Diffu-          als each, with 16 trials for each switch time. Participants
+sion Imaging toolbox (https://github.com/marcelzwiers/             practiced the task by performing 100 prosaccade trials
+didi). Raw data were denoised through overcomplete local           followed by 100 antisaccade trials, separated into 2 con-
+principal component analysis.25 Signal dropout due to car-         secutive blocks, at the beginning of the behavioral
+diac and head motion were corrected using the PATCH                session.
+method.26 Scans were corrected for signal distortions                     Saccades were performed with respect to a stimulus
+resulting from eddy currents and subject motion, includ-           appearing 10 to the left or right of a ﬁxation point. An
+ing rotation of b vectors. Free water maps were calculated         Eyelink 1000 (SR Research, Ottawa, Ontario, Canada)
+as done before.27 Mean b0 and free water images were               was used to monitor gaze position at 1,000Hz. Before
+normalized to the study-speciﬁc template using the same            each block of trials, participants performed a 9-point cali-
+procedure as above. Masks of the posterior substantia              bration. Head position was maintained by a chin rest. At
+nigra were manually drawn on normalized b0 images for              the onset of a trial, a central 1 ﬁxation point was dis-
+each participant and session in accordance with previous           played for 900 milliseconds after ﬁxation point gaze was
+work,28 and used to extract free water values (see Fig 2B).        acquired. The stimulus then appeared pseudorandomly at
+                                                                   10 to the left or right of central ﬁxation. Participants
+Oculomotor Cognitive Control Task                                  were required to look toward the stimulus as soon as it
+Directly after scanning, participants performed a validated        appeared and to hold their gaze there for 160 milliseconds
+oculomotor task shown to be sensitive to executive dys-            (a limit of 1,000 milliseconds was imposed for gaze to be
+function in PD (see Fig 2C).11 Participants were                   acquired). Subsequently, the screen was diffusely illumi-
+instructed to ﬁxate on a centrally presented cue whose             nated for 600 milliseconds before the next ﬁxation
+
+
+February 2022                                                                                                                207
+ANNALS of Neurology
+
+
+stimulus appeared. Participants without usable baseline          than at baseline. Effects of group on percentage-based vol-
+data were deemed unlikely to contribute usable data at           ume change was tested with a 1-way ANCOVA in SPSS
+follow-up and were therefore not required to perform the         (IBM, Armonk, NY). Baseline MDS-UPDRS-III total
+task for a second time.                                          score was modeled as a covariate of no interest in all ana-
+                                                                 lyses. The analysis of posterior substantia nigra free water
+Clinical Measurements                                            included 53 participants (exercise, n = 22; stretching,
+Clinical assessments were performed at baseline and              n = 31) after multiple imputation of follow-up data for
+follow-up to measure motor symptoms (Movement Disor-             8 participants (aerobic exercise, n = 3; stretching, n = 5).
+ders Society Uniﬁed Parkinson’s Disease Rating Scale             Effects of group on change in posterior substantia nigra
+[MDS-UPDRS-III]), cognitive function (Montreal Cogni-            free water was tested with a 1-way ANCOVA in SPSS.
+tive Assessment [MoCA]), executive function (Test of             MDS-UPDRS-III total score and free water at baseline
+Attentional Performance [TAP]), ﬁtness (maximal oxygen           were modeled as covariates of no interest.
+consumption [VO2max]), and exercise intensity (minutes
+spent exercising within target heart rate zone). MDS-            Effect of Aerobic Exercise on Cognitive Control. The ﬁnal
+UPDRS-III subscores were calculated for bradykinesia–            sample size for analyses of oculomotor behavior was 38 par-
+rigidity (17 scores; items 3–9, 14), tremor (10 scores;          ticipants (exercise, n = 16; stretching, n = 22). Our primary
+items 15–18),32 and axial (5 scores; items 1, 9, 10, 12,         outcome measure for this analysis was saccade direction error
+13)33 symptoms.                                                  rate (% incorrect). Direction errors refer to trials in which
+                                                                 the primary saccade was in the incorrect direction relative to
+Statistical Analyses                                             the ﬁnal color of the ﬁxation point. Saccade reaction time
+Cerebral Effects of Aerobic Exercise. All statistical analyses   (change in horizontal eye position exceeding the mean  3
+followed the intention-to-treat principle and included par-      times the standard deviation) and amplitude (of the primary
+ticipants who completed baseline MRI assessments,                saccade) were used as additional outcomes. For each mea-
+regardless of intervention completion. Multiple imputa-          sure, we performed a 4-way repeated measures analysis of
+tion was used to replace missing values at follow-up for         variance in SPSS with time (baseline, follow-up), condition
+measurements not requiring voxelwise analysis. Change            (pro, anti), and switch time (nonswitch, 200 milliseconds,
+over time, calculated as the difference between sessions            100 milliseconds, 0 milliseconds, +100 milliseconds) as
+(delta: follow-up – baseline), was the outcome measure in        within-group factors and group (exercise, stretching) as a
+all MRI modalities. Analyses of resting-state functional         between-group factor.11 Post hoc tests of simple interaction
+connectivity, gray matter volume, and global brain atro-         effects were performed with t tests.
+phy included 46 participants (exercise, n = 21; stretching,
+n = 25). For voxelwise analyses, change over time was            Brain–Behavior Correlations. Bivariate Pearson correlations
+encoded as the difference between session-speciﬁc beta           were used to explore the clinical relevance of changes in
+images, which were calculated for each individual. For the       functional connectivity and antisaccade performance in
+primary analysis of corticostriatal connectivity, differential   the aerobic exercise group. Spearman correlations were
+changes in regional connectivity were encoded as the dif-        used for non-normally distributed variables. Change in
+ference between anterior and posterior putamen delta             corticostriatal sensorimotor connectivity was correlated
+images (ie, anterior change – posterior change) at the indi-     with change in motor symptom severity, deﬁned as MDS-
+vidual level. The resulting delta images of functional con-      UPDRS-III total score and subscores. Change in right
+nectivity and gray matter volume were subjected to 1-way         frontoparietal network connectivity and antisaccade error
+analyses of covariance (ANCOVAs; random-effects ana-             rate were correlated with change in TAP, MoCA, and
+lyses) testing effects of group (aerobic exercise vs             axial34,35 motor scores, and with each other. We also cor-
+stretching) on change over time. Nonparametric permuta-          related changes in functional connectivity and antisaccade
+tion testing (FSL-randomise; 5,000 permutations),29              performance with exercise intensity and changes in ﬁtness,
+incorporating threshold-free cluster enhancement,30 was          which was signiﬁcantly improved in the larger Park-in-
+used to correct for familywise error (p < 0.05) within the       Shape trial.1
+search volume (whole brain, region of interest). Signiﬁcant
+between-group differences in change over time were               Sensitivity Analysis.Group comparisons were reperformed
+followed with post hoc 1-way ANCOVAs performed sepa-             following the as-treated principle (ie, after excluding par-
+rately on delta images for each group. Finally, time points      ticipants who did not complete the intervention). For
+were analyzed separately to verify that group differences in     imaging analyses, 4 participants in the aerobic exercise
+change over time were driven by effects at follow-up rather      group (n = 17) and 3 participants in the stretching group
+
+
+208                                                                                                           Volume 91, No. 2
+                                                                                     Johansson et al: Brain Plasticity in PD
+
+
+(n = 22) were excluded. For the oculomotor task analyses,     Effects of Aerobic Exercise on Brain Structure
+4 participants from the aerobic exercise group (n = 12)       The aerobic exercise group had signiﬁcantly lower change
+and 2 participants from the stretching group (n = 20)         in global percentage-based volume compared to the
+were excluded. Additionally, inverse probability weights      stretching group (group: F1,46 = 4.1, p = 0.049,
+were derived from a logistic regression predicting mis-       η2p = 0.87; Fig 4A; reduced global percentage-based vol-
+singness of baseline and follow-up data to account for        umes in the stretching group were signiﬁcant: t24 = 3.8,
+dropout.31 Intervention group, MoCA, and MDS-                 p = 0.001, g = 0.6). Exclusion of noncompliant partici-
+UPDRS-III total score were modeled as predictors. Signiﬁ-     pants did not alter the signiﬁcance of the group effect.
+cant predictors were retained through forward selection       There were no effects of exercise on local gray matter vol-
+at p < 0.1.                                                   ume (FSL-VBM), or on free water in the posterior sub-
+                                                              stantia nigra (p = 0.2; see Fig 4B). A post hoc analysis of
+                                                              longitudinal free water increases (follow-up > baseline) col-
+Corrections for Multiple Comparisons. Conservative
+                                                              lapsed across intervention groups revealed no signiﬁcant
+familywise error corrections were applied in all voxelwise
+                                                              change (p = 0.8).
+analyses. There were no corrections for multiple out-
+comes, as this study primarily aimed to provide a compre-
+                                                              Effects of Aerobic Exercise on Behavioral
+hensive and exploratory overview of the cerebral effects of
+                                                              Performance in a Cognitive Control Task
+aerobic exercise in PD.36
+                                                              Saccade Error Rates. The aerobic exercise group had
+                                                              signiﬁcantly greater changes in error rates depending on
+Results                                                       condition, as compared to the stretching group (group 
+Effects of Aerobic Exercise on Corticostriatal                time  condition interaction: F1,36 = 4.2, p = 0.046,
+Connectivity in the Sensorimotor Network                      η2p = 0.11). This effect remained signiﬁcant after cor-
+The aerobic exercise group showed a signiﬁcantly larger       recting for years of education. There was no higher order
+posterior-to-anterior shift in corticostriatal sensorimotor   interaction with switch time. Post hoc analyses, collapsed
+connectivity compared to the stretching group. Func-          across switch time, indicated a trend toward improved anti-
+tional connectivity of the anterior putamen, relative to      saccade error rates in the aerobic exercise group, but not in
+posterior putamen, increased in 4 clusters in the right       the stretching group (group  time interaction for
+primary motor cortex, primary somatosensory cortex,           antisaccades: F1,36 = 3.95, p = 0.055, η2p = 0.1; Fig 5A;
+and premotor cortex (anterior > posterior putamen, aero-      reduced error rates in the aerobic exercise group were signif-
+bic exercise > stretching, follow-up > baseline; see          icant: t15 =2.52, p = 0.024, g = 0.53). The group  time
+Table 2, Fig 3). Separate post hoc analyses for anterior       condition effect was nonsigniﬁcant (p = 0.2) in the as-
+and posterior putamen showed that the between-group           treated analysis.
+difference in change over time was signiﬁcant only for
+the posterior putamen; in the aerobic exercise group          Saccade Reaction Times. We collapsed across switch times
+compared to the stretching group, functional connectiv-       due to missing data points (excessively high error rates in
+ity was reduced with 2 clusters in the right primary          some participants) on some conditions. There were no sig-
+somatosensory and premotor cortices (stretching > aero-       niﬁcant main effects or interactions involving time or
+bic exercise, follow-up > baseline; see Fig 3B). Speciﬁ-      group (p > 0.15) on saccade reaction time.
+cally, the stretching group, but not the aerobic exercise
+group, showed a signiﬁcant increase in functional con-        Saccade Amplitudes. The aerobic exercise group had sig-
+nectivity between the posterior putamen and 2 clusters        niﬁcantly greater change in amplitudes depending on con-
+in the right primary motor and somatosensory cortices         dition, as compared to the stretching group (group 
+(follow-up > baseline). Separate session-speciﬁc post hoc     time  condition interaction: F1,36 = 7.7, p = 0.009,
+analyses conﬁrmed that the effects reported above were        η2p = 0.18; see Fig 5A). Again, there was no 4-way inter-
+present at follow-up, but not at baseline. Speciﬁcally, at    action with switch time. Post hoc analyses, collapsed
+follow-up, functional connectivity of the anterior puta-      across switch time, showed that prosaccade amplitudes
+men, relative to posterior putamen, was increased for the     worsened in the stretching group, and improved in the
+aerobic exercise group compared to the stretching group       aerobic exercise group (group  time interaction for pro-
+in the right and left premotor cortices (anterior > poste-    saccades: F1,36 = 6.9, p = 0.013, η2p = 0.19). Prosaccade
+rior putamen, aerobic exercise > stretching; see Table 2,     amplitudes decreased in the stretching group (t21 = 2.3,
+Fig 3A). The outcome of the sensitivity analysis can be       p = 0.03, g = 0.47) and increased in the aerobic exercise
+found in Table 2.                                             group (t15 = 2.2, p = 0.048, g = 0.51). The group 
+
+
+February 2022                                                                                                           209
+ANNALS of Neurology
+
+
+
+ TABLE 2. Effects of aerobic exercise on corticostriatal functional connectivity.
+                  Anatomical        BA (cluster        p-value                 Cluster              Max                            Hedge’s g
+                  label             probability)       (FWE-corrected)         extent (voxels)      t-value     MNI: X,Y,Z         (95% CI)
+
+  Sensorimotor network (functional connectivity)
+       Corticostriatal balance (AP>PP)
+             Aerobic>Stretching, T2>T1
+                  Right M1          BA4p (54%)         .042a                   29                   3.6         38,-26,50          1.12 [.5,1.73]
+                  Right M1          BA4p (32%)         .039a                   28                   3.9         22,-32,64          1.23 [.59,1.84]
+                  Right S1          BA3b (52%)         .033a                   26                   4           40,-16,48          1.13 [.51,-1.74]
+                                                              a
+                  Right PMC         BA6 (86%)          .023                    26                   4.7         32,-20,72          1.33 [.69,1.96]
+             Aerobic>Stretching, T2
+                  Right PMC         BA6 (29%)          <.001*                  1225                 6.3         32,-22,72          1.5 [.94,2.14
+                                                              a
+                  Left PMC          BA6 (57%)          .038                    27                   3.9         -40,-14,58         1.2 [.58,1.82]
+                  Left M1           BA4p (43%)         .047b                   14                   3.4         -32,-26,56         .94 [.33,1.54]
+             Aerobic>Stretching, T1
+                  Ns.
+             Stretching, T1>T2
+                  Right M1          BA4a (35%)         .05b                    8                    4           20,-28,64          .85 [.4,1.32]
+                  Right M1          BA4p               .056b                   2                    4.3         36,-28,48          .79 [.35,1.25]
+       Posterior putamen (PP)
+             Stretching>Aerobic, T2>T1
+                  Right S1          BA3b (47%)         .018*                   197                  4.2         44,-24,48          1.16 [.53,1.77]
+                                                              a
+                  Right PMC         BA6 (73%)          .037                    12                   4           36,-20,72          1.13 [.51,1.74]
+             Stretching>Aerobic, T2
+                  Right PMC         BA6 (27%)          .002*                   2054                 4.6         26,-32,64          1.36 [.71,1.99]
+                                                              a
+                  Left M1           BA4a (33%)         .039                    21                   3.6         -12,-42,66         1.11 [.49,1.72]
+             Stretching>Aerobic, T1
+                  Ns.
+             Stretching, T2>T1
+                  Right M1          BA4p (34%)         .039a                   25                   4           22,-30,64          .88 [.37,1.27]
+                                                              a
+                  Right S1          BA1 (98%)          .041                    21                   4.2         40,-36,64          .83 [.39,1.5]
+       Anterior putamen (AP)
+                  Ns.
+ Note. Superscript symbols denote signiﬁcance of clusters after analyses according to the as-treated principle (*=p<.05, a=p<.1, b=p>.1). Hedge’s g was
+ calculated from z-statistical values averaged within each cluster for each participant. Abbreviations: Brodmann area (BA). Family-wise error (FWE).
+ Montreal Neurological Institute (MNI). Premotor cortex (PMC). Primary somatosensory (S1) and motor (M1) cortex. Baseline (T1). Follow-up (T2).
+
+
+
+
+210                                                                                                                                  Volume 91, No. 2
+                                                                                           Johansson et al: Brain Plasticity in PD
+
+
+
+
+FIGURE 3: Motor-related effects of aerobic exercise. (A) Group differences in the balance of corticostriatal sensorimotor
+connectivity. (B) Group differences in connectivity between posterior putamen and sensorimotor cortex. (C) Change in
+connectivity between subregions of the putamen and Brodmann area (BA) 3b. Lower and upper whiskers of bar graphs
+correspond to the ﬁrst and third quantiles, and extend from the hinge to the largest or smallest value no further than 1.5 
+interquartile range (outlying data points beyond this range are plotted individually). Imaging results are displayed at p < 0.05,
+familywise error (fwe)-corrected, overlaid on a study-speciﬁc anatomical Montreal Neurological Institute template. *p < 0.05.
+AP = anterior putamen; PP = posterior putamen; T1 = baseline; T2 = follow-up; Δ = follow-up – baseline.
+
+
+
+
+FIGURE 4: Effect of aerobic exercise on global brain atrophy and substantia nigra free water. (A) Group difference in
+percentage-based global brain volume. (B) Group difference in posterior substantia nigra free water. (C) Heat map (upper) of
+substantia nigra masks overlaid on an average b0 image. Yellow indicates high overlap between masks, red indicates partial
+overlap. Average free water image (lower) shows hyperintense values in the posterior substantia nigra. Lower and upper
+whiskers of bar graphs correspond to the ﬁrst and third quantiles and extend from the hinge to the largest or smallest value no
+further than 1.5  interquartile range (outlying data points beyond this range are plotted individually). *p < 0.05, ***p < 0.001.
+fv = fractional volume; Δ = follow-up – baseline.
+
+
+time  condition interaction remained signiﬁcant in the             (odds ratio = 1.04, p = 0.054, 95% conﬁdence inter-
+as-treated analysis.                                                val = 0.1–1.09). Patients with missing data (n = 19)
+                                                                    had higher MDS-UPDRS-III total score at baseline than
+Inverse Probability Weighted Analyses of Oculomotor                 patients who had complete data (n = 38; t55 = 2,
+Performance.   MDS-UPDRS-III total score was a trend-               p = 0.046, g = 0.57). Linear mixed-effects models
+level predictor of data missingness in a logistic regression        incorporating inverse probability weighting were
+
+
+February 2022                                                                                                                 211
+ANNALS of Neurology
+
+
+
+
+FIGURE 5: Cognitive control-related effects of aerobic exercise. (A) Group difference in antisaccade error rate and prosaccade
+amplitude. (B) Group differences in right frontoparietal network connectivity. (C) Correlation between change in ﬁtness and right
+frontoparietal network connectivity. Lower and upper whiskers of bar graphs correspond to the ﬁrst and third quantiles and
+extend from the hinge to the largest or smallest value no further than 1.5  interquartile range (outlying data points beyond this
+range are plotted individually). Imaging results are displayed at p < 0.05, familywise error (fwe)-corrected, overlaid on a study-
+speciﬁc anatomical Montreal Neurological Institute template. +p = 0.055, *p < 0.05. BA = Brodmann area; DLPFC =
+dorsolateral prefrontal cortex; RFPN = right frontoparietal network; rho = Spearman correlation coefﬁcient; T1 = baseline; T2 =
+follow-up; VO2max = maximal oxygen consumption.
+
+
+
+
+212                                                                                                              Volume 91, No. 2
+                                                                                                             Johansson et al: Brain Plasticity in PD
+
+
+
+ TABLE 3. Effects of aerobic exercise on frontoparietal network functional connectivity.
+
+                Anatomical         BA (cluster              p-value                Cluster extent      Max                          Hedge’s
+                label              probability)             (FWE-corrected)        (voxels)            t-value     MNI: X,Y,Z       g (95% CI)
+
+  Right frontoparietal network (functional connectivity)
+           Aerobic>Stretching, T2>T1
+                Right DLPFC        Area 9/46D (24%)         .027*                  109                 4.6         32,48,40         1.29 [.65,1.91]
+           Aerobic>Stretching, T2
+                Ns.
+           Aerobic>Stretching, T1
+                Ns.
+           Aerobic, T2>T1
+                Right DLPFC        Area 9/46D (19%)         .003*                  221                 5.8         32,48,40         .88 [.39,1.4]
+                Right DLPFC        Area 46 (25%)            .018*                  89                  4.5         24,62,16         .65 [.19,1.13]
+ Note. Superscript symbols denote signiﬁcance of clusters after analyses according to the as-treated principle (*=p<.05). Hedge’s g was calculated from
+ z-statistical values averaged within each cluster for each participant. Abbreviations: Brodmann area (BA). Family-wise error (FWE). Montreal Neuro-
+ logical Institute (MNI). Dorsolateral prefrontal cortex (DLPFC). Baseline (T1). Follow-up (T2).
+
+
+
+therefore used to reassess the 3 analyses above. All                           associated with improved ﬁtness (rho = 0.62, p = 0.003,
+reported effects remained signiﬁcant, and no new results                       n = 21; see Fig 5C). This association remained signiﬁcant
+were obtained.                                                                 in the as-treated analysis.
+
+Effects of Aerobic Exercise on Functional                                      Discussion
+Connectivity in Cognitive Control Networks                                     We investigated the systems-level cerebral changes associ-
+The behavioral ﬁndings above suggest that aerobic exer-                        ated with aerobic exercise in PD, compared to an active
+cise improved (oculomotor) cognitive control in PD, as                         control condition (stretching), using a longitudinal design
+compared to stretching. When testing for effects within                        to assess the effects of intervention against ongoing disease
+cognitive control networks, we found that the aerobic                          progression. Our primary aim was to investigate whether
+exercise group had a signiﬁcantly larger change in func-                       aerobic exercise shifts the balance of corticostriatal sensori-
+tional connectivity within the right frontoparietal net-                       motor connectivity in PD from the posterior putamen
+work (aerobic exercise > stretching, follow-up > baseline;                     toward the anterior putamen. In support of this, we found
+see Table 3, Fig 5B). For the aerobic exercise group, but                      that aerobic exercise caused a relative posterior-to-anterior
+not for the stretching group, there was a signiﬁcant                           shift in corticostriatal sensorimotor connectivity, attenuat-
+increase in connectivity between the right frontoparietal                      ing an opposite longitudinal increase in posterior putamen
+network and 2 clusters located in the dorsolateral pre-                        connectivity, which occurred in the stretching group. Our
+frontal cortex (follow-up > baseline). The between-group                       secondary aims were to explore exercise-related changes on
+difference in connectivity change remained signiﬁcant                          localized and global brain volume, substantia nigra tissue
+after correcting for years of education. There were no sig-                    integrity, and behavioral and cerebral indices of cognitive
+niﬁcant group differences at baseline nor at follow-up.                        function. We found that aerobic exercise reduced global
+There were no signiﬁcant group differences in connectiv-                       brain atrophy and improved cognitive control, but that it
+ity change in the remaining networks. The outcome of                           did not inﬂuence substantia nigra tissue integrity or localized
+the sensitivity analysis can be found in Table 3.                              gray matter volume. Speciﬁcally, aerobic exercise reduced
+                                                                               antisaccade error rates, increased prosaccade amplitudes
+Brain–Behavior Correlations                                                    (both common deﬁcits in PD37), and increased functional
+In the larger Park-in-Shape trial, aerobic exercise improved                   connectivity between the right dorsolateral prefrontal cortex
+total MDS-UPDRS-III and ﬁtness (VO2max).1 Here,                                and the right frontoparietal network. Furthermore, greater
+increased frontoparietal network connectivity was                              increases in right frontoparietal network connectivity were
+
+
+February 2022                                                                                                                                        213
+ANNALS of Neurology
+
+
+associated with greater improvements in ﬁtness. Taken            effects of aerobic exercise, in contrast to previous interven-
+together, these ﬁndings suggest that aerobic exercise stimu-     tions involving motor skill learning.47,48
+lates functional and structural neuroplasticity in both motor          We found no effect of aerobic exercise on the struc-
+and cognitive brain networks in PD. These ﬁndings ﬁt with        tural integrity of the posterior substantia nigra, using free
+data from animal models of PD, where aerobic exercise            water imaging as an index of structural damage.28 This
+stimulated protective and restorative forms of neuroplasticity   may suggest that dopaminergic cell degeneration has
+in the sensorimotor network.9 We extend those data to PD         already progressed to a point where neuroprotection is no
+patients and show that exercise may beneﬁt brain networks        longer possible.6 Alternatively, 6 months of follow-up may
+outside the motor domain.                                        not be long enough to detect changes in nigral pathology.
+                                                                 Accordingly, we failed to detect signiﬁcant increases in
+Effects of Aerobic Exercise on the Corticostriatal               substantia nigra free water in the stretching group, and for
+Sensorimotor Network                                             all participants collapsed across groups, whereas previous
+As hypothesized, aerobic exercise led to a posterior-to-         studies found increased substantia nigra free water in PD
+anterior shift in the balance of corticostriatal sensorimotor    patients who were followed for >1 year.28 Longer follow-
+connectivity. Post hoc analyses suggest that this effect was     up periods in combination with larger sample sizes may
+(primarily) driven by increased connectivity with the pos-       be necessary to demonstrate these effects.
+terior putamen in the stretching group. These cerebral
+ﬁndings mirror the clinical results of the Park-in-Shape1        Effects of Aerobic Exercise on Cognitive
+and SPARX2 trials, where motor symptom progression               Control: Saccadic Performance and
+was observed only in the control groups, and animal work         Frontoparietal Connectivity
+demonstrating neuroprotective effects on various molecu-         Aerobic exercise improved cognitive control, as indexed by
+lar and cellular processes related to PD.38 It might be          an oculomotor task known to be sensitive to executive deﬁ-
+argued that the observed longitudinal increase in posterior      cits in PD.11,37 The larger Park-in-Shape trial failed to ﬁnd
+putamen connectivity in the stretching group contradicts         effects of aerobic exercise on cognitive performance using
+previous cross-sectional studies showing reduced connec-         traditional pen-and-paper tests.1 These tests may lack the
+tivity between posterior putamen and sensorimotor cortex         sensitivity required for detecting subtle effects of interven-
+in PD.7,39 However, it is likely that the balance of con-        tions. Future studies on intervention-related effects may
+nectivity between anterior and posterior putamen is what         beneﬁt from adopting tightly controlled tasks with ﬁne-
+is ultimately important for motor behavior, given that           grained continuous metrics of cognitive performance, as
+these regions are interconnected through nigrostriatonigral      afforded by the oculomotor task used in this study. Patients
+connections,40 and that connectivity between sensorimo-          with usable baseline oculomotor data tended to have lower
+tor cortex and putamen subregions is organized along a           MDS-UPDRS-III scores, which may limit the generalizabil-
+caudorostral gradient.41 Further research, involving com-        ity of our ﬁndings toward less severe PD. We accounted for
+parisons between PD patients and healthy controls, will          this bias through inverse probability weighted analyses.31
+be needed to clarify how PD alters corticostriatal connec-              We found that the dorsolateral prefrontal cortex contrib-
+tivity over time.                                                uted more strongly to connectivity within the right
+                                                                 frontoparietal network in exercising PD patients, and that this
+Structural Effects of Aerobic Exercise                           was associated with ﬁtness improvements. This is consistent
+Brain atrophy is a primary pathological hallmark of PD42         with previous work showing beneﬁcial effects of ﬁtness on
+and is associated with progression of motor and cognitive        brain health and cognition.46 The dorsolateral prefrontal cortex
+symptoms.43 Here, brain atrophy worsened over time in            has been strongly implicated in the maintenance of behavioral
+the stretching group, in line with previous longitudinal         goals and in adjusting cognitive control based on task
+investigations of structural alterations in early stage PD       demands.49 Enhancing the inﬂuence that this region has on
+showing decreased gray matter volume44 and reduced cor-          activity in the right frontoparietal network may facilitate
+tical thickness.45 These structural alterations do not sim-      switching from impaired automatic motor responses to less
+ply reﬂect cellular degeneration, but could also result from     severely affected goal-directed motor strategies, thereby enabling
+changes in several other tissue properties, such as dendritic    PD patients to partially overcome motor dysfunction.3
+density, synaptic density, and glial cell structure. Although
+aerobic exercise is unlikely to reverse the effects of cell      Therapeutic Implications and Limitations of This
+loss, it may contribute to maintaining structural integrity      Study
+of the cortex by attenuating pathological changes across         Current therapies for treating PD symptoms, such as deep
+the whole brain.46 We did not observe localized structural       brain stimulation and pharmacological dopamine
+
+
+214                                                                                                              Volume 91, No. 2
+                                                                                           Johansson et al: Brain Plasticity in PD
+
+
+replacement, have primarily focused on temporarily restor-      individuals with PD by stimulating functional and struc-
+ing function in the corticostriatal sensorimotor network.       tural plasticity in corticostriatal sensorimotor and cognitive
+However, achieving any lasting restoration of function in       control networks.
+this network may be difﬁcult, given the extent of
+nigrostriatal cell loss that is already present at clinical
+onset.6 Our study suggests that a viable alternative to         Acknowledgments
+inﬂuence clinical decline may be to focus on maintaining        This study was supported by ZonMw (Netherlands Organi-
+corticostriatal sensorimotor function against disease pro-      zation for Health Research and Development) and
+gression and to strengthen compensatory cognitive pro-          BikevoorParkinson. The Center of Expertise for Parkinson
+cesses. The larger Park-in-Shape trial was powered to           and Movement Disorders was supported by a center of
+detect changes in global motor symptom progression,1            excellence grant of the Parkinson’s Foundation. We thank
+whereas our study was primarily powered to detect               all the participants who took part in the study; P. Gaalman
+changes in brain function and structure. This resulted in a     for his support during the setup of the study and during
+smaller sample size that may help to explain why we failed      acquisition of the imaging data; and ZonMW and
+to relate our imaging ﬁndings to global motor progression.      BikevoorParkinson for funding this study. The funders had
+It should also be noted that connectivity changes and           no role in the design and conduct of the study; collection,
+motor symptom progression are highly complex measure-           management, analysis, and interpretation of the data; or in
+ments that aggregate multiple domains (eg, functional spe-      the preparation and submission of the manuscript.
+cialization of brain regions and subsets of symptoms at the
+clinical level). These measurements may not map onto            Author Contributions
+each other in a linear fashion. Additionally, exercise-
+                                                                B.R.B., N.v.d.K., N.D.V., I.T., and I.C. contributed to
+related attenuation of motor progression may result from
+                                                                the conception and design of the study; M.E.J.,
+complex interactions between several changes in brain
+                                                                R.C.G.H., N.D.V., N.v.d.K., I.C., and E.K. contributed
+function and structure. Further research involving more
+                                                                to the acquisition and analysis of data; M.E.J. and
+ﬁne-grained investigations of functional connectivity41 in
+                                                                R.C.G.H. drafted the text and prepared the ﬁgures.
+combination with stratiﬁcation of patient cohorts50 may
+aid the detection of such a mapping.
+       Voxelwise analyses in this study were constrained to     Potential Conﬂicts of Interest
+complete cases and did not account for dropout. To our          Nothing to report.
+knowledge, there are no validated methods that correct for
+missing data in such analyses. The number of patients lost
+to follow-up were comparable between intervention
+groups, indicating equal risk of patient dropout.               References
+       Our study aimed to provide a comprehensive               1. van der Kolk NM, de Vries NM, Kessels RPC, et al. Effectiveness of
+description of cerebral changes following aerobic exercise         home-based and remotely supervised aerobic exercise in Parkinson’s
+                                                                   disease: a double-blind, randomised controlled trial. Lancet Neurol
+in PD by analyzing multiple outcomes. We applied con-              2019;4422:1–11.
+servative corrections for multiple comparisons at the level
+                                                                2. Schenkman M, Moore CG, Kohrt WM, et al. Effect of high-intensity
+of voxels in our MRI analyses, but did not correct for             treadmill exercise on motor symptoms in patients with De Novo
+multiple outcome measures. This was done to retain maxi-           Parkinson disease. JAMA Neurol 2018;75:219–226.
+
+mal statistical power at the expense of an elevated risk of     3. Redgrave P, Rodriguez M, Smith Y, et al. Goal-directed and habitual
+obtaining false positive results.36 Independent replication        control in the basal ganglia: implications for Parkinson’s disease. Nat
+                                                                   Rev Neurosci 2010;11:760–772.
+will therefore be required. We note that all reported effects
+                                                                4. Cools R. Dopaminergic modulation of cognitive function-implications
+follow expected and interpretable patterns that are consis-        for L-DOPA treatment in Parkinson’s disease. Neurosci Biobehav Rev
+tent with each other, and with the main ﬁndings of the             2006;30:1–23.
+Park-in-Shape trial, which reduces the likelihood of false      5. Kish SJ, Shannak K, Hornykiewicz O. Uneven pattern of dopamine
+positives.51                                                       loss in the striatum of patients with idiopathic Parkinson’s disease. N
+                                                                   Engl J Med 1988;318:876–880.
+
+                                                                6. Kordower JH, Olanow CW, Dodiya HB, et al. Disease duration and
+Conclusions                                                        the integrity of the nigrostriatal system in Parkinson’s disease. Brain
+                                                                   2013;136:2419–2431.
+Together with clinical results from the Park-in-Shape
+                                                                7. Helmich RC, Derikx LC, Bakker M, et al. Spatial remapping of
+trial,1 our results suggest that aerobic exercise stabilizes       cortico-striatal connectivity in Parkinson’s disease. Cereb Cortex
+motor progression and enhances cognitive performance in            2010;20:1175–1186.
+
+
+
+February 2022                                                                                                                        215
+ANNALS of Neurology
+
+
+ 8. Helmich RC, Thaler A, Van Nuenen BFL, et al. Reorganization of cor-       30. Smith SM, Nichols T. Threshold-free cluster enhancement:
+    ticostriatal circuits in healthy G2019S LRRK2 carriers. Neurology             addressing problems of smoothing, threshold dependence and
+    2015;84:399–406.                                                              localisation in cluster inference. Neuroimage 2009;44:83–98.
+
+ 9. Petzinger GM, Fisher BE, McEwen S, et al. Exercise-enhanced neuro-        31. Seaman SR, White IR. Review of inverse probability weighting for
+    plasticity targeting motor and cognitive circuitry in Parkinson’s dis-        dealing with missing data. Stat Methods Med Res 2013;22:278–295.
+    ease. Lancet Neurol 2013;12:716–726.
+                                                                              32. Stebbins GT, Goetz CG, Burn DJ, et al. How to identify tremor domi-
+10. Sacheli MA, Neva JL, Lakhani B, et al. Exercise increases caudate             nant and postural instability/gait difﬁculty groups with the movement
+    dopamine release and ventral striatal activation in Parkinson’s dis-          disorder society uniﬁed Parkinson’s disease rating scale: comparison
+    ease. Mov Disord 2019;34:1891–1900.                                           with the uniﬁed Parkinson’s disease rating scale. Mov Disord 2013;
+                                                                                  28:668–670.
+11. Cameron IGM, Watanabe M, Pari G, Munoz DP. Executive impair-
+    ment in Parkinson’s disease: response automaticity and task               33. Lau B, Meier N, Serra G, et al. Axial symptoms predict mortality in
+    switching. Neuropsychologia 2010;48:1948–1957.                                patients with Parkinson disease and subthalamic stimulation. Neurol-
+                                                                                  ogy 2019;92:e2559–e2570.
+12. Laird AR, Fox PM, Eickhoff SB, et al. Behavioral interpretations of
+    intrinsic connectivity networks. J Cogn Neurosci 2011;23:4022–4037.       34. Domellöf ME, Elgh E, Forsgren L. The relation between cognition
+                                                                                  and motor dysfunction in drug-naive newly diagnosed patients with
+13. van der Kolk NM, Overeem S, de Vries NM, et al. Design of the
+                                                                                  Parkinson’s disease. Mov Disord 2011;26:2183–2189.
+    Park-in-Shape study: a phase II double blind randomized controlled
+    trial evaluating the effects of exercise on motor and non-motor           35. Takakusaki K, Okumura T. Neurobiological basis of controlling pos-
+    symptoms in Parkinson’s disease. BMC Neurol 2015;15:1–12.                     ture and locomotion. Adv Robot 2008;22:1629–1663.
+
+14. Smith SM, Jenkinson M, Woolrich MW, et al. Advances in functional         36. Bender R, Lange S. Adjusting for multiple testing—when and how?
+    and structural MR image analysis and implementation as FSL.                   J Clin Epidemiol 2001;54:343–349.
+    Neuroimage 2004;23:S208–S219.
+                                                                              37. Pretegiani E, Optican LM. Eye movements in Parkinson’s disease
+15. Pruim RHR, Mennes M, van Rooij D, et al. ICA-AROMA: a robust                  and inherited parkinsonian syndromes. Front Neurol 2017;8:1–7.
+    ICA-based strategy for removing motion artifacts from fMRI data.
+                                                                              38. Svensson M, Lexell J, Deierborg T. Effects of physical exercise on
+    Neuroimage 2015;112:267–277.
+                                                                                  neuroinﬂammation, neuroplasticity, neurodegeneration, and behav-
+16. Beckmann CF, DeLuca M, Devlin JT, Smith SM. Investigations into               ior. Neurorehabil Neural Repair 2015;29:577–589.
+    resting-state connectivity using independent component analysis.
+                                                                              39. Ruppert MC, Greuel A, Tahmasian M, et al. Network degeneration in
+    Philos Trans R Soc Lond B Biol Sci 2005;360:1001–1013.
+                                                                                  Parkinson’s disease: multimodal imaging of nigro-striato-cortical dys-
+17. Smith SM, Fox PT, Miller KL, et al. Correspondence of the brain’s             function. Brain 2020;143:944–959.
+    functional architecture during activation and rest. Proc Natl Acad Sci
+                                                                              40. Haber SN, Fudge JL, McFarland NR. Striatonigrostriatal pathways in
+    2009;106:13040–13045.
+                                                                                  primates form an ascending spiral from the Shell to the dorsolateral
+18. Patenaude B, Smith SM, Kennedy DN, Jenkinson M. A Bayesian                    striatum. J Neurosci 2000;20:2369–2382.
+    model of shape and appearance for subcortical brain segmentation.
+                                                                              41. Marquand AF, Haak KV, Beckmann CF. Functional corticostriatal
+    Neuroimage 2011;56:907–922.
+                                                                                  connection topographies predict goal-directed behaviour in humans.
+19. Power JD, Mitra A, Laumann TO, et al. Methods to detect, character-           Nat Hum Behav 2017;1:1–9.
+    ize, and remove motion artifact in resting state fMRI. Neuroimage
+                                                                              42. Braak H, Del Tredici K, Rüb U, et al. Staging of brain pathology related
+    2014;84:320–341.
+                                                                                  to sporadic Parkinson’s disease. Neurobiol Aging 2003;24:197–211.
+20. Beckmann C, Mackay C, Filippini N, Smith SM. Group comparison of
+                                                                              43. Filippi M, Sarasso E, Piramide N, et al. Progressive brain atrophy and
+    resting-state FMRI data using multi-subject ICA and dual regression.
+                                                                                  clinical evolution in Parkinson’s disease. Neuroimage Clin 2020;28:
+    Neuroimage 2009;47:S148.
+                                                                                  102374.
+21. Smith SM, Zhang Y, Jenkinson M, et al. Accurate, robust, and auto-
+                                                                              44. Tessa C, Lucetti C, Giannelli M, et al. Progression of brain atrophy in
+    mated longitudinal and cross-sectional brain change analysis.
+                                                                                  the early stages of Parkinson’s disease: a longitudinal tensor-based
+    Neuroimage 2002;17:479–489.
+                                                                                  morphometry study in de novo patients without cognitive impair-
+22. Andersson JLR, Jenkinson M, Smith S. Non-linear registration, aka             ment. Hum Brain Mapp 2014;35:3932–3944.
+    spatial normalisation. FMRIB Technial report TR07JA2. Oxford, UK 22:
+                                                                              45. Uribe C, Segura B, Baggio HC, et al. Progression of Parkinson’s dis-
+    Oxford Centre for Functional Magnetic Resonance Imaging of the
+                                                                                  ease patients’ subtypes based on cortical thinning: 4-year follow-up.
+    Brain, Department of Clinical Neurology, Oxford University, 2007.
+                                                                                  Parkinsonism Relat Disord 2019;64:286–292.
+23. Jenkinson M, Bannister P, Brady M, Smith S. Improved optimization
+                                                                              46. Stimpson NJ, Davison G, Javadi A-H. Joggin’ the noggin: towards a
+    for the robust and accurate linear registration and motion correction
+                                                                                  physiological understanding of exercise-induced cognitive beneﬁts.
+    of brain images. Neuroimage 2002;17:825–841.
+                                                                                  Neurosci Biobehav Rev 2018;88:177–186.
+24. Douaud G, Smith S, Jenkinson M, et al. Anatomically related grey
+                                                                              47. Sehm B, Taubert M, Conde V, et al. Structural brain plasticity in
+    and white matter abnormalities in adolescent-onset schizophrenia.
+                                                                                  parkinson’s disease induced by balance training. Neurobiol Aging
+    Brain 2007;130:2375–2386.
+                                                                                  2014;35:232–239.
+25. Manjon JV, Coupé P, Concha L, et al. Diffusion weighted image den-
+                                                                              48. Draganski B, Gaser C, Busch V, et al. Changes in grey matter
+    oising using overcomplete local PCA. PLoS One 2013;8:e73021.
+                                                                                  induced by training. Nature 2004;427:311–312.
+26. Zwiers MP. Patching cardiac and head motion artefacts in diffusion-
+                                                                              49. Ptak R. The frontoparietal attention network of the human brain:
+    weighted images. Neuroimage 2010;53:565–575.
+                                                                                  action, saliency, and a priority map of the environment. Neuroscien-
+27. Pasternak O, Sochen N, Gur Y, et al. Free water elimination and               tist 2012;18:502–515.
+    mapping from diffusion MRI. Magn Reson Med 2009;62:717–730.
+                                                                              50. Marquand AF, Wolfers T, Mennes M, et al. Beyond lumping and split-
+28. Burciu RG, Ofori E, Archer DB, et al. Progression marker of Parkinson’s       ting: a review of computational approaches for stratifying psychiatric dis-
+    disease: a 4-year multi-site imaging study. Brain 2017;140:2183–2192.         orders. Biol Psychiatry Cogn Neurosci Neuroimaging 2016;1:433–447.
+29. Winkler AM, Ridgway GR, Webster MA, et al. Permutation inference          51. Feise RJ. Do multiple outcome measures require p-value adjust-
+    for the general linear model. Neuroimage 2014;92:381–397.                     ment? BMC Med Res Methodol 2002;2:8.
+
+
+
+
+216                                                                                                                                    Volume 91, No. 2
+

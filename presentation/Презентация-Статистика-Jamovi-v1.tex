@@ -19,6 +19,8 @@
 \usepackage{booktabs}
 \usepackage{colortbl}
 \usepackage{qrcode}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 \hypersetup{pdftitle={Введение в медицинскую статистику},
   pdfauthor={Проханин И.Р.}, hidelinks}
 
@@ -31,16 +33,31 @@
 % накладываются поверх; комментарий — отдельно до скриншота.
 % -----------------------------------------------------------------------------
 \newenvironment{screenslide}[2]{%
-  {%
-    \setbeamercolor{frametitle}{fg=black,bg=white!70}%
-    \setbeamercolor{footline}{fg=black,bg=white!70}%
-    \begin{frame}{#1}%
-      \noindent\makebox[0pt][l]{%
-        \hspace*{-1cm}\includegraphics[width=\paperwidth,height=0.93\paperheight,keepaspectratio]{#2}%
-      }%
-      \par\vspace*{-1.3cm}%
-    \end{frame}%
-  }%
+  \begin{frame}[plain]%
+    \begin{tikzpicture}[remember picture,overlay]
+      % Изображение по центру страницы, ровно по ширине слайда, без обрезки
+      \node[anchor=center,inner sep=0pt] at (current page.center)
+        {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#2}};
+      % Заголовок: компактная полупрозрачная плашка поверх скриншота
+      \node[anchor=north west,xshift=0.35cm,yshift=-0.18cm,
+            fill=white,fill opacity=0.85,text opacity=1,
+            inner sep=2.2pt,font=\footnotesize\bfseries,text=uniblue]
+        at (current page.north west) {#1};
+      % Футер: три компактные полупрозрачные плашки в штатных местах
+      \node[anchor=south west,xshift=0.5cm,yshift=0.1cm,
+            fill=white,fill opacity=0.75,text opacity=1,
+            inner sep=1.2pt,font=\tiny,text=black!65]
+        at (current page.south west) {\insertshortauthor};
+      \node[anchor=south,yshift=0.1cm,
+            fill=white,fill opacity=0.75,text opacity=1,
+            inner sep=1.2pt,font=\tiny,text=black!65]
+        at (current page.south) {\insertshorttitle};
+      \node[anchor=south east,xshift=-0.5cm,yshift=0.1cm,
+            fill=white,fill opacity=0.75,text opacity=1,
+            inner sep=1.2pt,font=\tiny,text=black!65]
+        at (current page.south east) {\insertframenumber/\inserttotalframenumber};
+    \end{tikzpicture}
+  \end{frame}%
 }{}
 
 % -----------------------------------------------------------------------------
@@ -180,7 +197,7 @@
 
 \begin{frame}{Jamovi: что это и где скачать}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Что это}
         \begin{itemize}
           \item Бесплатная open-source программа
@@ -188,7 +205,7 @@
           \item Готовые таблицы --- сразу для статьи
         \end{itemize}
       \end{block}
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Где скачать}
         \begin{itemize}
           \item \texttt{jamovi.org} $\to$ Install
@@ -217,18 +234,38 @@
   \end{block}
 \end{frame}
 
+\begin{frame}{Сначала типы переменных, потом тесты}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \begin{block}{Nominal --- коды-подписи}\small
+        \texttt{sex}, \texttt{cp}, \texttt{fbs}, \texttt{restecg},\\
+        \texttt{exang}, \texttt{slope}, \texttt{ca}, \texttt{thal}, \texttt{target}
+      \end{block}
+      \begin{block}{Continuous --- числа}\small
+        \texttt{age}, \texttt{trestbps}, \texttt{chol}, \texttt{thalach}, \texttt{oldpeak}
+      \end{block}
+    \column{0.46\linewidth}
+      \centering\includegraphics[width=\linewidth,height=4.5cm,keepaspectratio]{variables_types.png}
+  \end{columns}
+  \begin{block}{Обязательный шаг}
+    Jamovi: \texttt{Variables} $\to$ строка переменной $\to$ \texttt{Measure type = Nominal}.
+    Иначе \texttt{sex} не станет группирующей переменной, а \texttt{cp} получит
+    «средний тип боли в груди».
+  \end{block}
+\end{frame}
+
 \section{Описательная статистика}
 
 \begin{frame}{Описательная статистика: центр и разброс}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Центр}
         \begin{itemize}
           \item Mean --- для симметричных распределений
           \item Median --- для скошенных и с выбросами
         \end{itemize}
       \end{block}
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Разброс}
         \begin{itemize}
           \item SD --- пару со средним
@@ -237,12 +274,23 @@
       \end{block}
   \end{columns}
   \vspace{0.3cm}
-  \begin{block}{Запомните}
+  \begin{block}{Ключевое положение}
     Разброс важнее среднего: одинаковые средние $\neq$ одинаковые данные.
   \end{block}
 \end{frame}
 
-\begin{screenslide}{Descriptives: таблица Mean/SD/Median + Q1/Q3 для age, chol, thalach}{desc_table.png}\end{screenslide}
+\begin{frame}{Descriptives: как посчитать в Jamovi}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \begin{enumerate}
+        \item \texttt{Exploration} $\to$ \texttt{Descriptives}
+        \item Перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}
+        \item \texttt{Statistics}: Mean, SD, Median, Min, Max; Q1/Q3 --- Percentiles (25, 75)
+      \end{enumerate}
+    \column{0.43\linewidth}
+      \centering\includegraphics[height=6.2cm,keepaspectratio]{desc_table.png}
+  \end{columns}
+\end{frame}
 
 \begin{frame}{Как записывать результат в статье}
   \begin{block}{Готовая формула}
@@ -257,7 +305,22 @@
 
 \section{Нормальность}
 
-\begin{screenslide}{Шапиро–Уилк: p < 0,001 для thalach и oldpeak (нормальность отвергается)}{norm_table.png}\end{screenslide}
+\begin{frame}{Нормальность в Jamovi: Шапиро--Уилк}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.52\linewidth}
+      \begin{enumerate}
+        \item \texttt{Exploration} $\to$ \texttt{Descriptives}
+        \item Перетащить \texttt{thalach}, \texttt{oldpeak}
+        \item \texttt{Statistics} $\to$ \texttt{Normality}
+      \end{enumerate}
+      \begin{block}{Что читаем}
+        $W$ и $p$ для каждой переменной. $p < 0{,}001$ --- нормальность
+        отвергается; дальше смотрим гистограмму и Q-Q.
+      \end{block}
+    \column{0.44\linewidth}
+      \centering\includegraphics[height=5.5cm,keepaspectratio]{norm_table.png}
+  \end{columns}
+\end{frame}
 
 \begin{frame}{Когда проверять нормальность}
   \begin{itemize}
@@ -265,7 +328,7 @@
     \item Скошенность + малая выборка $\to$ Манн--Уитни, Спирмен
     \item При $n = 303$ Шапиро--Уилк почти всегда $p < 0{,}05$ --- смотрите гистограмму и Q-Q
   \end{itemize}
-  \begin{block}{Правило}
+  \begin{block}{Требование}
     Это не ритуал, а ответ на вопрос «какой критерий выбирать дальше».
   \end{block}
 \end{frame}
@@ -274,14 +337,14 @@
 
 \begin{frame}{Связанные и несвязанные выборки}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Несвязанные}
         \begin{itemize}
           \item Разные люди: мужчины vs женщины
           \item \texttt{Independent Samples T-Test}
         \end{itemize}
       \end{block}
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Связанные}
         \begin{itemize}
           \item Одни и те же люди: «до / после»
@@ -310,14 +373,14 @@
     Вероятность увидеть такое или более экстремальное различие, \textbf{если различий на самом нет}.
   \end{block}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Это НЕ}
         \begin{itemize}
           \item вероятность нулевой гипотезы
           \item величина эффекта
         \end{itemize}
       \end{block}
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{Это ДА}
         \begin{itemize}
           \item критерий: отвергать или нет
@@ -368,7 +431,18 @@
 
 \section{Корреляция и регрессия}
 
-\begin{screenslide}{Корреляционная матрица: r(thalach, age) = −0,39}{jamovi-correlation.png}\end{screenslide}
+\begin{frame}{Корреляционная матрица: r(thalach, age) = $-0{,}39$}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \begin{block}{Выполнено в Jamovi}
+        \texttt{Regression} $\to$ \texttt{Correlation Matrix}; переменные
+        \texttt{thalach}, \texttt{age}, \texttt{chol}; включены Pearson и Spearman.
+      \end{block}
+      \small $r = -0{,}39$, $p < 0{,}001$ при $n = 303$: связь умеренная, направление отрицательное.
+    \column{0.46\linewidth}
+      \centering\includegraphics[width=\linewidth]{corr_table.png}
+  \end{columns}
+\end{frame}
 
 \begin{frame}{Как читать $r$}
   \begin{itemize}
@@ -381,7 +455,19 @@
   \end{alertblock}
 \end{frame}
 
-\begin{screenslide}{Linear Regression: B(age) = −1,02 для thalach}{jamovi-regression.png}\end{screenslide}
+\begin{frame}{Линейная регрессия: B(age) = $-1{,}02$ для thalach}
+  \centering\footnotesize
+  \begin{tabular}{lccccc}
+    \textbf{Предиктор} & $B$ & $SE$ & $t$ & $p$ & 95\% CI \\ \hline
+    Intercept & 207,97 & 7,78 & 26,72 & $<0{,}001$ & [192,65; 223,29] \\
+    \texttt{age} & $-1{,}02$ & 0,13 & $-7{,}58$ & $<0{,}001$ & [$-1{,}28$; $-0{,}75$] \\
+    \texttt{sex} & $-4{,}30$ & 2,60 & $-1{,}66$ & $0{,}099$ & [$-9{,}42$; 0,81]
+  \end{tabular}
+  \par\vspace{0.3cm}
+  \begin{block}{Чтение таблицы}
+    $R^2 = 0{,}16$; каждый год возраста связан со снижением ЧСС на 1,02 уд/мин.
+  \end{block}
+\end{frame}
 
 \begin{frame}{Регрессия: формула для статьи}
   \begin{block}{Пример}
@@ -394,7 +480,18 @@
 
 \section{Категориальные данные}
 
-\begin{screenslide}{Contingency Tables: cp × target, χ² значим}{jamovi-chi2-crosstabs.png}\end{screenslide}
+\begin{frame}{Таблица сопряжённости: \texttt{cp} $\times$ \texttt{target}}
+  \centering
+  \begin{tabular}{lccc}
+    \textbf{Критерий} & $\chi^2$ & $df$ & $p$ \\ \hline
+    Pearson & 81,82 & 3 & $<0{,}001$
+  \end{tabular}
+  \par\vspace{0.3cm}
+  \begin{block}{Проверка и вывод}
+    Минимальная ожидаемая частота 10,55 (более 5); Cramér's V = 0,52 ---
+    умеренная связь типа боли с наличием болезни.
+  \end{block}
+\end{frame}
 
 \begin{frame}{Как читать хи-квадрат}
   \begin{itemize}
@@ -420,7 +517,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{График без подписей --- не результат}
+\begin{frame}{Обязательные элементы подписи графика}
   \begin{itemize}
     \item Ось $X$, ось $Y$, заголовок, единицы измерения
     \item В Jamovi: \texttt{Plot \& Axis Titles}
@@ -428,88 +525,257 @@
 \end{frame}
 
 
-\section{Базовый метод чтения графиков и статистики}
+\section{Байесовский подход}
 
-\begin{frame}{Байесовский подход одной фразой}
-  \begin{block}{Что меняется}
-    Частотный тест отвечает: «насколько неожиданны данные при $H_0$» ($p$-value).
-    Байесовский --- «насколько данные подтверждают $H_1$ относительно $H_0$» (BF$_{10}$).
-  \end{block}
-  \begin{itemize}
-    \item BF$_{10} > 3$ --- умеренные доказательства в пользу $H_1$; $> 10$ --- сильные; $< 1/3$ --- в пользу $H_0$.
-    \item p-value и BF отвечают на разные вопросы: $p$ --- про данные при гипотезе, BF --- про относительные шансы гипотез при данных.
-  \end{itemize}
-  \begin{block}{В Jamovi}
-    В \texttt{T-Tests} включите \texttt{Bayes factor} (в панели test); BF появится в таблице рядом с $t$, $df$, $p$.
-  \end{block}
-\end{frame}
-
-\begin{frame}{Как читать график и статистику в статье}
-  \begin{enumerate}
-    \item Сначала таблица: что по осям, единицы, подписи; потом --- форма распределения; потом --- разброс; затем --- центр.
-    \item В таблице: $n$ $\to$ эффект (разница / $B$ / $r$ / $\chi^2$) $\to$ CI $\to$ $p$ $\to$ эффект размера ($d$, Cramér's V).
-    \item Для каждого числа спросите: «что было бы при отсутствии эффекта?», «насколько велик эффект?», «каковы границы применимости?».
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Как читать boxplot в статье}
+\begin{frame}{Два разных вопроса о данных}
   \begin{columns}[T,onlytextwidth]
-    \column{0.5\linewidth}
-      \includegraphics[width=\linewidth]{plot_boxplot_annot.png}
-    \column{0.5\linewidth}
-      \begin{block}{Что смотрим}
+    \column{0.48\linewidth}
+      \begin{block}{Частотный тест}
+        «Насколько неожиданны данные, если $H_0$ верна?»\\
+        $p = P(\text{данные или крайнее} \mid H_0)$.
+      \end{block}
+    \column{0.48\linewidth}
+      \begin{block}{Байесовский подход}
+        «Во сколько раз данные согласуются с $H_1$ лучше, чем с $H_0$?»\\
+        $\text{BF}_{10} = P(\text{данные} \mid H_1) / P(\text{данные} \mid H_0)$.
+      \end{block}
+  \end{columns}
+  \begin{block}{Главное отличие}
+    $p$ --- про данные при гипотезе; BF --- про относительные шансы гипотез при данных.
+    $p = 0{,}03$ \textbf{не} означает «вероятность $H_0$ --- 3\%».
+  \end{block}
+\end{frame}
+
+\begin{frame}{От prior к posterior}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.57\linewidth}
+      \includegraphics[width=\linewidth]{bayes_prior_posterior.png}
+    \column{0.41\linewidth}
+      \begin{block}{Три шага}
+        \begin{enumerate}
+          \item \textbf{Prior}: что мы думали до данных
+          \item \textbf{Likelihood}: что говорят данные
+          \item \textbf{Posterior}: обновлённое убеждение
+        \end{enumerate}
+      \end{block}
+      \small Posterior $\propto$ Prior $\times$ Likelihood.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Шкала Bayes factor}
+  \centering\includegraphics[width=0.96\linewidth]{bayes_bf_scale.png}
+  \vspace{0.2cm}
+  \begin{block}{Как читать}
+    BF$_{10} = 10$ --- данные в 10 раз более согласованы с $H_1$, чем с $H_0$.
+    BF$_{10} < 1/3$ --- данные скорее за $H_0$; BF $\approx 1$ --- данных недостаточно.
+  \end{block}
+\end{frame}
+
+\begin{frame}{BF на наших данных}
+  \begin{center}
+    \begin{tabular}{lccc}
+      \textbf{Переменная по \texttt{sex}} & $t$ & $p$ & BF$_{10}$ \\ \hline
+      \texttt{chol} & $-3{,}54$ & $<0{,}001$ & $26{,}5$ \\
+      \texttt{thalach} & $-0{,}85$ & $0{,}399$ & $0{,}22$ \\
+    \end{tabular}
+  \end{center}
+  \begin{itemize}
+    \item \texttt{chol}: сильные доказательства в пользу различий (BF$_{10} > 10$)
+    \item \texttt{thalach}: BF$_{01} = 4{,}5$ --- умеренные доказательства \textbf{в пользу отсутствия} различий
+    \item В Jamovi: \texttt{T-Tests} $\to$ галочка \texttt{Bayes factor}; prior по умолчанию $r = 0{,}707$ (JZS, Rouder et al., 2009)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Оценивание вместо «принять/отвергнуть»}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.57\linewidth}
+      \includegraphics[width=\linewidth]{bayes_posterior_rope.png}
+    \column{0.41\linewidth}
+      \begin{block}{Проверяемые элементы}
         \begin{itemize}
-          \item Медиана --- центр устойчивый к выбросам
-          \item Ящик (IQR) --- разброс центральных 50\%
-          \item Усы --- диапазон без выбросов
-          \item Точки --- выбросы (решить: ошибка или реальные значения?)
+          \item Posterior-распределение эффекта
+          \item 95\% CrI --- правдоподобные значения
+          \item ROPE --- область практически нулевого эффекта
+        \end{itemize}
+      \end{block}
+      \small CrI $\neq$ доверительный интервал по смыслу.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Как сообщать байесовский результат}
+  \begin{enumerate}
+    \item Укажите \textbf{тип теста и prior}: JZS $t$-test, Cauchy $r = 0{,}707$.
+    \item Дайте \textbf{BF$_{10}$} (или BF$_{01}$) и расшифруйте сторону доказательств.
+    \item Для оценивания --- \textbf{медиану и 95\% CrI}, отношение к ROPE.
+    \item Проверьте \textbf{чувствительность}: меняется ли вывод при другом prior.
+  \end{enumerate}
+  \begin{block}{Частая ошибка}
+    «BF$_{10} = 26{,}5$ означает 96\% вероятность $H_1$» --- нет. BF --- отношение правдоподобий, а не Posterior-вероятность гипотезы.
+  \end{block}
+\end{frame}
+
+\section{Как читать клиническую статью}
+
+\begin{frame}{Статья: заголовок и абстракт}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth]{article_title_annot.png}
+    \column{0.42\linewidth}
+      \begin{block}{Johansson et al., 2022}
+        Annals of Neurology; DOI 10.1002/ana.26291\\
+        Park-in-Shape: двойное слепое РКИ, 130 пациентов.
+      \end{block}
+      \small PICO: Population, Intervention, Comparator, Outcome. Рубрики: Objective / Methods / Results / Interpretation.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Методы: дизайн и контрольная группа}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\linewidth}
+      \includegraphics[height=6.4cm,keepaspectratio]{article_methods_annot.png}
+    \column{0.46\linewidth}
+      \begin{block}{Проверяем}
+        \begin{itemize}
+          \item random assignment 1:1
+          \item double-blind; control: stretching
+          \item 6 месяцев, 3 раза в неделю
+          \item under unselected MRI subset: $n = 25$ и $31$
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Как читать scatter и histogram в статье}
+\begin{frame}{Поток участников: CONSORT}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\linewidth}
-      \includegraphics[width=\linewidth]{plot_scatter_annot.png}
-    \column{0.48\linewidth}
-      \begin{block}{Scatter}
-        Направление точек --- знак связи; разброс вокруг линии --- сила; линия тренда --- модель. Не делайте вывод о причинности.
+      \includegraphics[width=\linewidth,height=6.4cm,keepaspectratio]{article_flow_annot.png}
+    \column{0.46\linewidth}
+      \begin{block}{Проверяемые элементы}
+        130 приглашены $\to$ 57 включены $\to$ 25 и 31 в группах $\to$ complete cases.
+      \end{block}
+      \footnotesize Потери: сканирование, отказ, техпричины. Без потока участников статья неполная.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Таблица 1: характеристики пациентов}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.42\linewidth}
+      \includegraphics[height=6.4cm,keepaspectratio]{article_table1_annot.png}
+    \column{0.55\linewidth}
+      \begin{block}{Порядок чтения}
+        \begin{itemize}
+          \item Таблица 1 --- не результат, а сопоставимость групп
+          \item $n$, возраст, пол, исходная тяжесть, $p > 0{,}05$
+          \item Mean (SD) --- непрерывные; числа/проценты --- категориальные
+        \end{itemize}
+      \end{block}
+      \small Маленькие $p$ здесь говорят о нарушении рандомизации, а не о пользе вмешательства.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Boxplot в статье: что смотрим}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth]{article_boxplot_annot.png}
+    \column{0.43\linewidth}
+      \begin{block}{Разметка рисунка}
+        \begin{itemize}
+          \item медиана и ящик (IQR)
+          \item усы и отдельные точки
+          \item подписи групп и единицы оси
+          \item знак $*$ и сноска: $p < 0{,}05$
+        \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Как читать histogram в статье}
+\begin{frame}{Корреляция: rho = 0.62, p = 0.003}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
-      \includegraphics[width=\linewidth]{plot_histogram_annot.png}
-    \column{0.48\linewidth}
-      \begin{block}{Histogram}
-        Форма: симметричная / скошенная / бимодальная. От неё зависит выбор Mean$\pm$SD или Median (IQR) и параметрического теста.
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth]{article_scatter_annot.png}
+    \column{0.42\linewidth}
+      \begin{block}{Чтение scatter}
+        \begin{itemize}
+          \item ось $X$: изменение связности DLPFC--RFPN
+          \item ось $Y$: изменение VO$_{2}$max
+          \item каждая точка --- пациент ($n = 21$)
+          \item линия --- аппроксимация, rho --- сила связи
+        \end{itemize}
+      \end{block}
+      \small Корреляция не доказывает причинность; анализ выполнен только в группе аэробных нагрузок.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Расположение результата в тексте}
+  \centering\includegraphics[width=0.94\linewidth]{article_result_text_annot.png}
+  \vspace{0.2cm}
+  \begin{block}{Порядок элементов}
+    эффект --- коэффициент --- $p$ --- $n$ --- ссылка на рисунок. Здесь: rho = 0{,}62, $p = 0{,}003$, $n = 21$, see Fig 5C.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Ограничения: читаем Discussion}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.3\linewidth}
+      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_limits_annot.png}
+    \column{0.3\linewidth}
+      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_multiple_annot.png}
+    \column{0.38\linewidth}
+      \begin{block}{Что отметить}
+        \begin{itemize}
+          \item подгруппа МРТ не была случайной
+          \item поисковый характер анализов
+          \item множественные сравнения
+          \item применимость только к ранней стадии БП
+        \end{itemize}
       \end{block}
   \end{columns}
+\end{frame}
+
+\begin{frame}{Чек-лист чтения РКИ}
+  \begin{enumerate}
+    \item Тип исследования и вопрос (PICO)
+    \item Рандомизация и скрытие последовательности
+    \item Ослепление и контрольная группа
+    \item Поток участников (CONSORT)
+    \item Сопоставимость групп (Table 1)
+    \item Величина эффекта и 95\% CI, а не только $p$
+    \item Графики: подписи, единицы, точки, выбросы
+    \item Ограничения и применимость результата
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Литература по чтению статей}
+  \small
+  \begin{itemize}
+    \item Schulz KF et al. CONSORT 2010 Statement. BMJ, 2010 (локально: \texttt{literature/consort2010.xml})
+    \item von Elm E et al. STROBE Statement. PLoS Med, 2007 (локально: \texttt{literature/strobe2007.xml})
+    \item Greenhalgh T. How to Read a Paper. BMJ, 1997
+    \item Lang T, Altman D. SAMPL guidelines. Ann Intern Med, 2013
+    \item Johansson ME et al. Aerobic Exercise Alters Brain Function and Structure in Parkinson's Disease. Ann Neurol, 2022 (локально: \texttt{literature/rct-parkinson-exercise.pdf})
+  \end{itemize}
 \end{frame}
 
 \section{ИИ}
 
 \begin{frame}{ИИ: два главных риска}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
+    \column{0.46\linewidth}
       \begin{block}{PHI}
         Данные пациентов в чат --- этическое и правовое нарушение. Только открытые и учебные наборы.
       \end{block}
-    \column{0.48\linewidth}
-      \begin{block}{Галлюцинации}
+    \column{0.46\linewidth}
+      \begin{block}{Недостоверная генерация}
         ИИ уверенно выдаёт несуществующие функции и неправильные методы.
       \end{block}
   \end{columns}
   \vspace{0.3cm}
-  \begin{block}{Правило}
+  \begin{block}{Требование}
     Код или метод от ИИ --- сначала на учебном наборе, потом сверка с документацией.
   \end{block}
 \end{frame}
 
-\begin{frame}{ИИ: калькулятор, не врач}
+\begin{frame}{ИИ как вспомогательный инструмент}
   \begin{itemize}
     \item Помогает объяснить таблицу, набросать тест, шаблон статьи
     \item Не отвечает за интерпретацию; решение --- за исследователем
@@ -533,24 +799,28 @@
 \end{frame}
 
 \begin{frame}{Литература и источники}
-  \small
+  \footnotesize
   \begin{columns}[T,onlytextwidth]
-    \column{0.5\linewidth}
-      \textbf{Книги}
-      \begin{itemize}
-        \item Vu J., Harrington D. Introductory Statistics for the Life and Biomedical Sciences. --- OpenIntro, 2021. Свободно: openintro.org/book/biostat
-        \item Петри А., Сэбин К. Наглядная медицинская статистика. --- М.: ГЭОТАР-Медиа, 2021
-        \item van Belle G. и др. Biostatistics: A Methodology for the Health Sciences. 2nd ed. --- Wiley, 2008
-        \item Гланц С. Медико-биологическая статистика. --- М.: Практика, 1999
-      \end{itemize}
-    \column{0.5\linewidth}
-      \textbf{Источники}
-      \begin{itemize}
-        \item Документация jamovi --- docs.jamovi.org
-        \item Датасет UCI Heart Disease (Detrano et al., 1989) --- archive.ics.uci.edu
-        \item Wasserstein R., Lazar N. The ASA Statement on p-Values. --- The American Statistician, 2016
-        \item BMJ «Statistics notes» (Bland \& Altman) --- заметки по темам заседания
-      \end{itemize}
+    \column{0.32\linewidth}
+      \textbf{Основные}\
+      Vu J., Harrington D. Introductory Statistics for the Life and Biomedical Sciences. OpenIntro, 2021.\
+      Петри А., Сэбин К. Наглядная медицинская статистика. ГЭОТАР-Медиа, 2021.\
+      Гланц С. Медико-биологическая статистика. Практика, 1999.\
+      Документация Jamovi: docs.jamovi.org
+    \column{0.34\linewidth}
+      \textbf{Байесовский подход}\
+      Rouder J. et al. Bayesian $t$ tests. Psychon Bull Rev, 2009.\
+      Kruschke J. Bayesian estimation supersedes the $t$ test. J Exp Psychol Gen, 2013.\
+      Wagenmakers E.-J. et al. Bayesian inference for psychology. Part I--II, 2018.\
+      Greenland S. et al. Guide to misinterpretations. Eur J Epidemiol, 2016.\
+      Локальные файлы: \texttt{literature/}
+    \column{0.32\linewidth}
+      \textbf{Чтение статьи}\
+      Schulz K. et al. CONSORT 2010 Statement. BMJ, 2010.\
+      von Elm E. et al. STROBE Statement. PLoS Med, 2007.\
+      Greenhalgh T. How to Read a Paper. BMJ, 1997.\
+      Johansson M. et al. Aerobic Exercise in Parkinson's Disease. Ann Neurol, 2022.\
+      Датасет: UCI Heart Disease (1989)
   \end{columns}
 \end{frame}
 
