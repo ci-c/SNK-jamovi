@@ -4,16 +4,18 @@
 
 \mode<presentation>
 
-% ---------- Цвета СЗГМУ ----------
-% Основной синий
-\definecolor{SZGMUBlue}{RGB}{1,33,105}  % #012169
-% Вспомогательный серый
-\definecolor{SZGMUGray}{RGB}{147,150,148}  % #939694
-% Дополнительные оттенки
-\definecolor{SZGMUBlue80}{RGB}{51,71,131}
-\definecolor{SZGMUBlue60}{RGB}{102,110,157}
-\definecolor{SZGMUBlue40}{RGB}{153,148,183}
-\definecolor{SZGMUBlue20}{RGB}{204,187,209}
+% ---------- Цвета (палитра из презентации P-11) ----------
+\definecolor{uniblue}{HTML}{013362}
+\definecolor{unitint}{HTML}{1971C2}
+\definecolor{unilightblue}{HTML}{B0D9FF}
+\definecolor{unilightgray}{HTML}{E6E6E6}
+\definecolor{unigray}{HTML}{B3B3B3}
+% Совместимые имена для существующих настроек темы
+\colorlet{SZGMUBlue}{uniblue}
+\colorlet{SZGMUGray}{black!55}
+\colorlet{SZGMUBlue80}{uniblue!80!white}
+\colorlet{SZGMUBlue60}{uniblue!60!white}
+\colorlet{SZGMUBlue40}{uniblue!40!white}
 
 % ---------- Настройка цветовой схемы ----------
 \setbeamercolor{structure}{fg=SZGMUBlue}
@@ -24,7 +26,7 @@
 \setbeamercolor{itemize subitem}{fg=SZGMUBlue80}
 \setbeamercolor{enumerate item}{fg=SZGMUBlue}
 \setbeamercolor{block title}{fg=white,bg=SZGMUBlue}
-\setbeamercolor{block body}{bg=SZGMUBlue20}
+\setbeamercolor{block body}{bg=unilightgray}
 \setbeamercolor{footline}{fg=SZGMUGray,bg=white}
 \setbeamercolor{author}{fg=SZGMUGray}
 \setbeamercolor{date}{fg=SZGMUGray}
