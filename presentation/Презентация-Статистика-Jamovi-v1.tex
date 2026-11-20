@@ -1,5 +1,5 @@
-% Практическая статистика в Jamovi - вводное заседание СНК, СЗГМУ
-% Компиляция: lualatex ×2 (нужен двойной прогон для счётчика кадров)
+% Введение в медицинскую статистику - вводное заседание СНК, СЗГМУ
+% Практическая часть: Jamovi. Компиляция: lualatex ×2 (счётчик кадров)
 \documentclass[aspectratio=169]{beamer}
 
 \makeatletter
@@ -19,37 +19,101 @@
 \usepackage{booktabs}
 \usepackage{colortbl}
 \usepackage{qrcode}
-\hypersetup{pdftitle={Практическая статистика в Jamovi},
+\hypersetup{pdftitle={Введение в медицинскую статистику},
   pdfauthor={Проханин И.Р.}, hidelinks}
 
 \graphicspath{{assets/}}
 
+% Палитра SZGMU из презентации P-11 (титул, финал, таблицы)
+\definecolor{uniblue}{HTML}{013362}
+\definecolor{unitint}{HTML}{1971C2}
+\definecolor{unilightblue}{HTML}{B0D9FF}
+
+% -----------------------------------------------------------------------------
+% Титульный и контактный слайды — по дизайну презентации P-11:
+% тёмно-синий фон, горизонтальный логотип вуза с названием
+% -----------------------------------------------------------------------------
+\newcommand{\workshoptitleslide}{%
+  {%
+    \setbeamercolor{background canvas}{bg=uniblue}%
+    \setbeamertemplate{footline}{}%
+    \begin{frame}[plain]
+      \color{white}%
+      \vfill
+      \begin{center}
+        \includegraphics[width=0.55\textwidth]{logo_h_white.png}\par\vspace{1.2em}
+        {\scriptsize ВВОДНОЕ ЗАСЕДАНИЕ СНК}\par\vspace{0.5em}
+        {\large\bfseries Введение в медицинскую статистику\par}
+        \vspace{0.8em}
+        {\scriptsize Проханин Иван Русланович\par}
+        \vspace{0.15em}
+        {\scriptsize ВрИО старосты СНК кафедры медицинской информатики и физики\par}
+        \vspace{0.15em}
+        {\scriptsize Практическая часть: Jamovi --- от импорта данных до p-value\par}
+        \vspace{0.15em}
+        {\scriptsize Совместно со СНК по педиатрии и детской кардиологии\par}
+        \vspace{0.4em}
+        {\scriptsize Санкт-Петербург, 27 ноября 2026\par}
+      \end{center}
+      \vfill
+    \end{frame}
+  }%
+}
+
+\newcommand{\workshopcontacts}{%
+  {%
+    \setbeamercolor{background canvas}{bg=uniblue}%
+    \setbeamercolor{normal text}{fg=white}%
+    \setbeamertemplate{footline}{%
+      \begingroup%
+      \color{white}%
+      \vskip0pt%
+      \hbox to \paperwidth{\hskip2em\color{white!50}\leaders\hrule height 0.4pt\hskip0pt plus 1fill\hskip2em}%
+      \vskip0.6em%
+      \hbox to \paperwidth{%
+        \hskip2em%
+        \includegraphics[width=0.35\textwidth]{logo_h_white.png}%
+        \hfill%
+        {\small\raisebox{0.4cm}{www.szgmu.ru}}%
+        \hskip2em%
+      }%
+      \vskip0.8em%
+      \endgroup%
+    }%
+    \begin{frame}
+      \color{white}%
+      \vfill
+      \begin{center}
+        {\LARGE\bfseries Спасибо за внимание\par}%
+        \vspace{1.1em}%
+        {\tiny
+          Проханин~И.\,Р. \hspace{0.8em}
+          \raisebox{-0.2ex}{\includegraphics[height=1.5ex]{icon_mail.pdf}}\hspace{0.35em}wbmnmn@gmail.com \hspace{0.8em}
+          \raisebox{-0.2ex}{\includegraphics[height=1.5ex]{icon_orcid.pdf}}\hspace{0.35em}ORCID: 0009-0004-5142-3975 \hspace{0.8em}
+          \raisebox{-0.2ex}{\includegraphics[height=1.5ex]{icon_telegram.pdf}}\hspace{0.35em}@hr\_5g\par}%
+      \end{center}
+      \vfill
+    \end{frame}
+  }%
+}
+
 % -----------------------------------------------------------------------------
 % Данные титульного листа
 % -----------------------------------------------------------------------------
-\newcommand{\Univ}{ФГБОУ ВО СЗГМУ им. И.И. Мечникова Минздрава России}
-\newcommand{\Org}{Совместное заседание СНК кафедры медицинской информатики и физики\\и СНК по педиатрии и детской кардиологии}
-\newcommand{\CityYear}{Санкт-Петербург, 27 ноября 2026}
-
 % TODO: репозиторий ещё не опубликован. После публикации заменить URL
 % на реальный и перекомпилировать PDF (lualatex ×2).
 \newcommand{\RepoURL}{https://github.com/USERNAME/SNK-jamovi}
 
-\title[Статистика в Jamovi]{Практическая статистика\\[0.15cm]в Jamovi}
-\subtitle{Вводное заседание: от импорта данных до p-value}
-\author[Проханин И.Р.]{Иван Русланович Проханин, ВрИО старосты СНК\\кафедры медицинской информатики и физики, ORCID: 0009-0004-5142-3975}
-\institute[СЗГМУ им. И.И. Мечникова]{\Univ\\\Org}
-\date{\CityYear}
-\titlegraphic{\includegraphics[width=2.1cm]{logo.png}}
+\title[Введение в медицинскую статистику]{Введение в медицинскую статистику}
+\author[И. Р. Проханин]{Проханин Иван Русланович, ВрИО старосты СНК кафедры медицинской информатики и физики}
+\date{Санкт-Петербург, 27 ноября 2026}
 
 % -----------------------------------------------------------------------------
 % Слайды
 % -----------------------------------------------------------------------------
 \begin{document}
 
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
+\workshoptitleslide
 
 \begin{frame}{Материалы заседания}
   \begin{columns}[T,onlytextwidth]
@@ -305,23 +369,23 @@
   \renewcommand{\arraystretch}{1.15}
   \begin{tabular}{@{}p{3.4cm}p{3.4cm}p{4.6cm}@{}}
     \toprule
-    \rowcolor{SZGMUBlue}
+    \rowcolor{uniblue}
     \textcolor{white}{\textbf{Задача}} & \textcolor{white}{\textbf{Данные / группы}} & \textcolor{white}{\textbf{Тест (Jamovi)}}\\
     \midrule
     Сравнить 2 группы & непрерывная, независимые группы, нормально & Independent T-Test\\
-    \rowcolor{SZGMUBlue20!50}
+    \rowcolor{unilightblue!50}
     Сравнить 2 группы & то же, но скошено / выбросы & Mann--Whitney U\\
     Сравнить «до / после» & непрерывная, парные наблюдения & Paired T-Test\\
-    \rowcolor{SZGMUBlue20!50}
+    \rowcolor{unilightblue!50}
     Сравнить «до / после» & то же, но скошено / выбросы & Wilcoxon signed-rank\\
     Сравнить 3+ группы & непрерывная, независимые, нормально & One-Way ANOVA\\
-    \rowcolor{SZGMUBlue20!50}
+    \rowcolor{unilightblue!50}
     Связь двух переменных & обе непрерывные, нормально & Pearson correlation\\
     Связь двух переменных & скошенные / порядковые & Spearman correlation\\
-    \rowcolor{SZGMUBlue20!50}
+    \rowcolor{unilightblue!50}
     Сравнение по группе (фактор) & одна непрерывная, одна категориальная & t-тест / ANOVA\\
     Ассоциация категорий & обе категориальные (частоты) & Chi-square test\\
-    \rowcolor{SZGMUBlue20!50}
+    \rowcolor{unilightblue!50}
     Прогноз & зависимая непрерывная & Linear regression\\
     Прогноз & зависимая --- «да / нет» & Logistic regression\\
     \bottomrule
@@ -406,21 +470,14 @@
 \begin{frame}{Три базовых графика}
   \begin{columns}[T,onlytextwidth]
     \column{0.32\linewidth}
-      \begin{block}{Boxplot}
-        \texttt{Descriptives} $\to$ Plots $\to$ Box plot. Распределение \texttt{chol} по группам.
-      \end{block}
+      \includegraphics[width=\linewidth]{plot_boxplot.png}
     \column{0.32\linewidth}
-      \begin{block}{Scatter}
-        \texttt{Plots} $\to$ Scatter Plot: \texttt{age} $\times$ \texttt{thalach} + линия тренда.
-      \end{block}
+      \includegraphics[width=\linewidth]{plot_scatter.png}
     \column{0.32\linewidth}
-      \begin{block}{Histogram}
-        Уже показывали при нормальности. Повторите на своём наборе.
-      \end{block}
+      \includegraphics[width=\linewidth]{plot_histogram.png}
   \end{columns}
-  \vspace{0.3cm}
   \begin{block}{Подписи обязательны}
-    Ось $X$, ось $Y$, заголовок, единицы измерения. График без подписей --- картинка, а не результат. В Jamovi: \texttt{Plot \& Axis Titles} (у графиков с вкладки Plots).
+    Ось $X$, ось $Y$, заголовок, единицы измерения. График без подписей --- картинка, а не результат. В Jamovi: \texttt{Plot \& Axis Titles}.
   \end{block}
   \begin{alertblock}{Задание (3 минуты)}
     Scatter \texttt{age} $\times$ \texttt{oldpeak}, подписать оси, добавить линию тренда.
@@ -494,12 +551,6 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Вопросы}
-  \vfill
-  \centering
-  \Large Спасибо за внимание! Готов ответить на вопросы.\\[0.6cm]
-  Датасет и презентация: репозиторий заседания (ссылка в посте)
-  \vfill
-\end{frame}
+\workshopcontacts
 
 \end{document}

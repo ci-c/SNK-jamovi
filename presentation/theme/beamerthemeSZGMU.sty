@@ -59,10 +59,13 @@
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left,leftskip=0.5cm]{footline}%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1ex,left,leftskip=0.5cm]{footline}%
       \usebeamerfont{footline}\insertshortauthor
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,right,rightskip=0.5cm]{footline}%
+    \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.5ex,dp=1ex,center]{footline}%
+      \usebeamerfont{footline}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1ex,right,rightskip=0.5cm]{footline}%
       \usebeamerfont{footline}\insertframenumber{} / \inserttotalframenumber\hspace*{0.5ex}
     \end{beamercolorbox}%
   }%
