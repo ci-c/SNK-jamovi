@@ -26,22 +26,19 @@
 
 % -----------------------------------------------------------------------------
 % Тип слайда «полноэкранный скриншот» (только для этой презентации)
-%   \begin{screenslide}{Заголовок}{Комментарий}{Файл скриншота}
+%   \begin{screenslide}{Заголовок}{Файл скриншота}\end{screenslide}
 % Скриншот занимает весь слайд; заголовок и футер полупрозрачными прямоугольниками
 % накладываются поверх; комментарий — отдельно до скриншота.
 % -----------------------------------------------------------------------------
-\newenvironment{screenslide}[3]{%
+\newenvironment{screenslide}[2]{%
   {%
     \setbeamercolor{frametitle}{fg=black,bg=white!70}%
     \setbeamercolor{footline}{fg=black,bg=white!70}%
     \begin{frame}{#1}%
-      \begin{beamercolorbox}[wd=\textwidth,sep=0.2em,leftskip=0.4em,rightskip=0.4em]{block body}
-        \small #2
-      \end{beamercolorbox}
-      \par\vspace{-0.6cm}
-      \noindent\begin{minipage}[c][0.75\textheight][t]{\textwidth}
-        \centering\includegraphics[width=\textwidth,height=0.75\textheight,keepaspectratio]{#3}
-      \end{minipage}
+      \noindent\makebox[0pt][l]{%
+        \hspace*{-1cm}\includegraphics[width=\paperwidth,height=0.93\paperheight,keepaspectratio]{#2}%
+      }%
+      \par\vspace*{-1.3cm}%
     \end{frame}%
   }%
 }{}
@@ -207,7 +204,7 @@
 
 \section{Данные}
 
-\begin{screenslide}{Импорт данных}{Открыли файл \texttt{heart-disease.csv} в Jamovi: меню-файл слева сверху $\to$ \texttt{Open} $\to$ файл; внизу окна \textbf{303 наблюдения, 14 переменных}; тип переменной --- значок у заголовка колонки.}{jamovi-data-view.png}\end{screenslide}
+\begin{screenslide}{Jamovi: данные загружены (303 пациента, 14 колонок)}{jamovi-data-view.png}\end{screenslide}
 
 \begin{frame}{Что в данных}
   \begin{itemize}
@@ -245,7 +242,7 @@
   \end{block}
 \end{frame}
 
-\begin{screenslide}{Как посчитать в Jamovi}{Первые два пункта: \texttt{Exploration} $\to$ \texttt{Descriptives}, перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}. Третий --- в статью: \texttt{Statistics} $\to$ \texttt{Percentiles} (25, 75).}{desc_table.png}\end{screenslide}
+\begin{screenslide}{Descriptives: таблица Mean/SD/Median + Q1/Q3 для age, chol, thalach}{desc_table.png}\end{screenslide}
 
 \begin{frame}{Как записывать результат в статье}
   \begin{block}{Готовая формула}
@@ -260,7 +257,7 @@
 
 \section{Нормальность}
 
-\begin{screenslide}{Нормальность: три инструмента}{Гистограмма --- «на глаз»; Q-Q plot: точки около линии = нормально; Шапиро--Уилк: $p > 0{,}05$. Включаю: \texttt{Descriptives} $\to$ \texttt{Plots} (Histogram, Q-Q) и \texttt{Statistics} $\to$ \texttt{Normality}.}{norm_table.png}\end{screenslide}
+\begin{screenslide}{Шапиро–Уилк: p < 0,001 для thalach и oldpeak (нормальность отвергается)}{norm_table.png}\end{screenslide}
 
 \begin{frame}{Когда проверять нормальность}
   \begin{itemize}
@@ -298,7 +295,7 @@
   \end{block}
 \end{frame}
 
-\begin{screenslide}{T-тест: пошагово}{Запустил \texttt{Independent Samples T-Test}: переменная \texttt{chol}, группа \texttt{sex}; включил Descriptives, Normality, Homogeneity, Mean difference + CI (95\%). Таблица справа.}{tt8.png}\end{screenslide}
+\begin{screenslide}{Independent Samples T-Test: chol различается по sex (p < 0,001)}{tt8.png}\end{screenslide}
 
 \begin{frame}{T-тест: читаем вывод}
   \begin{itemize}
@@ -371,7 +368,7 @@
 
 \section{Корреляция и регрессия}
 
-\begin{screenslide}{Корреляция: пошагово}{Запустил \texttt{Correlation Matrix}: переменные \texttt{thalach}, \texttt{age}, \texttt{chol}; Pearson и Spearman рядом.}{jamovi-correlation.png}\end{screenslide}
+\begin{screenslide}{Корреляционная матрица: r(thalach, age) = −0,39}{jamovi-correlation.png}\end{screenslide}
 
 \begin{frame}{Как читать $r$}
   \begin{itemize}
@@ -384,7 +381,7 @@
   \end{alertblock}
 \end{frame}
 
-\begin{screenslide}{Линейная регрессия: пошагово}{Запустил \texttt{Linear Regression}: зависимая \texttt{thalach}; предикторы \texttt{age} и \texttt{sex}. Смотрю на коэффициенты: $B$, $p$, $R^2$.}{jamovi-regression.png}\end{screenslide}
+\begin{screenslide}{Linear Regression: B(age) = −1,02 для thalach}{jamovi-regression.png}\end{screenslide}
 
 \begin{frame}{Регрессия: формула для статьи}
   \begin{block}{Пример}
@@ -397,7 +394,7 @@
 
 \section{Категориальные данные}
 
-\begin{screenslide}{Хи-квадрат: пошагово}{Запустил \texttt{Contingency Tables}: строки \texttt{cp}, столбцы \texttt{target}; включил $\chi^2$, Expected counts, Cramér's V.}{jamovi-chi2-crosstabs.png}\end{screenslide}
+\begin{screenslide}{Contingency Tables: cp × target, χ² значим}{jamovi-chi2-crosstabs.png}\end{screenslide}
 
 \begin{frame}{Как читать хи-квадрат}
   \begin{itemize}
