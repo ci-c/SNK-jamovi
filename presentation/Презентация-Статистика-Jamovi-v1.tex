@@ -114,14 +114,11 @@
       \qrcode[height=3.6cm]{\RepoURL}
     \column{0.54\linewidth}
       \begin{itemize}
-        \item Презентация, сценарий и учебный датасет --- в репозитории
+        \item Презентация, сценарий и датасет --- в репозитории
         \item Сканируйте QR или введите ссылку вручную
       \end{itemize}
       \vspace{0.3cm}
       {\small \texttt{github.com/USERNAME/SNK-jamovi}}
-      \vspace{0.2cm}
-
-      {\footnotesize Репозиторий будет открыт перед заседанием; ссылка на запись --- в посте о заседании.}
   \end{columns}
 \end{frame}
 
@@ -146,7 +143,7 @@
   \end{columns}
   \vspace{0.4cm}
   \begin{block}{Формат}
-    60 минут, практикум: показываю --- повторяете. Датасет --- открытые данные UCI, никаких реальных данных пациентов.
+    60 минут, практикум: показываю --- повторяете. Датасет --- открытые данные UCI.
   \end{block}
 \end{frame}
 
@@ -155,16 +152,10 @@
 \begin{frame}{Зачем статистика}
   \begin{itemize}
     \item Статистика --- не математика, а \textbf{язык}, на котором наука сообщает результаты
-    \item Задача сегодняшнего заседания --- \textbf{инструменты} и понимание: увидеть таблицу и прочитать её
-    \item Не будем: выводить формулы критериев, считать вручную
-    \item Будем: открывать программу, считать, интерпретировать
+    \item Сегодня --- про инструменты: увидеть таблицу и прочитать её
   \end{itemize}
   \begin{block}{К концу заседания вы}
-    \begin{itemize}
-      \item откроете Jamovi и импортируете таблицу;
-      \item посчитаете описательные показатели и тесты;
-      \item прочитаете p-value и доверительный интервал.
-    \end{itemize}
+    откроете Jamovi $\to$ посчитаете показатели и тесты $\to$ прочитаете $p$-value и CI.
   \end{block}
 \end{frame}
 
@@ -173,10 +164,9 @@
     \column{0.48\linewidth}
       \begin{block}{Что это}
         \begin{itemize}
-          \item Бесплатная open-source программа для статистики
+          \item Бесплатная open-source программа
           \item Меню вместо кода (аналог SPSS)
           \item Готовые таблицы --- сразу для статьи
-          \item Работает поверх R, но R не нужен
         \end{itemize}
       \end{block}
     \column{0.48\linewidth}
@@ -184,13 +174,12 @@
         \begin{itemize}
           \item \texttt{jamovi.org} $\to$ Install
           \item Windows, macOS, Linux (flatpak)
-          \item Датасет и презентация --- в репозитории заседания
         \end{itemize}
       \end{block}
   \end{columns}
   \vspace{0.3cm}
   \begin{block}{Интерфейс}
-    Слева --- данные, справа --- результаты, меню сверху. Три области --- и всё.
+    Слева --- данные, справа --- результаты, меню сверху.
   \end{block}
 \end{frame}
 
@@ -198,85 +187,91 @@
 
 \begin{frame}{Импорт данных}
   \begin{enumerate}
-    \item Меню-файл слева сверху $\to$ \texttt{Open} $\to$ выбрать \texttt{heart-disease.csv}
-    \item Внизу --- счётчик строк: \textbf{303 наблюдения, 14 переменных}
-    \item Тип переменной --- значок у заголовка колонки: шкала измерений или категории
+    \item Меню-файл слева сверху $\to$ \texttt{Open} $\to$ \texttt{heart-disease.csv}
+    \item Внизу окна: \textbf{303 наблюдения, 14 переменных}
+    \item Тип переменной --- значок у заголовка колонки
   \end{enumerate}
-  \begin{block}{Что в данных (UCI, болезни сердца)}
-    \begin{itemize}
-      \item Непрерывные: \texttt{age} (возраст), \texttt{chol} (холестерин), \texttt{thalach} (макс. ЧСС), \texttt{oldpeak}
-      \item Категориальные: \texttt{cp} (тип боли в груди, 4 уровня), \texttt{sex}, \texttt{fbs}, \texttt{exang}
-      \item Исход: \texttt{target}: 1 --- есть болезнь, 0 --- нет
-    \end{itemize}
+\end{frame}
+
+\begin{frame}{Что в данных}
+  \begin{itemize}
+    \item Непрерывные: \texttt{age}, \texttt{chol}, \texttt{thalach}, \texttt{oldpeak}
+    \item Категориальные: \texttt{cp} (4 типа боли), \texttt{sex}, \texttt{fbs}, \texttt{exang}
+    \item Исход: \texttt{target} --- 1 есть болезнь, 0 нет
+  \end{itemize}
+  \begin{block}{Открытые данные}
+    UCI Heart Disease, 303 пациента. Никаких реальных данных пациентов в работе не используется.
   \end{block}
-  \begin{alertblock}{Правило}
-    PHI (реальные данные пациентов) не уходят в облачные ИИ-сервисы. Для обучения --- только открытые и учебные наборы.
-  \end{alertblock}
 \end{frame}
 
 \section{Описательная статистика}
 
-\begin{frame}{Описательная статистика: что считать}
+\begin{frame}{Описательная статистика: центр и разброс}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\linewidth}
-      \begin{block}{Показатели центра}
+      \begin{block}{Центр}
         \begin{itemize}
-          \item Mean (среднее) --- для симметричных распределений
-          \item Median (медиана) --- для скошенных и с выбросами
+          \item Mean --- для симметричных распределений
+          \item Median --- для скошенных и с выбросами
         \end{itemize}
       \end{block}
     \column{0.48\linewidth}
-      \begin{block}{Показатели разброса}
+      \begin{block}{Разброс}
         \begin{itemize}
-          \item SD (стандартное отклонение) --- пару со средним
-          \item IQR (межквартильный размах) --- пару с медианой
+          \item SD --- пару со средним
+          \item IQR --- пару с медианой
         \end{itemize}
       \end{block}
   \end{columns}
-  \begin{enumerate}
-    \item \texttt{Exploration} $\to$ \texttt{Descriptives}
-    \item Перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}
-    \item Включить Mean, SD, Median, Min, Max; Q1/Q3 --- Percentiles (Statistics)
-    \item Задание: добавьте \texttt{oldpeak} в свою таблицу
-  \end{enumerate}
+  \vspace{0.3cm}
   \begin{block}{Запомните}
     Разброс важнее среднего: одинаковые средние $\neq$ одинаковые данные.
   \end{block}
 \end{frame}
 
+\begin{frame}{Как посчитать в Jamovi}
+  \begin{enumerate}
+    \item \texttt{Exploration} $\to$ \texttt{Descriptives}
+    \item Перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}
+    \item Mean, SD, Median, Min, Max; Q1/Q3 --- \texttt{Statistics} $\to$ \texttt{Percentiles}
+  \end{enumerate}
+  \begin{alertblock}{Задание}
+    Добавьте \texttt{oldpeak} в свою таблицу.
+  \end{alertblock}
+\end{frame}
+
 \begin{frame}{Как записывать результат в статье}
   \begin{block}{Готовая формула}
-    «Возраст пациентов составил \textbf{54,4 $\pm$ 9,0 года} (медиана 56; межквартильный размах 48--61; min--max 29--77)».
+    «Возраст пациентов составил \textbf{54,4 $\pm$ 9,0 года} (медиана 56; межквартильный размах 48--61)».
   \end{block}
   \begin{itemize}
-    \item Среднее $\pm$ SD --- только при симметричном распределении
+    \item Среднее $\pm$ SD --- при симметричном распределении
     \item Медиана (IQR) --- при скошенности или выбросах
-    \item Всегда указывайте $n$: без числа наблюдений показатели бессмысленны
-    \item В Jamovi: правый клик по таблице --- копирование в Word/Excel
+    \item Всегда указывайте $n$
   \end{itemize}
-  \begin{block}{Типичная ошибка новичка}
-    При скошенности интервал среднее $\pm$ SD уходит за границы данных и не отражает реальный разброс --- берите медиану и IQR.
-  \end{block}
 \end{frame}
 
 \section{Нормальность}
 
-\begin{frame}{Нормальность распределения}
-  \small
-  \begin{block}{Три инструмента}
-    \begin{itemize}
-      \item Гистограмма --- «на глаз»; Q-Q plot: точки около линии = нормально
-      \item Шапиро--Уилк: $p > 0{,}05$ --- нет оснований отвергнуть
-      \item Включить: \texttt{Descriptives} $\to$ Plots (Histogram, Q-Q) и Statistics (Shapiro-Wilk)
-    \end{itemize}
+\begin{frame}{Нормальность: три инструмента}
+  \begin{itemize}
+    \item Гистограмма --- «на глаз»
+    \item Q-Q plot: точки около линии = нормально
+    \item Шапиро--Уилк: $p > 0{,}05$ --- нет оснований отвергнуть нормальность
+  \end{itemize}
+  \begin{block}{Где включить}
+    \texttt{Descriptives} $\to$ \texttt{Plots} (Histogram, Q-Q) и \texttt{Statistics} $\to$ \texttt{Normality} (Shapiro--Wilk)
   \end{block}
-  \begin{block}{Когда это важно}
-    \begin{itemize}
-      \item Нужна t-тесту и корреляции Пирсона при $n < 30$--50; при больших $n$ t-тест устойчив
-      \item Скошенность + малая выборка $\to$ Манн--Уитни, Спирмен
-      \item При $n = 303$ Шапиро--Уилк почти всегда $p < 0{,}05$: смотрите гистограмму и Q-Q
-      \item Не ритуал: проверка отвечает на вопрос «какой критерий выбирать дальше»
-    \end{itemize}
+\end{frame}
+
+\begin{frame}{Когда проверять нормальность}
+  \begin{itemize}
+    \item Нужна t-тесту и корреляции Пирсона при $n < 30$--50
+    \item Скошенность + малая выборка $\to$ Манн--Уитни, Спирмен
+    \item При $n = 303$ Шапиро--Уилк почти всегда $p < 0{,}05$ --- смотрите гистограмму и Q-Q
+  \end{itemize}
+  \begin{block}{Правило}
+    Это не ритуал, а ответ на вопрос «какой критерий выбирать дальше».
   \end{block}
 \end{frame}
 
@@ -285,53 +280,47 @@
 \begin{frame}{Связанные и несвязанные выборки}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\linewidth}
-      \begin{block}{Несвязанные (независимые)}
+      \begin{block}{Несвязанные}
         \begin{itemize}
-          \item Разные люди в группах
-          \item Пример: мужчины vs женщины
-          \item Jamovi: Independent Samples T-Test
+          \item Разные люди: мужчины vs женщины
+          \item \texttt{Independent Samples T-Test}
         \end{itemize}
       \end{block}
     \column{0.48\linewidth}
-      \begin{block}{Связанные (парные)}
+      \begin{block}{Связанные}
         \begin{itemize}
           \item Одни и те же люди: «до / после»
-          \item Пример: давление до и после препарата
-          \item Jamovi: Paired Samples T-Test
+          \item \texttt{Paired Samples T-Test}
         \end{itemize}
       \end{block}
   \end{columns}
   \vspace{0.3cm}
   \begin{block}{Выбор теста --- три вопроса}
-    \begin{enumerate}
-      \item Сколько групп? (1$\to$ описание; 2$\to$ t-тест; 3+ $\to$ ANOVA)
-      \item Группы независимы или это «до/после»?
-      \item Распределение нормально?
-    \end{enumerate}
+    Сколько групп? Независимы ли группы? Нормально ли распределение?
   \end{block}
 \end{frame}
 
-\begin{frame}{T-тест в Jamovi: пошагово}
+\begin{frame}{T-тест: пошагово}
   \begin{enumerate}
     \item \texttt{T-Tests} $\to$ \texttt{Independent Samples T-Test}
     \item Переменная: \texttt{chol}; Группа: \texttt{sex}
     \item Включить Descriptives, Normality, Homogeneity, Mean difference + CI (95\%)
   \end{enumerate}
-  \begin{block}{Читаем вывод}
-    \begin{itemize}
-      \item $t = 3{,}54$, $df = 301$, $p < 0{,}001$ --- \textbf{различие значимо} при $\alpha = 0{,}05$
-      \item Разница средних: 22,2; \textbf{95\% CI: [9,8; 34,5]} --- интервал не пересекает 0 $\to$ значимо
-      \item Дисперсии разные (Levene $p < 0{,}001$) $\to$ добавьте Welch: $t = 3{,}06$, $p = 0{,}003$ --- вывод тот же
-    \end{itemize}
-  \end{block}
-  \begin{alertblock}{Задание (2 минуты)}
+\end{frame}
+
+\begin{frame}{T-тест: читаем вывод}
+  \begin{itemize}
+    \item $t = 3{,}54$, $df = 301$, $p < 0{,}001$ --- различие \textbf{значимо} при $\alpha = 0{,}05$
+    \item Разница средних 22,2; \textbf{95\% CI [9,8; 34,5]} --- не пересекает 0 $\to$ значимо
+    \item Levene $p < 0{,}001$ --- дисперсии разные: добавьте Welch ($t = 3{,}06$, $p = 0{,}003$)
+  \end{itemize}
+  \begin{alertblock}{Задание}
     Повторите тест, найдите $p$ и CI: значимо или нет?
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{Что такое p-value (и что это не так)}
-  \small
-  \begin{block}{Что это}
+\begin{frame}{Что такое p-value}
+  \begin{block}{Определение}
     Вероятность увидеть такое или более экстремальное различие, \textbf{если различий на самом нет}.
   \end{block}
   \begin{columns}[T,onlytextwidth]
@@ -345,14 +334,21 @@
     \column{0.48\linewidth}
       \begin{block}{Это ДА}
         \begin{itemize}
-          \item критерий для решения: отвергать или нет
-          \item зависит от $n$: при большом $n$ значимо и тривиальное
+          \item критерий: отвергать или нет
+          \item зависит от $n$
         \end{itemize}
       \end{block}
   \end{columns}
-  \begin{block}{Доверительный интервал}
-    CI --- диапазон значений, согласующихся с данными (95\%); CI разности пересекает 0 $\to$ различие не значимо.
+\end{frame}
+
+\begin{frame}{Доверительный интервал}
+  \begin{block}{Что это}
+    Диапазон значений, согласующихся с данными (95\%).
   \end{block}
+  \begin{itemize}
+    \item CI разности \textbf{не пересекает} 0 $\to$ различие значимо
+    \item Чем уже интервал, тем точнее оценка
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Памятка: какой тест когда}
@@ -386,74 +382,68 @@
 
 \section{Корреляция и регрессия}
 
-\begin{frame}{Корреляция}
+\begin{frame}{Корреляция: пошагово}
   \begin{enumerate}
     \item \texttt{Regression} $\to$ \texttt{Correlation Matrix}
     \item Переменные: \texttt{thalach}, \texttt{age}, \texttt{chol}
     \item Включить Pearson и Spearman рядом
-    \item Задание: повторить для \texttt{oldpeak} $\times$ \texttt{thalach}
   \end{enumerate}
-  \begin{block}{Как читать $r$}
-    \begin{itemize}
-      \item $r \in [-1; +1]$: знак --- направление, модуль --- сила
-      \item $|r| < 0{,}3$ слабая, $0{,}3$--$0{,}5$ умеренная, $> 0{,}5$ сильная (грубо)
-      \item $r = -0{,}39$ для \texttt{thalach} $\times$ \texttt{age}: с возрастом максимальная ЧСС падает
-      \item Pearson --- для нормальных, Spearman --- для скошенных и порядковых
-    \end{itemize}
-  \end{block}
+  \begin{alertblock}{Задание}
+    Повторить для \texttt{oldpeak} $\times$ \texttt{thalach}.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Как читать $r$}
+  \begin{itemize}
+    \item $r \in [-1; +1]$: знак --- направление, модуль --- сила
+    \item $r = -0{,}39$ для \texttt{thalach} $\times$ \texttt{age}: с возрастом максимальная ЧСС падает
+    \item Pearson --- для нормальных, Spearman --- для скошенных и порядковых
+  \end{itemize}
   \begin{alertblock}{Корреляция $\neq$ причинность}
     Общая причина (возраст) порождает связь там, где прямой связи нет.
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{Линейная регрессия}
+\begin{frame}{Линейная регрессия: пошагово}
   \begin{enumerate}
     \item \texttt{Regression} $\to$ \texttt{Linear Regression}
-    \item Переменная (зависимая): \texttt{thalach}; Ковариаты (предикторы): \texttt{age}; Фактор: \texttt{sex}
+    \item Зависимая: \texttt{thalach}; предиктор: \texttt{age}; фактор: \texttt{sex}
   \end{enumerate}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
-      \begin{block}{Читаем таблицу}
-        \begin{itemize}
-          \item $B$ --- на сколько единиц меняется $Y$ за единицу $X$
-          \item $p$ --- значим ли вклад, 95\% CI для $B$
-          \item $R^2$ --- доля разброса, объяснённая моделью
-        \end{itemize}
-      \end{block}
-    \column{0.48\linewidth}
-      \begin{block}{Формула для статьи}
-        «Связь возраста с максимальной ЧСС отрицательная: $B = -1{,}02$ (95\% CI $-1{,}28$; $-0{,}75$), $p < 0{,}001$».
-      \end{block}
-  \end{columns}
+  \begin{block}{Читаем таблицу}
+    $B$ --- изменение $Y$ за единицу $X$ \quad $p$ --- значим ли вклад \quad $R^2$ --- доля объяснённого разброса
+  \end{block}
+\end{frame}
+
+\begin{frame}{Регрессия: формула для статьи}
+  \begin{block}{Пример}
+    «Связь возраста с максимальной ЧСС отрицательная: $B = -1{,}02$ (95\% CI $-1{,}28$; $-0{,}75$), $p < 0{,}001$».
+  \end{block}
   \begin{alertblock}{Осторожно}
-    Модель описывает связь в этих данных; причинные выводы требуют дизайна исследования, а не только $p$.
+    Причинные выводы требуют дизайна исследования, а не только $p$.
   \end{alertblock}
 \end{frame}
 
 \section{Категориальные данные}
 
-\begin{frame}{Категориальные данные: хи-квадрат}
-  \small
+\begin{frame}{Хи-квадрат: пошагово}
   \begin{enumerate}
     \item \texttt{Frequencies} $\to$ \texttt{Contingency Tables} $\to$ \texttt{Independent Samples}
-    \item Строки: \texttt{cp}; Столбцы: \texttt{target}; включить $\chi^2$, Expected counts, Phi--Cramér's V
+    \item Строки: \texttt{cp}; столбцы: \texttt{target}
+    \item Включить $\chi^2$, Expected counts, Cramér's V
   \end{enumerate}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.48\linewidth}
-      \begin{block}{Как читать}
-        \begin{itemize}
-          \item $\chi^2$, $df$, \textbf{$p$} --- тот же принцип, что выше
-          \item Много ожидаемых частот $< 5$ --- вывод осторожный
-          \item Cramér's V --- «сила связи» для категорий (0--1)
-        \end{itemize}
-      \end{block}
-    \column{0.48\linewidth}
-      \begin{block}{Задание}
-        Таблица \texttt{sex} $\times$ \texttt{target}: ассоциация значима?
-      \end{block}
-  \end{columns}
+  \begin{alertblock}{Задание}
+    Таблица \texttt{sex} $\times$ \texttt{target}: ассоциация значима?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Как читать хи-квадрат}
+  \begin{itemize}
+    \item $\chi^2$, $df$, \textbf{$p$} --- тот же принцип, что в t-тесте
+    \item Много ожидаемых частот $< 5$ --- вывод осторожный
+    \item Cramér's V --- «сила связи» для категорий (0--1)
+  \end{itemize}
   \begin{block}{Всё уже знакомо}
-    Меняется только таблица: $p$, значимость и эффект --- те же понятия, что в t-тесте.
+    Меняется только таблица: $p$, значимость и эффект --- те же понятия.
   \end{block}
 \end{frame}
 
@@ -468,9 +458,13 @@
     \column{0.32\linewidth}
       \includegraphics[width=\linewidth]{plot_histogram.png}
   \end{columns}
-  \begin{block}{Подписи обязательны}
-    Ось $X$, ось $Y$, заголовок, единицы измерения. График без подписей --- картинка, а не результат. В Jamovi: \texttt{Plot \& Axis Titles}.
-  \end{block}
+\end{frame}
+
+\begin{frame}{График без подписей --- не результат}
+  \begin{itemize}
+    \item Ось $X$, ось $Y$, заголовок, единицы измерения
+    \item В Jamovi: \texttt{Plot \& Axis Titles}
+  \end{itemize}
   \begin{alertblock}{Задание (3 минуты)}
     Scatter \texttt{age} $\times$ \texttt{oldpeak}, подписать оси, добавить линию тренда.
   \end{alertblock}
@@ -478,27 +472,28 @@
 
 \section{ИИ}
 
-\begin{frame}{ИИ в анализе данных: рамки}
-  \small
+\begin{frame}{ИИ: два главных риска}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\linewidth}
-      \begin{block}{ИИ --- калькулятор, не врач}
-        \begin{itemize}
-          \item Помогает объяснить таблицу, набросать тест, шаблон статьи
-          \item Не отвечает за интерпретацию; решение --- за исследователем
-        \end{itemize}
+      \begin{block}{PHI}
+        Данные пациентов в чат --- этическое и правовое нарушение. Только открытые и учебные наборы.
       \end{block}
     \column{0.48\linewidth}
-      \begin{block}{Два главных риска}
-        \begin{itemize}
-          \item \textbf{PHI:} данные пациентов в чат --- этическое и правовое нарушение
-          \item \textbf{Галлюцинации:} ИИ уверенно выдаёт несуществующие функции
-        \end{itemize}
+      \begin{block}{Галлюцинации}
+        ИИ уверенно выдаёт несуществующие функции и неправильные методы.
       \end{block}
   \end{columns}
-  \begin{block}{Правило проверки}
+  \vspace{0.3cm}
+  \begin{block}{Правило}
     Код или метод от ИИ --- сначала на учебном наборе, потом сверка с документацией.
   \end{block}
+\end{frame}
+
+\begin{frame}{ИИ: калькулятор, не врач}
+  \begin{itemize}
+    \item Помогает объяснить таблицу, набросать тест, шаблон статьи
+    \item Не отвечает за интерпретацию; решение --- за исследователем
+  \end{itemize}
   \begin{block}{Честно про Jamovi}
     Официального ИИ-помощника в классическом Jamovi нет; сторонние модули сегодня не показываем.
   \end{block}
@@ -508,16 +503,12 @@
 
 \begin{frame}{Три главных вывода}
   \begin{enumerate}
-    \item \textbf{Jamovi закрывает базовый анализ без кода}: импорт --- описание --- тесты --- графики, всё меню.
-    \item \textbf{$p$-value и CI читаются одинаково везде}: меняется таблица, принцип --- тот же.
-    \item \textbf{Выбор критерия} --- это три вопроса: тип данных, тип групп, нормальность.
+    \item \textbf{Jamovi закрывает базовый анализ без кода}: импорт --- описание --- тесты --- графики
+    \item \textbf{$p$-value и CI читаются одинаково везде}: меняется таблица, принцип --- тот же
+    \item \textbf{Выбор критерия} --- три вопроса: тип данных, тип групп, нормальность
   \end{enumerate}
   \begin{block}{Что дальше}
-    \begin{itemize}
-      \item Датасет, презентация и запись --- в репозитории заседания
-      \item Возможные продолжения: расширения Jamovi, разбор собственного исследования
-      \item Вопросы --- сейчас
-    \end{itemize}
+    Датасет, презентация и запись --- в репозитории заседания. Вопросы --- сейчас.
   \end{block}
 \end{frame}
 
