@@ -25,6 +25,28 @@
 \graphicspath{{assets/}}
 
 % -----------------------------------------------------------------------------
+% Тип слайда «полноэкранный скриншот» (только для этой презентации)
+%   \begin{screenslide}{Заголовок}{Комментарий}{Файл скриншота}
+% Скриншот занимает весь слайд; заголовок и футер полупрозрачными прямоугольниками
+% накладываются поверх; комментарий — отдельно до скриншота.
+% -----------------------------------------------------------------------------
+\newenvironment{screenslide}[3]{%
+  {%
+    \setbeamercolor{frametitle}{fg=black,bg=white!70}%
+    \setbeamercolor{footline}{fg=black,bg=white!70}%
+    \begin{frame}{#1}%
+      \begin{beamercolorbox}[wd=\textwidth,sep=0.2em,leftskip=0.4em,rightskip=0.4em]{block body}
+        \small #2
+      \end{beamercolorbox}
+      \par\vspace{-0.6cm}
+      \noindent\begin{minipage}[c][0.75\textheight][t]{\textwidth}
+        \centering\includegraphics[width=\textwidth,height=0.75\textheight,keepaspectratio]{#3}
+      \end{minipage}
+    \end{frame}%
+  }%
+}{}
+
+% -----------------------------------------------------------------------------
 % Титульный и контактный слайды — по дизайну презентации P-11:
 % тёмно-синий фон, горизонтальный логотип вуза с названием
 % -----------------------------------------------------------------------------
@@ -185,15 +207,7 @@
 
 \section{Данные}
 
-\begin{frame}{Импорт данных}
-  \begin{enumerate}
-    \item Меню-файл слева сверху $\to$ \texttt{Open} $\to$ \texttt{heart-disease.csv}
-    \item Внизу окна: \textbf{303 наблюдения, 14 переменных}
-    \item Тип переменной --- значок у заголовка колонки
-  \end{enumerate}
-  \centering
-  \includegraphics[height=5.5cm]{jamovi-data-view.png}
-\end{frame}
+\begin{screenslide}{Импорт данных}{Открыли файл \texttt{heart-disease.csv} в Jamovi: меню-файл слева сверху $\to$ \texttt{Open} $\to$ файл; внизу окна \textbf{303 наблюдения, 14 переменных}; тип переменной --- значок у заголовка колонки.}{jamovi-data-view.png}\end{screenslide}
 
 \begin{frame}{Что в данных}
   \begin{itemize}
@@ -231,15 +245,7 @@
   \end{block}
 \end{frame}
 
-\begin{frame}{Как посчитать в Jamovi}
-  \begin{enumerate}
-    \item \texttt{Exploration} $\to$ \texttt{Descriptives}
-    \item Перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}
-    \item Mean, SD, Median, Min, Max; Q1/Q3 --- \texttt{Statistics} $\to$ \texttt{Percentiles}
-  \end{enumerate}
-  \centering
-  \includegraphics[width=0.25\linewidth]{desc_table.png}
-\end{frame}
+\begin{screenslide}{Как посчитать в Jamovi}{Первые два пункта: \texttt{Exploration} $\to$ \texttt{Descriptives}, перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}. Третий --- в статью: \texttt{Statistics} $\to$ \texttt{Percentiles} (25, 75).}{desc_table.png}\end{screenslide}
 
 \begin{frame}{Как записывать результат в статье}
   \begin{block}{Готовая формула}
@@ -254,18 +260,7 @@
 
 \section{Нормальность}
 
-\begin{frame}{Нормальность: три инструмента}
-  \begin{itemize}
-    \item Гистограмма --- «на глаз»
-    \item Q-Q plot: точки около линии = нормально
-    \item Шапиро--Уилк: $p > 0{,}05$ --- нет оснований отвергнуть нормальность
-  \end{itemize}
-  \begin{block}{Где включить}
-    \texttt{Descriptives} $\to$ \texttt{Plots} (Histogram, Q-Q) и \texttt{Statistics} $\to$ \texttt{Normality} (Shapiro--Wilk)
-  \end{block}
-  \centering
-  \includegraphics[width=0.25\linewidth]{norm_table.png}
-\end{frame}
+\begin{screenslide}{Нормальность: три инструмента}{Гистограмма --- «на глаз»; Q-Q plot: точки около линии = нормально; Шапиро--Уилк: $p > 0{,}05$. Включаю: \texttt{Descriptives} $\to$ \texttt{Plots} (Histogram, Q-Q) и \texttt{Statistics} $\to$ \texttt{Normality}.}{norm_table.png}\end{screenslide}
 
 \begin{frame}{Когда проверять нормальность}
   \begin{itemize}
@@ -303,15 +298,7 @@
   \end{block}
 \end{frame}
 
-\begin{frame}{T-тест: пошагово}
-  \begin{enumerate}
-    \item \texttt{T-Tests} $\to$ \texttt{Independent Samples T-Test}
-    \item Переменная: \texttt{chol}; Группа: \texttt{sex}
-    \item Включить Descriptives, Normality, Homogeneity, Mean difference + CI (95\%)
-  \end{enumerate}
-  \centering
-  \includegraphics[height=4.5cm]{tt8.png}
-\end{frame}
+\begin{screenslide}{T-тест: пошагово}{Запустил \texttt{Independent Samples T-Test}: переменная \texttt{chol}, группа \texttt{sex}; включил Descriptives, Normality, Homogeneity, Mean difference + CI (95\%). Таблица справа.}{tt8.png}\end{screenslide}
 
 \begin{frame}{T-тест: читаем вывод}
   \begin{itemize}
@@ -384,16 +371,7 @@
 
 \section{Корреляция и регрессия}
 
-\begin{frame}{Корреляция: пошагово}
-  \begin{enumerate}
-    \item \texttt{Regression} $\to$ \texttt{Correlation Matrix}
-    \item Переменные: \texttt{thalach}, \texttt{age}, \texttt{chol}
-    \item Включить Pearson и Spearman рядом
-  \end{enumerate}
-
-  \centering
-  \includegraphics[height=4.3cm]{jamovi-correlation.png}
-\end{frame}
+\begin{screenslide}{Корреляция: пошагово}{Запустил \texttt{Correlation Matrix}: переменные \texttt{thalach}, \texttt{age}, \texttt{chol}; Pearson и Spearman рядом.}{jamovi-correlation.png}\end{screenslide}
 
 \begin{frame}{Как читать $r$}
   \begin{itemize}
@@ -406,17 +384,7 @@
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{Линейная регрессия: пошагово}
-  \begin{enumerate}
-    \item \texttt{Regression} $\to$ \texttt{Linear Regression}
-    \item Зависимая: \texttt{thalach}; предиктор: \texttt{age}; фактор: \texttt{sex}
-  \end{enumerate}
-  \begin{block}{Читаем таблицу}
-    $B$ --- изменение $Y$ за единицу $X$ \quad $p$ --- значим ли вклад \quad $R^2$ --- доля объяснённого разброса
-  \end{block}
-  \centering
-  \includegraphics[height=3.9cm]{jamovi-regression.png}
-\end{frame}
+\begin{screenslide}{Линейная регрессия: пошагово}{Запустил \texttt{Linear Regression}: зависимая \texttt{thalach}; предикторы \texttt{age} и \texttt{sex}. Смотрю на коэффициенты: $B$, $p$, $R^2$.}{jamovi-regression.png}\end{screenslide}
 
 \begin{frame}{Регрессия: формула для статьи}
   \begin{block}{Пример}
@@ -429,16 +397,7 @@
 
 \section{Категориальные данные}
 
-\begin{frame}{Хи-квадрат: пошагово}
-  \begin{enumerate}
-    \item \texttt{Frequencies} $\to$ \texttt{Contingency Tables} $\to$ \texttt{Independent Samples}
-    \item Строки: \texttt{cp}; столбцы: \texttt{target}
-    \item Включить $\chi^2$, Expected counts, Cramér's V
-  \end{enumerate}
-
-  \centering
-  \includegraphics[height=4.2cm]{jamovi-chi2-crosstabs.png}
-\end{frame}
+\begin{screenslide}{Хи-квадрат: пошагово}{Запустил \texttt{Contingency Tables}: строки \texttt{cp}, столбцы \texttt{target}; включил $\chi^2$, Expected counts, Cramér's V.}{jamovi-chi2-crosstabs.png}\end{screenslide}
 
 \begin{frame}{Как читать хи-квадрат}
   \begin{itemize}
@@ -469,6 +428,69 @@
     \item Ось $X$, ось $Y$, заголовок, единицы измерения
     \item В Jamovi: \texttt{Plot \& Axis Titles}
   \end{itemize}
+\end{frame}
+
+
+\section{Базовый метод чтения графиков и статистики}
+
+\begin{frame}{Байесовский подход одной фразой}
+  \begin{block}{Что меняется}
+    Частотный тест отвечает: «насколько неожиданны данные при $H_0$» ($p$-value).
+    Байесовский --- «насколько данные подтверждают $H_1$ относительно $H_0$» (BF$_{10}$).
+  \end{block}
+  \begin{itemize}
+    \item BF$_{10} > 3$ --- умеренные доказательства в пользу $H_1$; $> 10$ --- сильные; $< 1/3$ --- в пользу $H_0$.
+    \item p-value и BF отвечают на разные вопросы: $p$ --- про данные при гипотезе, BF --- про относительные шансы гипотез при данных.
+  \end{itemize}
+  \begin{block}{В Jamovi}
+    В \texttt{T-Tests} включите \texttt{Bayes factor} (в панели test); BF появится в таблице рядом с $t$, $df$, $p$.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Как читать график и статистику в статье}
+  \begin{enumerate}
+    \item Сначала таблица: что по осям, единицы, подписи; потом --- форма распределения; потом --- разброс; затем --- центр.
+    \item В таблице: $n$ $\to$ эффект (разница / $B$ / $r$ / $\chi^2$) $\to$ CI $\to$ $p$ $\to$ эффект размера ($d$, Cramér's V).
+    \item Для каждого числа спросите: «что было бы при отсутствии эффекта?», «насколько велик эффект?», «каковы границы применимости?».
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Как читать boxplot в статье}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth]{plot_boxplot_annot.png}
+    \column{0.5\linewidth}
+      \begin{block}{Что смотрим}
+        \begin{itemize}
+          \item Медиана --- центр устойчивый к выбросам
+          \item Ящик (IQR) --- разброс центральных 50\%
+          \item Усы --- диапазон без выбросов
+          \item Точки --- выбросы (решить: ошибка или реальные значения?)
+        \end{itemize}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Как читать scatter и histogram в статье}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\linewidth}
+      \includegraphics[width=\linewidth]{plot_scatter_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Scatter}
+        Направление точек --- знак связи; разброс вокруг линии --- сила; линия тренда --- модель. Не делайте вывод о причинности.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Как читать histogram в статье}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\linewidth}
+      \includegraphics[width=\linewidth]{plot_histogram_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Histogram}
+        Форма: симметричная / скошенная / бимодальная. От неё зависит выбор Mean$\pm$SD или Median (IQR) и параметрического теста.
+      \end{block}
+  \end{columns}
 \end{frame}
 
 \section{ИИ}
