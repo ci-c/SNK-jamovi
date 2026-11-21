@@ -180,4 +180,4 @@
 - `cd presentation && lualatex -interaction=nonstopmode <tex>` ×2.
 - `lualatex -interaction=nonstopmode 'Сценарий-заседания.tex'` ×2.
 - Презентация: 79 страниц, 0 Overfull, 0 Missing character.
-- Сценарий: 29 страниц, 0 Overfull, 0 Missing character.
+- Сценарий: 21 страница, 0 Overfull, 0 Missing character.
