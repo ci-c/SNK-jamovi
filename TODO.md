@@ -141,7 +141,7 @@
    `article_fig4_annot.png`, `article_stats_methods_annot.png`,
    `article_applicability_annot.png`) плюс схемы `forest_schematic.png`,
    `km_schematic.png`, `evidence_pyramid.png`.
-4. **[выполнено]** Презентация расширена до 79 слайдов; план на слайде 3
+4. **[выполнено]** Презентация расширена до 88 слайдов; план на слайде 3
    переписан под материал заседания с полным раскрытием тем.
 5. **[выполнено]** Сборка проверена: 81 страница, 0 Overfull, 0 Missing
    character; номера слайдов в сценарии сверены с PDF; коммит без push.
@@ -179,5 +179,5 @@
 
 - `cd presentation && lualatex -interaction=nonstopmode <tex>` ×2.
 - `lualatex -interaction=nonstopmode 'Сценарий-заседания.tex'` ×2.
-- Презентация: 79 страниц, 0 Overfull, 0 Missing character.
+- Презентация: 88 страниц, 0 Overfull, 0 Missing character.
 - Сценарий: 21 страница, 0 Overfull, 0 Missing character.
