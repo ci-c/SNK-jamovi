@@ -1,10 +1,10 @@
 # Локальная копия литературы
 
-Реальные источники, использованные при подготовке блоков «Байесовский подход»
+Реальные источники, использованные при подготовке блоков «Байесовский статистический вывод»
 и «Чтение клинической статьи». Файлы лежат рядом; ссылки даны в сценарии
-и на слайде 59 презентации.
+и на слайде 64 презентации.
 
-## Байесовский подход
+## Байесовский статистический вывод
 
 - **Kruschke J. K. (2013).** Bayesian estimation supersedes the *t* test.
   *Journal of Experimental Psychology: General*, 142(2), 573–603.
@@ -34,10 +34,14 @@ a Bayesian analysis.
 - **Johansson M. E. et al. (2022).** Aerobic Exercise Alters Brain Function
   and Structure in Parkinson’s Disease: A Randomized Controlled Trial.
   *Annals of Neurology*, 91(2), 203–216. DOI 10.1002/ana.26291.
-  Локально: `rct-parkinson-exercise.pdf` (оригинал статьи, 14 стр.).
-  Использован в слайдах 44–51: заголовок, абстракт, методы, CONSORT-поток,
+  Локально: `rct-parkinson-exercise.pdf` (оригинал статьи, 14 стр.) и
+  `rct-parkinson-exercise-annotated.pdf` (тот же текст с жёлтыми выделениями).
+  Использован в слайдах 53–61: заголовок, абстракт, методы, CONSORT-поток,
   таблица 1, boxplot, scatter с $\rho = 0{,}62$, текст результатов,
   ограничения. Изображения с выделениями лежат в `presentation/assets/article_*_annot.png`.
+  Полный перевод статьи на русский язык не найден. Доступны только оригинал
+  на английском языке и популярные краткие изложения на сайте Parkinson.org
+  и новостных страницах университетов.
 - **Schulz K. F. et al. (2010).** CONSORT 2010 Statement: updated guidelines
   for reporting parallel group randomised trials. *BMJ*, 340:c332.
   Локально: `consort2010.xml`.
