@@ -143,7 +143,7 @@
 
 \workshoptitleslide
 
-\begin{frame}{Материалы заседания}
+\begin{frame}{Материалы цикла}
   \begin{columns}[T,onlytextwidth]
     \column{0.42\linewidth}
       \centering
@@ -151,35 +151,29 @@
     \column{0.54\linewidth}
       \begin{itemize}
         \item Презентация, сценарий и датасет --- в репозитории
-        \item Сканируйте QR или введите ссылку вручную
+        \item QR-код на слайде; ссылка вводится вручную
       \end{itemize}
       \vspace{0.3cm}
       {\small \texttt{github.com/USERNAME/SNK-jamovi}}
   \end{columns}
 \end{frame}
 
-\begin{frame}[plain]{План заседания}
+\begin{frame}[plain]{План цикла}
   \begin{columns}[T,onlytextwidth]
     \column{0.47\linewidth}
       \begin{itemize}
-        \item Зачем статистика и что такое Jamovi
-        \item Данные: импорт и типы переменных
-        \item Описательная статистика
-        \item Нормальность распределения
-        \item Связанные и несвязанные выборки
+        \item Заседание 1: данные, описание, нормальность, сравнение групп
+        \item Заседание 2: корреляция, регрессия, категориальные данные, графики
       \end{itemize}
     \column{0.47\linewidth}
       \begin{itemize}
-        \item Корреляция и регрессия
-        \item Категориальные данные
-        \item Виды графики
-        \item ИИ в анализе данных
-        \item Итоги и вопросы
+        \item Заседание 3: байесовский подход, чтение статьи
+        \item Заседание 4: критический разбор, ИИ, итоги
       \end{itemize}
   \end{columns}
   \vspace{0.4cm}
   \begin{block}{Формат}
-    60 минут, практикум: показываю --- повторяете. Датасет --- открытые данные UCI.
+    Четыре заседания по 120 минут; практикум: демонстрация --- повторение. Датасет --- открытые данные UCI.
   \end{block}
 \end{frame}
 
@@ -188,9 +182,9 @@
 \begin{frame}{Зачем статистика}
   \begin{itemize}
     \item Статистика --- не математика, а \textbf{язык}, на котором наука сообщает результаты
-    \item Сегодня --- про инструменты: увидеть таблицу и прочитать её
+    \item Рассматриваются инструменты: таблица и её чтение
   \end{itemize}
-  \begin{block}{К концу заседания вы}
+  \begin{block}{К концу цикла}
     откроете Jamovi $\to$ посчитаете показатели и тесты $\to$ прочитаете $p$-value и CI.
   \end{block}
 \end{frame}
@@ -614,6 +608,91 @@
   \end{block}
 \end{frame}
 
+\section{Байесовский подход: углубление}
+
+\begin{frame}{Теорема Байеса в форме шансов}
+  \centering\includegraphics[width=0.96\linewidth]{bayes_odds.png}
+  \vspace{0.2cm}
+  \begin{block}{Формула}
+    Posterior odds = Prior odds $\times$ BF$_{10}$.
+  \end{block}
+  \small Если prior равны 1:1, posterior odds совпадают с BF; при несогласии prior BF нельзя читать как итоговую вероятность.
+\end{frame}
+
+\begin{frame}{Клинический пример: диагностический тест как prior}
+  \centering\includegraphics[width=0.74\linewidth]{bayes_diagnostic.png}
+  \vspace{0.2cm}
+  \begin{block}{Что показывает схема}\footnotesize
+    При низкой распространённости даже чувствительный и специфичный тест даёт много ложноположительных результатов: PPV --- 15,4\%.
+  \end{block}
+  \small Аналогия со статистической гипотезой: prior задаёт исходные шансы, данные их обновляют.
+\end{frame}
+
+\begin{frame}{Чувствительность BF к prior}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth]{bayes_prior_sensitivity.png}
+    \column{0.43\linewidth}
+      \begin{block}{Вывод}
+        При $t = 3{,}54$ и $n = 303$ вывод «сильные доказательства» сохраняется при $r$ от 0,3 до 1,5.
+      \end{block}
+      \small Обязательно указывайте prior и проверяйте устойчивость вывода.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{$p$-value и BF при разном объёме выборки}
+  \centering\footnotesize
+  \begin{tabular}{lccc}
+    $n$ & $t$ & $p$ & BF$_{10}$ \\ \hline
+    30 & 1,10 & 0,283 & 0,41 \\
+    100 & 2,00 & 0,048 & 0,82 \\
+    300 & 3,46 & 0,001 & 20,9
+  \end{tabular}
+  \par\vspace{0.3cm}
+  \begin{block}{Ключевой случай}
+    При $n = 100$ $p < 0{,}05$, но BF$_{10} = 0{,}82$ --- данные скорее за $H_0$. Разные вопросы дают разные ответы.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Последовательный анализ}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth]{bayes_sequential.png}
+    \column{0.43\linewidth}
+      \begin{block}{Свойство BF}
+        Прикрытие данных по мере накопления не требует заранее фиксированного $n$; BF остаётся отношением правдоподобий.
+      \end{block}
+      \small Планирование объёма всё равно необходимо; BF не отменяет дизайн.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Оценивание: MCMC и апостериор}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.56\linewidth}
+      \includegraphics[width=\linewidth]{bayes_mcmc.png}
+    \column{0.42\linewidth}
+      \begin{block}{Проверка сходимости}
+        \begin{itemize}
+          \item trace plot --- без тренда и «застреваний»
+          \item несколько цепочек совпадают
+          \item ESS достаточно велик
+        \end{itemize}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Ограничения байесовского подхода}
+  \begin{block}{Что требует внимания}
+    \begin{itemize}
+      \item выбор prior subjective и влияет на результат при малом $n$
+      \item вычисления MCMC требуют проверки сходимости
+      \item BF не заменяет дизайн, качество данных и клинический смысл
+      \item отчёт без prior и чувствительности невоспроизводим
+    \end{itemize}
+  \end{block}
+  \small Корректная формулировка: «при заданном prior BF$_{10} = 26{,}5$; вывод устойчив к изменению prior».
+\end{frame}
+
 \section{Как читать клиническую статью}
 
 \begin{frame}{Статья: заголовок и абстракт}
@@ -756,6 +835,147 @@
   \end{itemize}
 \end{frame}
 
+\section{Анализ клинического исследования: углубление}
+
+\begin{frame}{Иерархия дизайнов исследований}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.45\linewidth}
+      \includegraphics[width=\linewidth]{evidence_pyramid.png}
+    \column{0.53\linewidth}
+      \begin{block}{От слабых к сильным}
+        \begin{itemize}
+          \item исследование случая --- гипотеза
+          \item случай--контроль --- ассоциация
+          \item когорта --- динамика и частота
+          \item РКИ --- controle фактор
+          \item систематический обзор --- синтез
+        \end{itemize}
+      \end{block}
+      \small Дизайн определяет, какой вывод вообще допустим; статистика не исправляет дизайн.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Рандомизация и скрытие последовательности}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_methods_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Проверяем в методе}
+        \begin{itemize}
+          \item generation последовательности
+          \item allocation concealment
+          \item block/stratified randomization
+          \item кто знал группу: пациент, врач, оценщик
+        \end{itemize}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{INTENTION-TO-TREAT и потери}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_flow_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Принцип}
+        ITT анализирует всех рандомизированных в их группах. Per-protocol исключает нарушителей и может сместить эффект.
+      \end{block}
+      \small В статье указаны причины выбытия по каждому этапу; их отсутствие --- повод для критики.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Статистический план статьи}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth]{article_stats_methods_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Что проверяем}
+        \begin{itemize}
+          \item primary endpoint и модель (ANCOVA, mixed effects)
+          \item корректировка на множественность
+          \item совокупность для анализа
+          \item обработка пропусков
+        \end{itemize}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Таблица 3: эффект, Hedge's g и CI}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.56\linewidth}
+      \includegraphics[width=\linewidth]{article_table3_annot.png}
+    \column{0.42\linewidth}
+      \begin{block}{Чтение}
+        \begin{itemize}
+          \item anatomically area и cluster extent
+          \item $p$ FWE-corrected
+          \item Hedge's g = 1,29 [0,65; 1,91]
+        \end{itemize}
+      \end{block}
+      \small Размер эффекта и CI важнее одного $p$.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Рисунок 4: подпись к boxplot}
+  \centering\includegraphics[width=0.78\linewidth]{article_fig4_annot.png}
+  \vspace{0.2cm}
+  \begin{block}{Что смотрим}
+    Группы, медианы, ящики, отдельные точки и сноску: $^*p < 0{,}05$, $^{***}p < 0{,}001$. Подпись поясняет обозначения на рисунке.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Forest plot: эффекты нескольких исследований}
+  \centering\includegraphics[width=0.68\linewidth]{forest_schematic.png}
+  \vspace{0.1cm}
+  \begin{block}{Правило чтения}
+    Точка --- оценка эффекта; линия --- 95\% CI; пересечение нуля --- отсутствие доказательства эффекта; ромб --- объединённая оценка.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Кривые Каплана--Майера}
+  \centering\includegraphics[width=0.7\linewidth]{km_schematic.png}
+  \vspace{0.1cm}
+  \begin{block}{Что смотрим}
+    Медиана времени до события, число пациентов под риском, цензурирование (вертикальные отметки), различие кривых и HR с 95\% CI.
+  \end{block}
+\end{frame}
+
+\begin{frame}{От статистики к клиническому решению}
+  \begin{block}{Числа, которые нужно уметь получить}
+    \begin{itemize}
+      \item OR --- отношение шансов исхода; HR --- отношение рисков во времени
+      \item ARR --- абсолютное снижение риска; NNT = 1/ARR
+      \item NNH --- число пациентов для одного вредного исхода
+    \end{itemize}
+  \end{block}
+  \small Статистическая значимость $\neq$ клинически важный: всегда смотрите абсолютный эффект и NNT.
+\end{frame}
+
+\begin{frame}{Применимость результата}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth]{article_applicability_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Вопросы}
+        \begin{itemize}
+          \item соответствует ли пациент критериям включения
+          \item применим ли эффект в моей популяции
+          \item каковы ограничения подгруппы МРТ
+        \end{itemize}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Расширенный чек-лист чтения РКИ}
+  \footnotesize
+  \begin{enumerate}
+    \item Дизайн и PICO; \item рандомизация и скрытие; \item ослепление;
+    \item ITT и потери; \item Table 1; \item первичная конечная точка;
+    \item эффект и 95\% CI; \item $p$ и множественность; \item графики и подписи;
+    \item таблицы регрессии; \item пропуски; \item нежелательные явления;
+    \item подгруппы; \item ограничения; \item применимость.
+  \end{enumerate}
+\end{frame}
+
 \section{ИИ}
 
 \begin{frame}{ИИ: два главных риска}
@@ -781,7 +1001,7 @@
     \item Не отвечает за интерпретацию; решение --- за исследователем
   \end{itemize}
   \begin{block}{Честно про Jamovi}
-    Официального ИИ-помощника в классическом Jamovi нет; сторонние модули сегодня не показываем.
+    Официального ИИ-помощника в классическом Jamovi нет; сторонние модули не демонстрируются.
   \end{block}
 \end{frame}
 
