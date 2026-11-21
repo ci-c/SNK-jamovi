@@ -133,6 +133,7 @@
 \newcommand{\RepoURL}{https://github.com/USERNAME/SNK-jamovi}
 \newcommand{\JamoviURL}{https://www.jamovi.org/download.html}
 \newcommand{\DataURL}{https://archive.ics.uci.edu/dataset/451/heart+disease}
+\newcommand{\AskLLMURL}{https://scchen.com/project/askllm-jamovi/}
 
 \title[Введение в медицинскую статистику]{Введение в медицинскую статистику}
 \author[И. Р. Проханин]{Проханин Иван Русланович, ВрИО старосты СНК кафедры медицинской информатики и физики}
@@ -217,11 +218,11 @@
   \begin{columns}[T,onlytextwidth]
     \column{0.47\linewidth}
       \centering
-      \qrcode[height=3.4cm]{\JamoviURL}\par\vspace{0.2cm}
+      \qrcode[height=2.2cm]{\JamoviURL}\par\vspace{0.2cm}
       {\small \url{\JamoviURL}}
     \column{0.47\linewidth}
       \centering
-      \qrcode[height=3.4cm]{\DataURL}\par\vspace{0.2cm}
+      \qrcode[height=2.2cm]{\DataURL}\par\vspace{0.2cm}
       {\small \url{\DataURL}}
   \end{columns}
 \end{frame}
@@ -231,10 +232,11 @@
 \begin{screenslide}{После импорта в Jamovi отображаются 303 пациента и 14 колонок}{jamovi-data-view.png}\end{screenslide}
 
 \begin{frame}{Какие переменные содержатся в наборе данных}
+  \footnotesize
   \begin{itemize}
-    \item К непрерывным переменным относятся \texttt{age}, \texttt{chol}, \texttt{thalach} и \texttt{oldpeak}.
-    \item К категориальным переменным относятся \texttt{cp} с четырьмя типами боли, \texttt{sex}, \texttt{fbs} и \texttt{exang}.
-    \item Исход \texttt{target} принимает значение 1 при наличии болезни и 0 при её отсутствии.
+    \item К непрерывным переменным относятся \texttt{age}, \texttt{trestbps}, \texttt{chol}, \texttt{thalach} и \texttt{oldpeak}.
+    \item К категориальным переменным относятся \texttt{sex}, \texttt{cp}, \texttt{fbs}, \texttt{restecg}, \texttt{exang}, \texttt{slope}, \texttt{ca}, \texttt{thal} и \texttt{target}.
+    \item Переменная \texttt{cp} имеет четыре уровня, а исход \texttt{target} принимает значение 1 при наличии болезни и 0 при её отсутствии.
   \end{itemize}
   \begin{block}{Открытые данные}
     Набор данных UCI Heart Disease содержит 303 пациента. Персональные данные пациентов в работе не используются.
@@ -986,13 +988,9 @@
 
 \section{ИИ}
 
-\begin{frame}{Два риска применения ИИ}
+\begin{frame}{Риск недостоверной генерации}
   \begin{columns}[T,onlytextwidth]
-    \column{0.46\linewidth}
-      \begin{block}{Персональные данные}\scriptsize
-        Персональные данные пациентов нельзя передавать в публичные чаты и неодобренные ИИ-сервисы. Это нарушает требования конфиденциальности и может нарушать закон. Локальная модель допустима в контролируемой среде без передачи данных наружу и с ограниченным доступом. В учебном заседании используются только открытые и обезличенные наборы данных.
-      \end{block}
-    \column{0.46\linewidth}
+    \column{0.92\linewidth}
       \begin{block}{Недостоверная генерация}
         ИИ может уверенно описывать несуществующие функции и неверные методы.
       \end{block}
@@ -1009,8 +1007,10 @@
     \item Интерпретацию результата выполняет исследователь.
   \end{itemize}
   \begin{block}{Возможности Jamovi}
-    По состоянию на 2026 год официальный ИИ-помощник в классическом Jamovi отсутствует. Сторонний модуль askLLM доступен по адресу \url{https://scchen.com/project/askllm-jamovi/}; в заседании он не демонстрируется.
-  \end{block}
+    По состоянию на 2026 год официальный ИИ-помощник в классическом Jamovi отсутствует. Сторонний модуль askLLM доступен по адресу \url{\AskLLMURL}; в заседании он не демонстрируется.
+  
+    \par\vspace{0.1cm}\centering\qrcode[height=1.4cm]{\AskLLMURL}
+\end{block}
 \end{frame}
 
 \section{Итоги}
@@ -1034,7 +1034,7 @@
       Vu J., Harrington D. Introductory Statistics for the Life and Biomedical Sciences. OpenIntro, 2021.\\
       Петри А., Сэбин К. Наглядная медицинская статистика. ГЭОТАР-Медиа, 2021.\\
       Гланц С. Медико-биологическая статистика. Практика, 1999.\\
-      Документация Jamovi: docs.jamovi.org
+      Документация Jamovi: \url{https://docs.jamovi.org}
     \column{0.34\linewidth}
       \textbf{Байесовский статистический вывод}\\
       Rouder J. et al. Bayesian $t$ tests. Psychon Bull Rev, 2009.\\
@@ -1043,11 +1043,11 @@
       Greenland S. et al. Guide to misinterpretations. Eur J Epidemiol, 2016.\\
       Локальные файлы: \texttt{literature/}
     \column{0.32\linewidth}
-      \textbf{Чтение статьи}\
-      Schulz K. et al. CONSORT 2010 Statement. BMJ, 2010.\
-      von Elm E. et al. STROBE Statement. PLoS Med, 2007.\
-      Greenhalgh T. How to Read a Paper. BMJ, 1997.\
-      Johansson M. et al. Aerobic Exercise in Parkinson's Disease. Ann Neurol, 2022.\
+      \textbf{Чтение статьи}\\
+      Schulz K. et al. CONSORT 2010 Statement. BMJ, 2010.\\
+      von Elm E. et al. STROBE Statement. PLoS Med, 2007.\\
+      Greenhalgh T. How to Read a Paper. BMJ, 1997.\\
+      Johansson M. et al. Aerobic Exercise in Parkinson's Disease. Ann Neurol, 2022.\\
       Датасет: UCI Heart Disease (1989)
   \end{columns}
 \end{frame}
