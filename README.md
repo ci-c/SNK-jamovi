@@ -11,7 +11,7 @@
 
 - Программа Jamovi: <https://www.jamovi.org/download.html>.
 - Набор данных UCI Heart Disease: <https://archive.ics.uci.edu/dataset/451/heart+disease>.
-- Репозиторий заседания: <https://github.com/USERNAME/SNK-jamovi>. Адрес заменяется на реальный после публикации.
+- Репозиторий заседания: <https://github.com/ci-c/SNK-jamovi>. Адрес заменяется на реальный после публикации.
 
 ## Что находится в репозитории
 
