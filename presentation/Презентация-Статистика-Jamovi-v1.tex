@@ -622,7 +622,7 @@
 \begin{frame}{Ящичная диаграмма: группы и разброс}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
-      \includegraphics[width=0.45\linewidth]{plot_boxplot.png}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{plot_boxplot.png}
     \column{0.48\linewidth}
       \begin{block}{Что где}\scriptsize
         Ось $X$ показывает группы \texttt{target}: отсутствие и наличие болезни. Ось $Y$ показывает уровень холестерина в мг/дл. Линия внутри ящика задаёт медиану, ящик показывает межквартильный размах, а отдельные точки показывают выбросы.
@@ -633,7 +633,7 @@
 \begin{frame}{Диаграмма рассеяния: возраст и максимальная ЧСС}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
-      \includegraphics[width=0.45\linewidth]{plot_scatter.png}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{plot_scatter.png}
     \column{0.48\linewidth}
       \begin{block}{Что где}\scriptsize
         Ось $X$ показывает возраст в годах, а ось $Y$ показывает максимальную частоту сердечных сокращений в ударах в минуту. Каждая точка соответствует одному пациенту. Линия регрессии показывает направление связи.
@@ -644,16 +644,56 @@
 \begin{frame}{Гистограмма: распределение возраста}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
-      \includegraphics[width=0.45\linewidth]{plot_histogram.png}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{plot_histogram.png}
     \column{0.48\linewidth}
       \begin{block}{Что где}\scriptsize
         Ось $X$ показывает возраст в годах, а ось $Y$ показывает число пациентов. Высота столбца задаёт частоту попадания наблюдений в интервал. Гистограмма показывает форму распределения.
       \end{block}
   \end{columns}
-  \vspace{0.1cm}
-  \begin{block}{Что встречается в реальных статьях}\tiny
-    При чтении клинических статей чаще всего встречаются таблица характеристик пациентов, поток участников, ящичные диаграммы, диаграммы рассеяния с линией регрессии, кривые Каплана--Мейера, форест-плоты, графики остатков и ROC-кривые. По оценке автора этот набор покрывает около 95\% типичных элементов, за некоторым исключением редких методов.
-  \end{block}
+\end{frame}
+
+\begin{frame}{Кривые Каплана--Мейера: время до события}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{km_schematic.png}
+    \column{0.43\linewidth}
+      \begin{block}{Что где}\footnotesize
+        Ось $X$ показывает время после начала наблюдения, а ось $Y$ показывает долю пациентов без события. Каждый уступ кривой соответствует событию, а вертикальные отметки показывают цензурирование. Медиана времени до события считывается по пересечению кривой с уровнем 0,5.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Форест-плот: эффекты исследований}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{forest_schematic.png}
+    \column{0.43\linewidth}
+      \begin{block}{Что где}\footnotesize
+        Ось $X$ показывает величину эффекта, а каждая строка соответствует исследованию. Точка задаёт оценку эффекта, линия показывает 95\% доверительный интервал. Вертикальная линия нуляотделяет отсутствие эффекта, а ромб показывает объединённую оценку.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{График остатков: проверка модели}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\linewidth}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{residuals_schematic.png}
+    \column{0.43\linewidth}
+      \begin{block}{Что где}\footnotesize
+        Ось $X$ показывает предсказанные значения, а ось $Y$ показывает остатки. Точки должны располагаться вокруг нуля без воронки и систематических дуг. Воронка указывает на нарушение гомоскедастичности.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ROC-кривая: точность бинарного классификатора}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{roc_schematic.png}
+    \column{0.48\linewidth}
+      \begin{block}{Что где}\footnotesize
+        Ось $X$ показывает долю ложноположительных результатов, а ось $Y$ показывает долю истинноположительных результатов. Каждая точка кривой соответствует порогу принятия решения. Площадь под кривой описывает качество классификации, а пунктирная диагональ соответствует случайному угадыванию.
+      \end{block}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Подпись графика содержит обязательные элементы}
@@ -676,7 +716,7 @@
     \column{0.48\linewidth}
       \begin{block}{Байесовский вывод}\footnotesize
         «Во сколько раз данные согласуются с $H_1$ лучше, чем с $H_0$?»\\
-        $\text{BF}_{10} = P(\text{данные} \mid H_1) / P(\text{данные} \mid H_0)$.
+        $\text{BF}_{10} = p(D\mid H_1)/p(D\mid H_0)$.
       \end{block}
   \end{columns}
   \begin{block}{Главное отличие}\footnotesize
