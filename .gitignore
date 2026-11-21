@@ -18,3 +18,7 @@ TODO.md
 TEXT_REQUIREMENTS.md
 Jamovi_Workshop_Handover.md
 literature/rct.txt
+
+# Python cache
+__pycache__/
+*.pyc
