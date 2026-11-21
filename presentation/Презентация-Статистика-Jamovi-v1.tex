@@ -30,7 +30,7 @@
 % Тип слайда «полноэкранный скриншот» (только для этой презентации)
 %   \begin{screenslide}{Заголовок}{Файл скриншота}\end{screenslide}
 % Скриншот занимает весь слайд; заголовок и футер полупрозрачными прямоугольниками
-% накладываются поверх; комментарий — отдельно до скриншота.
+% накладываются поверх; комментарий размещается отдельно до скриншота.
 % -----------------------------------------------------------------------------
 \newenvironment{screenslide}[2]{%
   \begin{frame}[plain]%
@@ -61,7 +61,7 @@
 }{}
 
 % -----------------------------------------------------------------------------
-% Титульный и контактный слайды — по дизайну презентации P-11:
+% Титульный и контактный слайды оформлены по дизайну презентации P-11:
 % тёмно-синий фон, горизонтальный логотип вуза с названием
 % -----------------------------------------------------------------------------
 \newcommand{\workshoptitleslide}{%
@@ -79,7 +79,7 @@
         \vspace{0.15em}
         {\scriptsize ВрИО старосты СНК кафедры медицинской информатики и физики\par}
         \vspace{0.15em}
-        {\scriptsize Совместно со СНК по педиатрии и детской кардиологии\par}
+        {\scriptsize Совместно со СНК кафедры педиатрии и детской кардиологии СЗГМУ им. И.И. Мечникова\par}
         \vspace{0.4em}
         {\scriptsize Санкт-Петербург, 2026\par}
       \end{center}
@@ -131,6 +131,8 @@
 % TODO: репозиторий ещё не опубликован. После публикации заменить URL
 % на реальный и перекомпилировать PDF (lualatex ×2).
 \newcommand{\RepoURL}{https://github.com/USERNAME/SNK-jamovi}
+\newcommand{\JamoviURL}{https://www.jamovi.org/download.html}
+\newcommand{\DataURL}{https://archive.ics.uci.edu/dataset/451/heart+disease}
 
 \title[Введение в медицинскую статистику]{Введение в медицинскую статистику}
 \author[И. Р. Проханин]{Проханин Иван Русланович, ВрИО старосты СНК кафедры медицинской информатики и физики}
@@ -150,11 +152,11 @@
       \qrcode[height=3.6cm]{\RepoURL}
     \column{0.54\linewidth}
       \begin{itemize}
-        \item Презентация, сценарий и датасет --- в репозитории
-        \item QR-код на слайде; ссылка вводится вручную
+        \item Презентация, сценарий и датасет хранятся в репозитории цикла.
+        \item QR-код расположен на слайде, ссылка продублирована в посте.
       \end{itemize}
       \vspace{0.3cm}
-      {\small \texttt{github.com/USERNAME/SNK-jamovi}}
+      {\footnotesize \url{\RepoURL}}
   \end{columns}
 \end{frame}
 
@@ -162,242 +164,254 @@
   \begin{columns}[T,onlytextwidth]
     \column{0.47\linewidth}
       \begin{itemize}
-        \item Заседание 1: данные, описание, нормальность, сравнение групп
-        \item Заседание 2: корреляция, регрессия, категориальные данные, графики
+        \item Первое заседание посвящено данным, описанию, нормальности и сравнению групп.
+        \item Второе заседание посвящено корреляции, регрессии, категориальным данным и графикам.
       \end{itemize}
     \column{0.47\linewidth}
       \begin{itemize}
-        \item Заседание 3: байесовский подход, чтение статьи
-        \item Заседание 4: критический разбор, ИИ, итоги
+        \item Третье заседание посвящено байесовскому статистическому выводу и чтению статьи.
+        \item Четвёртое заседание посвящено критическому разбору, ИИ и итогам.
       \end{itemize}
   \end{columns}
   \vspace{0.4cm}
   \begin{block}{Формат}
-    Четыре заседания по 120 минут; практикум: демонстрация --- повторение. Датасет --- открытые данные UCI.
+    Формально указан формат одного заседания на 60 минут. Материал подготовлен с запасом; редактура и урезание будут выполнены позже. Ведущий демонстрирует действия, слушатели повторяют их.
   \end{block}
 \end{frame}
 
 \section{Введение}
 
-\begin{frame}{Зачем статистика}
+\begin{frame}{Статистика служит языком научных результатов}
   \begin{itemize}
-    \item Статистика --- не математика, а \textbf{язык}, на котором наука сообщает результаты
-    \item Рассматриваются инструменты: таблица и её чтение
+    \item Статистика выступает \textbf{языком}, на котором наука сообщает результаты.
+    \item Рассматриваются инструменты получения таблицы и её чтения.
   \end{itemize}
   \begin{block}{К концу цикла}
-    откроете Jamovi $\to$ посчитаете показатели и тесты $\to$ прочитаете $p$-value и CI.
+    К концу цикла слушатель открывает Jamovi, рассчитывает показатели и тесты, читает $p$-значение и доверительный интервал.
   \end{block}
 \end{frame}
 
-\begin{frame}{Jamovi: что это и где скачать}
+\begin{frame}{Возможности Jamovi и установка программы}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\linewidth}
-      \begin{block}{Что это}
+      \begin{block}{Возможности программы}
         \begin{itemize}
-          \item Бесплатная open-source программа
-          \item Меню вместо кода (аналог SPSS)
-          \item Готовые таблицы --- сразу для статьи
+          \item Программа распространяется бесплатно, её исходный код открыт.
+          \item Работа выполняется через меню, поэтому знание языка R не требуется.
+          \item Программа формирует таблицы, готовые к переносу в статью.
         \end{itemize}
       \end{block}
     \column{0.46\linewidth}
-      \begin{block}{Где скачать}
+      \begin{block}{Установка}
         \begin{itemize}
-          \item \texttt{jamovi.org} $\to$ Install
-          \item Windows, macOS, Linux (flatpak)
+          \item Установщик доступен на странице \footnotesize\texttt{www.jamovi.org/download.html}.
+          \item Поддерживаются Windows, macOS и Linux; для Linux используется flatpak.
         \end{itemize}
       \end{block}
   \end{columns}
-  \vspace{0.3cm}
-  \begin{block}{Интерфейс}
-    Слева --- данные, справа --- результаты, меню сверху.
+  \vspace{0.15cm}
+  \begin{block}{Интерфейс}\tiny
+    Данные расположены слева, результаты справа, меню сверху.
   \end{block}
+\end{frame}
+
+\begin{screenslide}{Страница загрузки Jamovi содержит ссылку Download Desktop}{jamovi-download-page.png}\end{screenslide}
+
+\begin{frame}{Ссылки для скачивания программы и данных}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.47\linewidth}
+      \centering
+      \qrcode[height=3.4cm]{\JamoviURL}\par\vspace{0.2cm}
+      {\small \url{\JamoviURL}}
+    \column{0.47\linewidth}
+      \centering
+      \qrcode[height=3.4cm]{\DataURL}\par\vspace{0.2cm}
+      {\small \url{\DataURL}}
+  \end{columns}
 \end{frame}
 
 \section{Данные}
 
-\begin{screenslide}{Jamovi: данные загружены (303 пациента, 14 колонок)}{jamovi-data-view.png}\end{screenslide}
+\begin{screenslide}{После импорта в Jamovi отображаются 303 пациента и 14 колонок}{jamovi-data-view.png}\end{screenslide}
 
-\begin{frame}{Что в данных}
+\begin{frame}{Какие переменные содержатся в наборе данных}
   \begin{itemize}
-    \item Непрерывные: \texttt{age}, \texttt{chol}, \texttt{thalach}, \texttt{oldpeak}
-    \item Категориальные: \texttt{cp} (4 типа боли), \texttt{sex}, \texttt{fbs}, \texttt{exang}
-    \item Исход: \texttt{target} --- 1 есть болезнь, 0 нет
+    \item К непрерывным переменным относятся \texttt{age}, \texttt{chol}, \texttt{thalach} и \texttt{oldpeak}.
+    \item К категориальным переменным относятся \texttt{cp} с четырьмя типами боли, \texttt{sex}, \texttt{fbs} и \texttt{exang}.
+    \item Исход \texttt{target} принимает значение 1 при наличии болезни и 0 при её отсутствии.
   \end{itemize}
   \begin{block}{Открытые данные}
-    UCI Heart Disease, 303 пациента. Никаких реальных данных пациентов в работе не используется.
+    Набор данных UCI Heart Disease содержит 303 пациента. Персональные данные пациентов в работе не используются.
   \end{block}
 \end{frame}
 
-\begin{frame}{Сначала типы переменных, потом тесты}
+\begin{frame}{Типы переменных задаются до выполнения тестов}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
-      \begin{block}{Nominal --- коды-подписи}\small
+      \begin{block}{Номинальные переменные содержат коды-подписи}\small
         \texttt{sex}, \texttt{cp}, \texttt{fbs}, \texttt{restecg},\\
         \texttt{exang}, \texttt{slope}, \texttt{ca}, \texttt{thal}, \texttt{target}
       \end{block}
-      \begin{block}{Continuous --- числа}\small
+      \begin{block}{Непрерывные переменные содержат числа}\small
         \texttt{age}, \texttt{trestbps}, \texttt{chol}, \texttt{thalach}, \texttt{oldpeak}
       \end{block}
     \column{0.46\linewidth}
       \centering\includegraphics[width=\linewidth,height=4.5cm,keepaspectratio]{variables_types.png}
   \end{columns}
-  \begin{block}{Обязательный шаг}
-    Jamovi: \texttt{Variables} $\to$ строка переменной $\to$ \texttt{Measure type = Nominal}.
-    Иначе \texttt{sex} не станет группирующей переменной, а \texttt{cp} получит
-    «средний тип боли в груди».
+  \begin{block}{Обязательный шаг}\footnotesize
+    В Jamovi откройте вкладку \texttt{Variables}, выберите строку переменной и установите \texttt{Measure type = Nominal}. При сохранении числового типа переменная \texttt{sex} недоступна как группирующая, а переменная \texttt{cp} получает бессмысленное среднее.
   \end{block}
 \end{frame}
 
 \section{Описательная статистика}
 
-\begin{frame}{Описательная статистика: центр и разброс}
+\begin{frame}{Описательная статистика описывает центр и разброс}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\linewidth}
       \begin{block}{Центр}
         \begin{itemize}
-          \item Mean --- для симметричных распределений
-          \item Median --- для скошенных и с выбросами
+          \item Среднее значение применяется при симметричном распределении.
+          \item Медиана применяется при скошенном распределении и выбросах.
         \end{itemize}
       \end{block}
     \column{0.46\linewidth}
       \begin{block}{Разброс}
         \begin{itemize}
-          \item SD --- пару со средним
-          \item IQR --- пару с медианой
+          \item Стандартное отклонение указывается вместе со средним.
+          \item Межквартильный размах указывается вместе с медианой.
         \end{itemize}
       \end{block}
   \end{columns}
   \vspace{0.3cm}
   \begin{block}{Ключевое положение}
-    Разброс важнее среднего: одинаковые средние $\neq$ одинаковые данные.
+    Разброс дополняет среднее: одинаковые средние значения могут соответствовать разным данным.
   \end{block}
 \end{frame}
 
-\begin{frame}{Descriptives: как посчитать в Jamovi}
+\begin{frame}{Как рассчитать описательные показатели в Jamovi}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\linewidth}
       \begin{enumerate}
-        \item \texttt{Exploration} $\to$ \texttt{Descriptives}
-        \item Перетащить \texttt{age}, \texttt{chol}, \texttt{thalach}
-        \item \texttt{Statistics}: Mean, SD, Median, Min, Max; Q1/Q3 --- Percentiles (25, 75)
+        \item Откройте раздел \texttt{Exploration} и выберите \texttt{Descriptives}.
+        \item Перенесите переменные \texttt{age}, \texttt{chol} и \texttt{thalach} в поле \texttt{Variables}.
+        \item В разделе \texttt{Statistics} включите Mean, SD, Median, Min и Max. Для квартилей задайте Percentiles равными 25 и 75.
       \end{enumerate}
     \column{0.43\linewidth}
       \centering\includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{desc_table.png}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Как записывать результат в статье}
+\begin{frame}{Описательный результат записывают одной формулировкой}
   \begin{block}{Готовая формула}
     «Возраст пациентов составил \textbf{54,4 $\pm$ 9,0 года} (медиана 56; межквартильный размах 48--61)».
   \end{block}
   \begin{itemize}
-    \item Среднее $\pm$ SD --- при симметричном распределении
-    \item Медиана (IQR) --- при скошенности или выбросах
-    \item Всегда указывайте $n$
+    \item Среднее и стандартное отклонение указывают при симметричном распределении.
+    \item Медиану и межквартильный размах указывают при скошенном распределении или выбросах.
+    \item Объём выборки указывается в каждой формулировке.
   \end{itemize}
 \end{frame}
 
 \section{Нормальность}
 
-\begin{frame}{Нормальность в Jamovi: Шапиро--Уилк}
+\begin{frame}{Проверка нормальности в Jamovi с помощью критерия Шапиро--Уилка}
   \begin{columns}[T,onlytextwidth]
     \column{0.52\linewidth}
       \begin{enumerate}
-        \item \texttt{Exploration} $\to$ \texttt{Descriptives}
-        \item Перетащить \texttt{thalach}, \texttt{oldpeak}
-        \item \texttt{Statistics} $\to$ \texttt{Normality}
+        \item Откройте раздел \texttt{Exploration} и выберите \texttt{Descriptives}.
+        \item Перенесите переменные \texttt{thalach} и \texttt{oldpeak} в поле \texttt{Variables}.
+        \item В разделе \texttt{Statistics} включите \texttt{Normality}.
       \end{enumerate}
-      \begin{block}{Что читаем}
-        $W$ и $p$ для каждой переменной. $p < 0{,}001$ --- нормальность
-        отвергается; дальше смотрим гистограмму и Q-Q.
+      \begin{block}{Что читается}
+        Критерий возвращает статистику $W$ и $p$-значение для каждой переменной. При $p < 0{,}001$ гипотеза о нормальности отвергается, после чего рассматриваются гистограмма и Q-Q-график.
       \end{block}
     \column{0.44\linewidth}
       \centering\includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{norm_table.png}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Когда проверять нормальность}
+\begin{frame}{Проверка нормальности определяет выбор критерия}
   \begin{itemize}
-    \item Нужна t-тесту и корреляции Пирсона при $n < 30$--50
-    \item Скошенность + малая выборка $\to$ Манн--Уитни, Спирмен
-    \item При $n = 303$ Шапиро--Уилк почти всегда $p < 0{,}05$ --- смотрите гистограмму и Q-Q
+    \item Проверка требуется t-критерию и корреляции Пирсона при объёме выборки менее 30--50 наблюдений.
+    \item При скошенном распределении и малом объёме выборки применяются критерий Манна--Уитни и корреляция Спирмена.
+    \item При $n = 303$ критерий Шапиро--Уилка часто даёт $p < 0{,}05$, поэтому решение принимают по гистограмме и Q-Q-графику.
   \end{itemize}
   \begin{block}{Требование}
-    Это не ритуал, а ответ на вопрос «какой критерий выбирать дальше».
+    Проверка нормальности определяет выбор критерия.
   \end{block}
 \end{frame}
 
 \section{Сравнение групп}
 
-\begin{frame}{Связанные и несвязанные выборки}
+\begin{frame}{Выборки бывают связанными и несвязанными}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\linewidth}
-      \begin{block}{Несвязанные}
+      \begin{block}{Несвязанные выборки содержат разных пациентов}
         \begin{itemize}
-          \item Разные люди: мужчины vs женщины
+          \item Разные пациенты образуют несвязанные выборки, например группы по полу.
           \item \texttt{Independent Samples T-Test}
         \end{itemize}
       \end{block}
     \column{0.46\linewidth}
-      \begin{block}{Связанные}
+      \begin{block}{Связанные выборки содержат повторные измерения}
         \begin{itemize}
-          \item Одни и те же люди: «до / после»
+          \item Одни и те же пациенты с измерениями до и после образуют связанные выборки.
           \item \texttt{Paired Samples T-Test}
         \end{itemize}
       \end{block}
   \end{columns}
   \vspace{0.3cm}
-  \begin{block}{Выбор теста --- три вопроса}
+  \begin{block}{Выбор критерия определяется тремя вопросами}
     Сколько групп? Независимы ли группы? Нормально ли распределение?
   \end{block}
 \end{frame}
 
-\begin{screenslide}{Independent Samples T-Test: chol различается по sex (p < 0,001)}{tt8.png}\end{screenslide}
+\begin{screenslide}{Критерий Independent Samples T-Test показывает различие chol по sex (p < 0,001)}{tt8.png}\end{screenslide}
 
-\begin{frame}{T-тест: читаем вывод}
+\begin{frame}{Как читать результат t-критерия}
   \begin{itemize}
-    \item $t = 3{,}54$, $df = 301$, $p < 0{,}001$ --- различие \textbf{значимо} при $\alpha = 0{,}05$
-    \item Разница средних 22,2; \textbf{95\% CI [9,8; 34,5]} --- не пересекает 0 $\to$ значимо
-    \item Levene $p < 0{,}001$ --- дисперсии разные: добавьте Welch ($t = 3{,}06$, $p = 0{,}003$)
+    \item При $|t| = 3{,}54$, $df = 301$ и $p < 0{,}001$ различие является \textbf{значимым} при уровне значимости $\alpha = 0{,}05$.
+    \item Разница средних составляет 22,2. \textbf{95\% доверительный интервал [9,8; 34,5]} не пересекает ноль.
+    \item Критерий Левена даёт $p < 0{,}001$, поэтому дисперсии различаются. Основным считается результат Уэлча: $t = 3{,}06$, $p = 0{,}00263$; вывод сохраняется.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Что такое p-value}
+\begin{frame}{Что показывает p-значение}
   \begin{block}{Определение}
-    Вероятность увидеть такое или более экстремальное различие, \textbf{если различий на самом нет}.
+    $p$-значение равно вероятности получить такое или более крайнее различие при отсутствии различия в генеральной совокупности.
   \end{block}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\linewidth}
-      \begin{block}{Это НЕ}
+      \begin{block}{Смысл p-значения}
         \begin{itemize}
-          \item вероятность нулевой гипотезы
-          \item величина эффекта
+          \item $p$-значение описывает данные при нулевой гипотезе.
+          \item Величина эффекта оценивается разницей средних и доверительным интервалом.
         \end{itemize}
       \end{block}
     \column{0.46\linewidth}
-      \begin{block}{Это ДА}
+      \begin{block}{Свойства p-значения}
         \begin{itemize}
-          \item критерий: отвергать или нет
-          \item зависит от $n$
+          \item $p$-значение используют для решения об отвержении нулевой гипотезы.
+          \item $p$-значение зависит от объёма выборки.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Доверительный интервал}
-  \begin{block}{Что это}
-    Диапазон значений, согласующихся с данными (95\%).
+\begin{frame}{Доверительный интервал показывает согласующиеся значения}
+  \begin{block}{Смысл формулы}
+    Доверительный интервал образует диапазон значений, согласующихся с данными при 95\% доверительном уровне.
   \end{block}
   \begin{itemize}
-    \item CI разности \textbf{не пересекает} 0 $\to$ различие значимо
-    \item Чем уже интервал, тем точнее оценка
+    \item Доверительный интервал разности не пересекает ноль, поэтому различие значимо.
+    \item Более узкий интервал соответствует более точной оценке.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Памятка: какой тест когда}
+\begin{frame}{Памятка по выбору критерия}
   \centering
   \scriptsize
-  \renewcommand{\arraystretch}{1.15}
+  \renewcommand{\arraystretch}{0.95}
   \begin{tabular}{@{}p{3.4cm}p{3.4cm}p{4.6cm}@{}}
     \toprule
     \rowcolor{uniblue}
@@ -418,38 +432,37 @@
     Ассоциация категорий & обе категориальные (частоты) & Chi-square test\\
     \rowcolor{unilightblue!50}
     Прогноз & зависимая непрерывная & Linear regression\\
-    Прогноз & зависимая --- «да / нет» & Logistic regression\\
+    Прогноз & зависимая переменная принимает значения «да» или «нет» & Logistic regression\\
     \bottomrule
   \end{tabular}
 \end{frame}
 
 \section{Корреляция и регрессия}
 
-\begin{frame}{Корреляционная матрица: r(thalach, age) = $-0{,}39$}
+\begin{frame}{Корреляция возраста и максимальной ЧСС равна $-0{,}39$}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
       \begin{block}{Выполнено в Jamovi}
-        \texttt{Regression} $\to$ \texttt{Correlation Matrix}; переменные
-        \texttt{thalach}, \texttt{age}, \texttt{chol}; включены Pearson и Spearman.
+        В Jamovi открыт раздел \texttt{Regression} и выбран \texttt{Correlation Matrix}. Переменные \texttt{thalach}, \texttt{age} и \texttt{chol} включены в анализ. Рассчитаны корреляции Пирсона и Спирмена.
       \end{block}
-      \small $r = -0{,}39$, $p < 0{,}001$ при $n = 303$: связь умеренная, направление отрицательное.
+      \small При $n = 303$ получено $r = -0{,}39$, $p < 0{,}001$: связь умеренная, направление отрицательное.
     \column{0.46\linewidth}
       \centering\includegraphics[width=\linewidth]{corr_table.png}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Как читать $r$}
+\begin{frame}{Как интерпретировать коэффициент корреляции}
   \begin{itemize}
-    \item $r \in [-1; +1]$: знак --- направление, модуль --- сила
-    \item $r = -0{,}39$ для \texttt{thalach} $\times$ \texttt{age}: с возрастом максимальная ЧСС падает
-    \item Pearson --- для нормальных, Spearman --- для скошенных и порядковых
+    \item Коэффициент $r$ принимает значения от $-1$ до $+1$. Знак определяет направление связи, модуль характеризует её силу.
+    \item Для переменных \texttt{thalach} и \texttt{age} коэффициент равен $-0{,}39$; с возрастом максимальная ЧСС снижается.
+    \item Корреляция Пирсона применяется при нормальном распределении. Корреляция Спирмена применяется при скошенном распределении и для порядковых шкал.
   \end{itemize}
-  \begin{alertblock}{Корреляция $\neq$ причинность}
-    Общая причина (возраст) порождает связь там, где прямой связи нет.
+  \begin{alertblock}{Корреляция не устанавливает причинность}
+    Общая причина может создавать связь между переменными.
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{Линейная регрессия: B(age) = $-1{,}02$ для thalach}
+\begin{frame}{Линейная регрессия связывает возраст и максимальную ЧСС}
   \centering\footnotesize
   \begin{tabular}{lccccc}
     \textbf{Предиктор} & $B$ & $SE$ & $t$ & $p$ & 95\% CI \\ \hline
@@ -458,23 +471,23 @@
     \texttt{sex} & $-4{,}30$ & 2,60 & $-1{,}66$ & $0{,}099$ & [$-9{,}42$; 0,81]
   \end{tabular}
   \par\vspace{0.3cm}
-  \begin{block}{Чтение таблицы}
-    $R^2 = 0{,}16$; каждый год возраста связан со снижением ЧСС на 1,02 уд/мин.
+  \begin{block}{Как читать таблицу}
+    Модель имеет $R^2 = 0{,}16$. Каждый год возраста связан со снижением максимальной ЧСС на 1,02 удара в минуту.
   \end{block}
 \end{frame}
 
-\begin{frame}{Регрессия: формула для статьи}
+\begin{frame}{Как записать результат регрессии в статье}
   \begin{block}{Пример}
     «Связь возраста с максимальной ЧСС отрицательная: $B = -1{,}02$ (95\% CI $-1{,}28$; $-0{,}75$), $p < 0{,}001$».
   \end{block}
   \begin{alertblock}{Осторожно}
-    Причинные выводы требуют дизайна исследования, а не только $p$.
+    Причинные выводы требуют соответствующего дизайна исследования.
   \end{alertblock}
 \end{frame}
 
 \section{Категориальные данные}
 
-\begin{frame}{Таблица сопряжённости: \texttt{cp} $\times$ \texttt{target}}
+\begin{frame}{Таблица сопряжённости связывает cp и target}
   \centering
   \begin{tabular}{lccc}
     \textbf{Критерий} & $\chi^2$ & $df$ & $p$ \\ \hline
@@ -482,19 +495,18 @@
   \end{tabular}
   \par\vspace{0.3cm}
   \begin{block}{Проверка и вывод}
-    Минимальная ожидаемая частота 10,55 (более 5); Cramér's V = 0,52 ---
-    умеренная связь типа боли с наличием болезни.
+    Минимальная ожидаемая частота равна 10,55 и превышает 5. $V$ Крамера равен 0,52, что указывает на умеренную связь типа боли с наличием болезни.
   \end{block}
 \end{frame}
 
-\begin{frame}{Как читать хи-квадрат}
+\begin{frame}{Как интерпретировать критерий хи-квадрат}
   \begin{itemize}
-    \item $\chi^2$, $df$, \textbf{$p$} --- тот же принцип, что в t-тесте
-    \item Много ожидаемых частот $< 5$ --- вывод осторожный
-    \item Cramér's V --- «сила связи» для категорий (0--1)
+    \item Статистика $\chi^2$, числа степеней свободы и $p$-значение интерпретируются по тем же правилам, что и результат t-критерия.
+    \item При ожидаемых частотах менее 5 вывод делается осторожно.
+    \item $V$ Крамера измеряет силу связи между категориальными признаками и принимает значения от 0 до 1.
   \end{itemize}
-  \begin{block}{Всё уже знакомо}
-    Меняется только таблица: $p$, значимость и эффект --- те же понятия.
+  \begin{block}{Знакомые понятия}
+    Изменяется только вид таблицы; $p$-значение, значимость и величина эффекта сохраняют тот же смысл.
   \end{block}
 \end{frame}
 
@@ -511,17 +523,17 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Обязательные элементы подписи графика}
+\begin{frame}{Подпись графика содержит обязательные элементы}
   \begin{itemize}
-    \item Ось $X$, ось $Y$, заголовок, единицы измерения
-    \item В Jamovi: \texttt{Plot \& Axis Titles}
+    \item Подпись содержит оси $X$ и $Y$, заголовок и единицы измерения.
+    \item В Jamovi эти элементы задаются в разделе \texttt{Plot \& Axis Titles}.
   \end{itemize}
 \end{frame}
 
 
-\section{Байесовский подход}
+\section{Байесовский статистический вывод}
 
-\begin{frame}{Два разных вопроса о данных}
+\begin{frame}{Частотный критерий и байесовский статистический вывод задают разные вопросы}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\linewidth}
       \begin{block}{Частотный тест}
@@ -529,43 +541,46 @@
         $p = P(\text{данные или крайнее} \mid H_0)$.
       \end{block}
     \column{0.48\linewidth}
-      \begin{block}{Байесовский подход}
+      \begin{block}{Байесовский вывод}
         «Во сколько раз данные согласуются с $H_1$ лучше, чем с $H_0$?»\\
         $\text{BF}_{10} = P(\text{данные} \mid H_1) / P(\text{данные} \mid H_0)$.
       \end{block}
   \end{columns}
   \begin{block}{Главное отличие}
-    $p$ --- про данные при гипотезе; BF --- про относительные шансы гипотез при данных.
-    $p = 0{,}03$ \textbf{не} означает «вероятность $H_0$ --- 3\%».
+    $p$-значение описывает данные при заданной гипотезе, а байесовский фактор обновляет априорные шансы гипотез. $p$-значение 0{,}03 равно вероятности получить такие или более крайние данные при нулевой гипотезе.
   \end{block}
 \end{frame}
 
-\begin{frame}{От prior к posterior}
+\begin{frame}{От априорного распределения к апостериорному}
   \begin{columns}[T,onlytextwidth]
     \column{0.57\linewidth}
-      \includegraphics[width=\linewidth]{bayes_prior_posterior.png}
+      \includegraphics[width=0.72\linewidth]{bayes_prior_posterior.png}
+      \par\vspace{0.1cm}
+      {\scriptsize
+        \[p(\theta \mid D) \propto p(D \mid \theta)\,p(\theta)\]
+        $p(\theta \mid D)$ — апостериорное распределение;
+        $p(D \mid \theta)$ — функция правдоподобия;
+        $p(\theta)$ — априорное распределение.}
     \column{0.41\linewidth}
-      \begin{block}{Три шага}
+      \begin{block}{Три этапа вывода}\footnotesize
         \begin{enumerate}
-          \item \textbf{Prior}: что мы думали до данных
-          \item \textbf{Likelihood}: что говорят данные
-          \item \textbf{Posterior}: обновлённое убеждение
+          \item \textbf{Априорное распределение} описывает представления до наблюдения данных.
+          \item \textbf{Функция правдоподобия} отражает информацию в данных.
+          \item \textbf{Апостериорное распределение} описывает обновлённые представления.
         \end{enumerate}
       \end{block}
-      \small Posterior $\propto$ Prior $\times$ Likelihood.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Шкала Bayes factor}
+\begin{frame}{Шкала байесовского фактора}
   \centering\includegraphics[width=0.96\linewidth]{bayes_bf_scale.png}
   \vspace{0.2cm}
   \begin{block}{Как читать}
-    BF$_{10} = 10$ --- данные в 10 раз более согласованы с $H_1$, чем с $H_0$.
-    BF$_{10} < 1/3$ --- данные скорее за $H_0$; BF $\approx 1$ --- данных недостаточно.
+    При BF$_{10} = 10$ данные в 10 раз более согласованы с $H_1$, чем с $H_0$. При BF$_{10} < 1/3$ данные скорее согласуются с $H_0$. При BF $\approx 1$ данных недостаточно для вывода.
   \end{block}
 \end{frame}
 
-\begin{frame}{BF на наших данных}
+\begin{frame}{Байесовский фактор на данных датасета}
   \begin{center}
     \begin{tabular}{lccc}
       \textbf{Переменная по \texttt{sex}} & $t$ & $p$ & BF$_{10}$ \\ \hline
@@ -574,61 +589,59 @@
     \end{tabular}
   \end{center}
   \begin{itemize}
-    \item \texttt{chol}: сильные доказательства в пользу различий (BF$_{10} > 10$)
-    \item \texttt{thalach}: BF$_{01} = 4{,}5$ --- умеренные доказательства \textbf{в пользу отсутствия} различий
-    \item В Jamovi: \texttt{T-Tests} $\to$ галочка \texttt{Bayes factor}; prior по умолчанию $r = 0{,}707$ (JZS, Rouder et al., 2009)
+    \item Для \texttt{chol} получены сильные доказательства в пользу различий (BF$_{10} > 10$).
+    \item Для \texttt{thalach} значение BF$_{01} = 4{,}5$ указывает на умеренные доказательства \textbf{отсутствия} различий.
+    \item В Jamovi галочка \texttt{Bayes factor} включается в опциях \texttt{T-Tests}. Используется априор Джеффриса--Зельнера--Сиоу (JZS) с $r = 0{,}707$ (Rouder et al., 2009).
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Оценивание вместо «принять/отвергнуть»}
+\begin{frame}{Байесовское оценивание параметров}
   \begin{columns}[T,onlytextwidth]
     \column{0.57\linewidth}
-      \includegraphics[width=\linewidth]{bayes_posterior_rope.png}
+      \includegraphics[width=0.8\linewidth]{bayes_posterior_rope.png}
     \column{0.41\linewidth}
-      \begin{block}{Проверяемые элементы}
+      \begin{block}{Проверяемые элементы}\scriptsize
         \begin{itemize}
-          \item Posterior-распределение эффекта
-          \item 95\% CrI --- правдоподобные значения
-          \item ROPE --- область практически нулевого эффекта
+          \item Апостериорное распределение показывает правдоподобные значения эффекта.
+          \item 95\% апостериорный интервал (credible interval, CrI) содержит 95\% апостериорной вероятности.
+          \item Область практической эквивалентности (ROPE) задаёт диапазон пренебрежимо малых значений эффекта.
         \end{itemize}
       \end{block}
-      \small CrI $\neq$ доверительный интервал по смыслу.
+      \footnotesize Апостериорный интервал (CrI) по смыслу отличается от доверительного интервала.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Как сообщать байесовский результат}
+\begin{frame}{Как сообщить результат байесовского анализа}
   \begin{enumerate}
-    \item Укажите \textbf{тип теста и prior}: JZS $t$-test, Cauchy $r = 0{,}707$.
-    \item Дайте \textbf{BF$_{10}$} (или BF$_{01}$) и расшифруйте сторону доказательств.
-    \item Для оценивания --- \textbf{медиану и 95\% CrI}, отношение к ROPE.
-    \item Проверьте \textbf{чувствительность}: меняется ли вывод при другом prior.
+    \item Укажите \textbf{тип теста и априор}: $t$-тест с априором Джеффриса--Зельнера--Сиоу (JZS) и априором Коши $r = 0{,}707$.
+    \item Дайте \textbf{байесовский фактор BF$_{10}$} (или BF$_{01}$) и расшифруйте сторону доказательств.
+    \item Для оценивания сообщаются \textbf{медиана и 95\% апостериорный интервал (CrI)}, а также отношение к ROPE.
+    \item Проверяется \textbf{чувствительность}: меняется ли вывод при другом априоре.
   \end{enumerate}
   \begin{block}{Частая ошибка}
-    «BF$_{10} = 26{,}5$ означает 96\% вероятность $H_1$» --- нет. BF --- отношение правдоподобий, а не Posterior-вероятность гипотезы.
+    Байесовский фактор является отношением маргинальных правдоподобий. Утверждение «BF$_{10} = 26{,}5$ означает 96\% вероятность $H_1$» ошибочно.
   \end{block}
 \end{frame}
-
-\section{Байесовский подход: углубление}
 
 \begin{frame}{Теорема Байеса в форме шансов}
   \centering\includegraphics[width=0.96\linewidth]{bayes_odds.png}
   \vspace{0.2cm}
   \begin{block}{Формула}
-    Posterior odds = Prior odds $\times$ BF$_{10}$.
+    Апостериорные шансы = Априорные шансы $\times$ BF$_{10}$.
   \end{block}
-  \small Если prior равны 1:1, posterior odds совпадают с BF; при несогласии prior BF нельзя читать как итоговую вероятность.
+  \small Если априорные шансы равны 1:1, апостериорные шансы совпадают с байесовским фактором. При других априорных шансах байесовский фактор не равен итоговой вероятности гипотезы.
 \end{frame}
 
-\begin{frame}{Клинический пример: диагностический тест как prior}
-  \centering\includegraphics[width=0.74\linewidth]{bayes_diagnostic.png}
+\begin{frame}{Диагностический тест как априорная информация}
+  \centering\includegraphics[width=0.68\linewidth]{bayes_diagnostic.png}
   \vspace{0.2cm}
   \begin{block}{Что показывает схема}\footnotesize
-    При низкой распространённости даже чувствительный и специфичный тест даёт много ложноположительных результатов: PPV --- 15,4\%.
+    При низкой распространённости даже чувствительный и специфичный тест даёт много ложноположительных результатов: прогностическая ценность положительного результата (PPV) составляет 15,4\%.
   \end{block}
-  \small Аналогия со статистической гипотезой: prior задаёт исходные шансы, данные их обновляют.
+  \footnotesize Аналогично априорное распределение задаёт исходные шансы гипотезы, а данные их обновляют.
 \end{frame}
 
-\begin{frame}{Чувствительность BF к prior}
+\begin{frame}{Чувствительность байесовского фактора к априору}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\linewidth}
       \includegraphics[width=\linewidth]{bayes_prior_sensitivity.png}
@@ -636,11 +649,11 @@
       \begin{block}{Вывод}
         При $t = 3{,}54$ и $n = 303$ вывод «сильные доказательства» сохраняется при $r$ от 0,3 до 1,5.
       \end{block}
-      \small Обязательно указывайте prior и проверяйте устойчивость вывода.
+      \small Априорное распределение указывается в отчёте, устойчивость вывода проверяется.
   \end{columns}
 \end{frame}
 
-\begin{frame}{$p$-value и BF при разном объёме выборки}
+\begin{frame}{$p$-значение и байесовский фактор при разном объёме выборки}
   \centering\footnotesize
   \begin{tabular}{lccc}
     $n$ & $t$ & $p$ & BF$_{10}$ \\ \hline
@@ -650,236 +663,211 @@
   \end{tabular}
   \par\vspace{0.3cm}
   \begin{block}{Ключевой случай}
-    При $n = 100$ $p < 0{,}05$, но BF$_{10} = 0{,}82$ --- данные скорее за $H_0$. Разные вопросы дают разные ответы.
+    При $n = 100$ получено $p < 0{,}05$ и BF$_{10} = 0{,}82$; данные скорее согласуются с $H_0$. Разные вопросы дают разные ответы.
   \end{block}
 \end{frame}
 
-\begin{frame}{Последовательный анализ}
+\begin{frame}{Байесовский фактор при последовательном накоплении данных}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\linewidth}
       \includegraphics[width=\linewidth]{bayes_sequential.png}
     \column{0.43\linewidth}
       \begin{block}{Свойство BF}
-        Прикрытие данных по мере накопления не требует заранее фиксированного $n$; BF остаётся отношением правдоподобий.
+        При добавлении наблюдений байесовский фактор остаётся отношением маргинальных правдоподобий. Для интерпретации байесовского фактора заранее фиксированный объём выборки не требуется.
       \end{block}
-      \small Планирование объёма всё равно необходимо; BF не отменяет дизайн.
+      \small Планирование объёма выборки всё равно необходимо.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Оценивание: MCMC и апостериор}
+\begin{frame}{Марковские цепи Монте-Карло (MCMC) и апостериорное распределение}
   \begin{columns}[T,onlytextwidth]
     \column{0.56\linewidth}
       \includegraphics[width=\linewidth]{bayes_mcmc.png}
     \column{0.42\linewidth}
       \begin{block}{Проверка сходимости}
         \begin{itemize}
-          \item trace plot --- без тренда и «застреваний»
-          \item несколько цепочек совпадают
-          \item ESS достаточно велик
+          \item График траектории цепи не имеет тренда и участков застревания.
+          \item Несколько цепочек дают совпадающие распределения.
+          \item Эффективный размер выборки ESS достаточно велик.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Ограничения байесовского подхода}
+\begin{frame}{Ограничения байесовского статистического вывода}
   \begin{block}{Что требует внимания}
     \begin{itemize}
-      \item выбор prior subjective и влияет на результат при малом $n$
-      \item вычисления MCMC требуют проверки сходимости
-      \item BF не заменяет дизайн, качество данных и клинический смысл
-      \item отчёт без prior и чувствительности невоспроизводим
+      \item Выбор априорного распределения субъективен и влияет на результат при малом объёме выборки.
+      \item Вычисления на основе марковских цепей Монте-Карло требуют проверки сходимости.
+      \item Байесовский фактор дополняет оценку дизайна, качества данных и клинического смысла.
+      \item Отчёт без указания априора и анализа чувствительности невоспроизводим.
     \end{itemize}
   \end{block}
-  \small Корректная формулировка: «при заданном prior BF$_{10} = 26{,}5$; вывод устойчив к изменению prior».
+  \small Корректная формулировка: «при заданном априоре BF$_{10} = 26{,}5$; вывод устойчив к изменению априора».
 \end{frame}
 
 \section{Как читать клиническую статью}
 
-\begin{frame}{Статья: заголовок и абстракт}
+\begin{frame}{Заголовок и абстракт статьи}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\linewidth}
-      \includegraphics[width=\linewidth]{article_title_annot.png}
+      \includegraphics[width=\linewidth,height=6.4cm,keepaspectratio]{article_title_annot.png}
     \column{0.42\linewidth}
       \begin{block}{Johansson et al., 2022}
-        Annals of Neurology; DOI 10.1002/ana.26291\\
-        Park-in-Shape: двойное слепое РКИ, 130 пациентов.
+        Статья опубликована в Annals of Neurology, DOI 10.1002/ana.26291.\\
+        Исследование Park-in-Shape является двойным слепым РКИ с участием 130 пациентов.
       \end{block}
-      \small PICO: Population, Intervention, Comparator, Outcome. Рубрики: Objective / Methods / Results / Interpretation.
+      \small Структура PICO включает популяцию, вмешательство, сравнение и исход. Абстракт содержит рубрики Objective, Methods, Results и Interpretation.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Методы: дизайн и контрольная группа}
+\begin{frame}{Дизайн исследования и контрольная группа}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\linewidth}
-      \includegraphics[height=6.4cm,keepaspectratio]{article_methods_annot.png}
+      \includegraphics[width=\linewidth,height=6.4cm,keepaspectratio]{article_methods_annot.png}
     \column{0.46\linewidth}
-      \begin{block}{Проверяем}
+      \begin{block}{Что проверяется}\tiny
         \begin{itemize}
-          \item random assignment 1:1
-          \item double-blind; control: stretching
-          \item 6 месяцев, 3 раза в неделю
-          \item under unselected MRI subset: $n = 25$ и $31$
+          \item Распределение выполнено 1:1.
+          \item Исследование двойное слепое.
+          \item Контрольная группа выполняла растяжку как активный контроль.
+          \item Длительность составила 6 месяцев.
+          \item Три занятия в неделю.
+          \item Подгруппа МРТ включала 25 и 31 пациента.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Поток участников: CONSORT}
+\begin{frame}{Поток участников по CONSORT}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\linewidth}
       \includegraphics[width=\linewidth,height=6.4cm,keepaspectratio]{article_flow_annot.png}
     \column{0.46\linewidth}
       \begin{block}{Проверяемые элементы}
-        130 приглашены $\to$ 57 включены $\to$ 25 и 31 в группах $\to$ complete cases.
+        Из 130 приглашённых пациентов 57 были включены в исследование. Группы аэробной нагрузки и растяжки включили 25 и 31 пациента; число завершивших наблюдение приведено на рисунке.
       \end{block}
-      \footnotesize Потери: сканирование, отказ, техпричины. Без потока участников статья неполная.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Таблица 1: характеристики пациентов}
+\begin{frame}{Таблица 1 описывает характеристики пациентов}
   \begin{columns}[T,onlytextwidth]
     \column{0.42\linewidth}
-      \includegraphics[height=6.4cm,keepaspectratio]{article_table1_annot.png}
+      \includegraphics[width=\linewidth,height=6.4cm,keepaspectratio]{article_table1_annot.png}
     \column{0.55\linewidth}
-      \begin{block}{Порядок чтения}
+      \begin{block}{Порядок чтения}\footnotesize
         \begin{itemize}
-          \item Таблица 1 --- не результат, а сопоставимость групп
-          \item $n$, возраст, пол, исходная тяжесть, $p > 0{,}05$
-          \item Mean (SD) --- непрерывные; числа/проценты --- категориальные
+          \item Таблица описывает сопоставимость групп.
+          \item Проверяются $n$, возраст, пол и тяжесть.
+          \item Приведены $p$-значения.
+          \item Непрерывные признаки описаны средним и SD.
+          \item Категориальные признаки описаны частотами.
         \end{itemize}
       \end{block}
-      \small Маленькие $p$ здесь говорят о нарушении рандомизации, а не о пользе вмешательства.
+      \footnotesize Малые $p$-значения в этой таблице указывают на нарушение рандомизации.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Boxplot в статье: что смотрим}
+\begin{frame}{Как читать ящичную диаграмму в статье}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\linewidth}
       \includegraphics[width=\linewidth]{article_boxplot_annot.png}
     \column{0.43\linewidth}
-      \begin{block}{Разметка рисунка}
+      \begin{block}{Что читается на рисунке}
         \begin{itemize}
-          \item медиана и ящик (IQR)
-          \item усы и отдельные точки
-          \item подписи групп и единицы оси
-          \item знак $*$ и сноска: $p < 0{,}05$
+          \item Медиана и ящик показывают межквартильный размах.
+          \item Усы показывают границы разброса, отдельные точки показывают выбросы.
+          \item Подписи групп и единицы измерения оси указываются обязательно.
+          \item Знак $*$ соответствует сноске $p < 0{,}05$.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Корреляция: rho = 0.62, p = 0.003}
+\begin{frame}{Корреляция связности и подготовленности: $\rho = 0{,}62$, $p = 0{,}003$}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\linewidth}
-      \includegraphics[width=\linewidth]{article_scatter_annot.png}
+      \includegraphics[width=0.7\linewidth]{article_scatter_annot.png}
     \column{0.42\linewidth}
-      \begin{block}{Чтение scatter}
+      \begin{block}{Как читать диаграмму рассеяния}\scriptsize
         \begin{itemize}
-          \item ось $X$: изменение связности DLPFC--RFPN
-          \item ось $Y$: изменение VO$_{2}$max
-          \item каждая точка --- пациент ($n = 21$)
-          \item линия --- аппроксимация, rho --- сила связи
+          \item Ось $X$ показывает изменение связности DLPFC--RFPN.
+          \item Ось $Y$ показывает изменение VO$_{2}$max.
+          \item Каждая точка соответствует одному пациенту ($n = 21$).
+          \item Линия демонстрирует аппроксимацию, коэффициент $\rho$ показывает силу связи.
         \end{itemize}
       \end{block}
-      \small Корреляция не доказывает причинность; анализ выполнен только в группе аэробных нагрузок.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Расположение результата в тексте}
+\begin{frame}{Как результат расположен в тексте статьи}
   \centering\includegraphics[width=0.94\linewidth]{article_result_text_annot.png}
   \vspace{0.2cm}
   \begin{block}{Порядок элементов}
-    эффект --- коэффициент --- $p$ --- $n$ --- ссылка на рисунок. Здесь: rho = 0{,}62, $p = 0{,}003$, $n = 21$, see Fig 5C.
+    Сообщение результата содержит эффект, коэффициент, $p$-значение, объём выборки и ссылку на рисунок. В статье указаны $\rho = 0{,}62$, $p = 0{,}003$, $n = 21$ и ссылка на рисунок 5C.
   \end{block}
 \end{frame}
 
-\begin{frame}{Ограничения: читаем Discussion}
+\begin{frame}{Ограничения в разделе обсуждения}
   \begin{columns}[T,onlytextwidth]
-    \column{0.3\linewidth}
-      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_limits_annot.png}
-    \column{0.3\linewidth}
-      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_multiple_annot.png}
-    \column{0.38\linewidth}
-      \begin{block}{Что отметить}
+    \column{0.5\linewidth}
+      \includegraphics[width=\linewidth]{article_limits_annot.png}
+      \par\vspace{0.25cm}
+      \includegraphics[width=\linewidth]{article_multiple_annot.png}
+    \column{0.48\linewidth}
+      \begin{block}{Что отмечается}\footnotesize
         \begin{itemize}
-          \item подгруппа МРТ не была случайной
-          \item поисковый характер анализов
-          \item множественные сравнения
-          \item применимость только к ранней стадии БП
+          \item Подгруппа МРТ формировалась без случайного отбора.
+          \item Анализы носят поисковый характер.
+          \item Имеются множественные сравнения.
+          \item Выводы ограничены ранней стадией болезни Паркинсона.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Чек-лист чтения РКИ}
-  \begin{enumerate}
-    \item Тип исследования и вопрос (PICO)
-    \item Рандомизация и скрытие последовательности
-    \item Ослепление и контрольная группа
-    \item Поток участников (CONSORT)
-    \item Сопоставимость групп (Table 1)
-    \item Величина эффекта и 95\% CI, а не только $p$
-    \item Графики: подписи, единицы, точки, выбросы
-    \item Ограничения и применимость результата
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Литература по чтению статей}
-  \small
-  \begin{itemize}
-    \item Schulz KF et al. CONSORT 2010 Statement. BMJ, 2010 (локально: \texttt{literature/consort2010.xml})
-    \item von Elm E et al. STROBE Statement. PLoS Med, 2007 (локально: \texttt{literature/strobe2007.xml})
-    \item Greenhalgh T. How to Read a Paper. BMJ, 1997
-    \item Lang T, Altman D. SAMPL guidelines. Ann Intern Med, 2013
-    \item Johansson ME et al. Aerobic Exercise Alters Brain Function and Structure in Parkinson's Disease. Ann Neurol, 2022 (локально: \texttt{literature/rct-parkinson-exercise.pdf})
-  \end{itemize}
-\end{frame}
-
-\section{Анализ клинического исследования: углубление}
-
-\begin{frame}{Иерархия дизайнов исследований}
+\begin{frame}{Дизайн исследования определяет силу вывода}
   \begin{columns}[T,onlytextwidth]
     \column{0.45\linewidth}
-      \includegraphics[width=\linewidth]{evidence_pyramid.png}
+      \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{evidence_pyramid.png}
     \column{0.53\linewidth}
-      \begin{block}{От слабых к сильным}
+      \begin{block}{От менее информативных дизайнов к более информативным}\footnotesize
         \begin{itemize}
-          \item исследование случая --- гипотеза
-          \item случай--контроль --- ассоциация
-          \item когорта --- динамика и частота
-          \item РКИ --- controle фактор
-          \item систематический обзор --- синтез
+          \item Исследование случая формулирует гипотезу.
+          \item Исследование случай--контроль оценивает ассоциацию.
+          \item Когортное исследование описывает динамику и частоту событий.
+          \item РКИ обеспечивает контроль факторов.
+          \item Систематический обзор синтезирует результаты исследований.
         \end{itemize}
       \end{block}
-      \small Дизайн определяет, какой вывод вообще допустим; статистика не исправляет дизайн.
   \end{columns}
 \end{frame}
 
-\begin{frame}{Рандомизация и скрытие последовательности}
+\begin{frame}{Рандомизация и сокрытие распределения}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
       \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_methods_annot.png}
     \column{0.48\linewidth}
-      \begin{block}{Проверяем в методе}
+      \begin{block}{Что проверяется в методе}
         \begin{itemize}
-          \item generation последовательности
-          \item allocation concealment
-          \item block/stratified randomization
-          \item кто знал группу: пациент, врач, оценщик
+          \item В публикации указано распределение 1:1.
+          \item Участники оставались ослеплёнными в отношении альтернативного вмешательства.
+          \item Оценщики были ослеплены.
+          \item Сведения о генерации последовательности и сокрытии распределения (allocation concealment) отсутствуют.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{INTENTION-TO-TREAT и потери}
+\begin{frame}{ITT-анализ и потери участников}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
       \includegraphics[width=\linewidth,height=6.2cm,keepaspectratio]{article_flow_annot.png}
     \column{0.48\linewidth}
       \begin{block}{Принцип}
-        ITT анализирует всех рандомизированных в их группах. Per-protocol исключает нарушителей и может сместить эффект.
+        ITT-анализ включает всех рандомизированных пациентов в их исходных группах. Анализ по протоколу исключает нарушителей и может сместить оценку эффекта.
       \end{block}
-      \small В статье указаны причины выбытия по каждому этапу; их отсутствие --- повод для критики.
+      \small В статье приведены причины выбытия по каждому этапу. Отсутствие таких сведений является поводом для критики.
   \end{columns}
 \end{frame}
 
@@ -888,133 +876,157 @@
     \column{0.5\linewidth}
       \includegraphics[width=\linewidth]{article_stats_methods_annot.png}
     \column{0.48\linewidth}
-      \begin{block}{Что проверяем}
+      \begin{block}{Что проверяется}
         \begin{itemize}
-          \item primary endpoint и модель (ANCOVA, mixed effects)
-          \item корректировка на множественность
-          \item совокупность для анализа
-          \item обработка пропусков
+          \item Описаны первичная конечная точка и модель анализа, например ANCOVA или смешанные эффекты.
+          \item Проведена корректировка на множественные сравнения.
+          \item Указана совокупность пациентов, включённых в анализ.
+          \item Описан способ обработки пропущенных значений.
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Таблица 3: эффект, Hedge's g и CI}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.56\linewidth}
-      \includegraphics[width=\linewidth]{article_table3_annot.png}
-    \column{0.42\linewidth}
-      \begin{block}{Чтение}
-        \begin{itemize}
-          \item anatomically area и cluster extent
-          \item $p$ FWE-corrected
-          \item Hedge's g = 1,29 [0,65; 1,91]
-        \end{itemize}
-      \end{block}
-      \small Размер эффекта и CI важнее одного $p$.
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Рисунок 4: подпись к boxplot}
-  \centering\includegraphics[width=0.78\linewidth]{article_fig4_annot.png}
-  \vspace{0.2cm}
-  \begin{block}{Что смотрим}
-    Группы, медианы, ящики, отдельные точки и сноску: $^*p < 0{,}05$, $^{***}p < 0{,}001$. Подпись поясняет обозначения на рисунке.
+\begin{frame}{Таблица 3 содержит эффект, $g$ Хеджеса и доверительный интервал}
+  \centering\includegraphics[width=0.69\linewidth]{article_table3_annot.png}
+  \vspace{0.1cm}
+  \begin{block}{Как читать таблицу}\tiny
+    Анатомическая область и размер кластера описаны в таблице. $p$-значение скорректировано на ошибку первого рода для семейства гипотез (FWER). Величина эффекта $g$ Хеджеса равна 1,29 при 95\% доверительном интервале [0,65; 1,91].
   \end{block}
 \end{frame}
 
-\begin{frame}{Forest plot: эффекты нескольких исследований}
-  \centering\includegraphics[width=0.68\linewidth]{forest_schematic.png}
+\begin{frame}{Рисунок 4: подпись к ящичной диаграмме}
+  \centering\includegraphics[width=0.58\linewidth]{article_fig4_annot.png}
+  \vspace{0.2cm}
+  \begin{block}{Пороги значимости}
+    Сноски $^*p < 0{,}05$ и $^{***}p < 0{,}001$ задают пороги значимости.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Форест-плот показывает эффекты исследований}
+  \centering\includegraphics[width=0.6\linewidth]{forest_schematic.png}
   \vspace{0.1cm}
   \begin{block}{Правило чтения}
-    Точка --- оценка эффекта; линия --- 95\% CI; пересечение нуля --- отсутствие доказательства эффекта; ромб --- объединённая оценка.
+    Точка показывает оценку эффекта, линия показывает 95\% доверительный интервал. Пересечение нуля указывает на отсутствие доказательства эффекта, ромб показывает объединённую оценку.
   \end{block}
 \end{frame}
 
-\begin{frame}{Кривые Каплана--Майера}
-  \centering\includegraphics[width=0.7\linewidth]{km_schematic.png}
+\begin{frame}{Оценка Каплана--Мейера описывает время до события}
+  \centering\includegraphics[width=0.54\linewidth]{km_schematic.png}
   \vspace{0.1cm}
-  \begin{block}{Что смотрим}
-    Медиана времени до события, число пациентов под риском, цензурирование (вертикальные отметки), различие кривых и HR с 95\% CI.
+  \begin{block}{Что считывается с кривых}\small
+    Медиана времени до события показывает центральное значение. Число пациентов под риском приведено под осью. Вертикальные отметки обозначают цензурирование. Различие кривых дополняется отношением рисков (HR) с 95\% доверительным интервалом.
   \end{block}
 \end{frame}
 
-\begin{frame}{От статистики к клиническому решению}
-  \begin{block}{Числа, которые нужно уметь получить}
+\begin{frame}{От статистического результата к клиническому решению}
+  \begin{block}{Показатели клинической интерпретации}
     \begin{itemize}
-      \item OR --- отношение шансов исхода; HR --- отношение рисков во времени
-      \item ARR --- абсолютное снижение риска; NNT = 1/ARR
-      \item NNH --- число пациентов для одного вредного исхода
+      \item Отношение шансов (OR) описывает шансы исхода, отношение рисков (HR) описывает риски во времени.
+      \item Абсолютное снижение риска (ARR) равно разнице рисков, а число пациентов, которых нужно пролечить (NNT), равно 1/ARR.
+      \item Число пациентов, которых нужно пролечить для одного вредного исхода (NNH), рассчитывается аналогично.
     \end{itemize}
   \end{block}
-  \small Статистическая значимость $\neq$ клинически важный: всегда смотрите абсолютный эффект и NNT.
+  \small Клиническая важность определяется абсолютным эффектом и NNT.
 \end{frame}
 
-\begin{frame}{Применимость результата}
+\begin{frame}{Применимость результата к конкретному пациенту}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\linewidth}
       \includegraphics[width=\linewidth]{article_applicability_annot.png}
     \column{0.48\linewidth}
-      \begin{block}{Вопросы}
+      \begin{block}{Контрольные вопросы}
         \begin{itemize}
-          \item соответствует ли пациент критериям включения
-          \item применим ли эффект в моей популяции
-          \item каковы ограничения подгруппы МРТ
+          \item Соответствует ли пациент критериям включения?
+          \item Применим ли эффект в другой популяции?
+          \item Каковы ограничения подгруппы МРТ?
         \end{itemize}
       \end{block}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Расширенный чек-лист чтения РКИ}
-  \footnotesize
+\begin{frame}{Расширенный чек-лист критического чтения РКИ}
+  \scriptsize
   \begin{enumerate}
-    \item Дизайн и PICO; \item рандомизация и скрытие; \item ослепление;
-    \item ITT и потери; \item Table 1; \item первичная конечная точка;
-    \item эффект и 95\% CI; \item $p$ и множественность; \item графики и подписи;
-    \item таблицы регрессии; \item пропуски; \item нежелательные явления;
-    \item подгруппы; \item ограничения; \item применимость.
+    \item Дизайн соответствует вопросу PICO.
+    \item Рандомизация и сокрытие распределения описаны.
+    \item Ослепление участников выполнено.
+    \item ITT-анализ и потери участников приведены.
+    \item Таблица 1 описывает сопоставимость групп.
+    \item Первичная конечная точка определена.
+    \item Величина эффекта и 95\% доверительный интервал приведены.
+    \item $p$-значение и множественные сравнения истолкованы.
+    \item Графики содержат подписи и единицы.
+    \item Таблицы регрессии прочитаны.
+    \item Пропущенные данные обработаны.
+    \item Нежелательные явления перечислены.
+    \item Подгруппы определены заранее.
+    \item Ограничения сформулированы.
+    \item Применимость результата оценена.
   \end{enumerate}
+\end{frame}
+
+\begin{frame}{Ответы расширенного чек-листа для статьи Johansson et al.}
+  \begin{block}{Ответы}\tiny
+    \begin{enumerate}
+      \item Двойное слепое РКИ при ранней стадии болезни Паркинсона: аэробная нагрузка против растяжки; исходы — связность и когнитивный контроль.
+      \item Распределение 1:1, участники ослеплены. Данные о генерации последовательности и сокрытии распределения отсутствуют.
+      \item Ослепление участников и оценщиков указано; контроль — растяжка как активный контроль.
+      \item Поток участников приведён с числами и причинами выбытия.
+      \item Таблица 1 описывает сопоставимость групп. Малые $p$-значения требуют осторожной интерпретации.
+      \item Первичные исходы — связность сети и когнитивный контроль.
+      \item Величина эффекта $g$ Хеджеса равна 1,29 при 95\% доверительном интервале [0,65; 1,91]. Корреляция $\rho = 0{,}62$, $p = 0{,}003$.
+      \item Часть анализов скорректирована на множественные сравнения, часть поисковая.
+      \item Графики содержат подписи, единицы и обозначения значимости. Рисунок 5C содержит аннотацию с $\rho$, $p$ и $n$.
+      \item Таблица 3 содержит оценки эффекта и доверительные интервалы.
+      \item Пропуски и исключения в подгруппе МРТ описаны в потоке участников.
+      \item Систематизированный перечень нежелательных явлений отсутствует.
+      \item Подгруппа МРТ не отбиралась случайно; анализы поисковые.
+      \item Ограничения связаны с подгруппой МРТ, поисковыми анализами и множественными сравнениями.
+      \item Применимость ограничена ранней стадией и составом подгруппы МРТ.
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 \section{ИИ}
 
-\begin{frame}{ИИ: два главных риска}
+\begin{frame}{Два риска применения ИИ}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\linewidth}
-      \begin{block}{PHI}
-        Данные пациентов в чат --- этическое и правовое нарушение. Только открытые и учебные наборы.
+      \begin{block}{Персональные данные}\footnotesize
+        Персональные данные пациентов нельзя передавать в публичные чаты и неодобренные ИИ-сервисы. Это нарушает требования конфиденциальности и может нарушать закон. В учебном цикле используются только открытые и обезличенные наборы данных.
       \end{block}
     \column{0.46\linewidth}
       \begin{block}{Недостоверная генерация}
-        ИИ уверенно выдаёт несуществующие функции и неправильные методы.
+        ИИ может уверенно описывать несуществующие функции и неверные методы.
       \end{block}
   \end{columns}
   \vspace{0.3cm}
   \begin{block}{Требование}
-    Код или метод от ИИ --- сначала на учебном наборе, потом сверка с документацией.
+    Код или метод, предложенный ИИ, сначала проверяется на учебном наборе, затем сверяется с документацией.
   \end{block}
 \end{frame}
 
-\begin{frame}{ИИ как вспомогательный инструмент}
+\begin{frame}{ИИ служит вспомогательным инструментом}
   \begin{itemize}
-    \item Помогает объяснить таблицу, набросать тест, шаблон статьи
-    \item Не отвечает за интерпретацию; решение --- за исследователем
+    \item ИИ помогает объяснить таблицу и подготовить шаблон анализа.
+    \item Интерпретацию результата выполняет исследователь.
   \end{itemize}
-  \begin{block}{Честно про Jamovi}
-    Официального ИИ-помощника в классическом Jamovi нет; сторонние модули не демонстрируются.
+  \begin{block}{Возможности Jamovi}
+    По состоянию на 2026 год официальный ИИ-помощник в классическом Jamovi отсутствует. Сторонний модуль askLLM доступен по адресу \url{https://scchen.com/project/askllm-jamovi/}; в цикле он не демонстрируется.
   \end{block}
 \end{frame}
 
 \section{Итоги}
 
-\begin{frame}{Три главных вывода}
+\begin{frame}{Три основных вывода цикла}
   \begin{enumerate}
-    \item \textbf{Jamovi закрывает базовый анализ без кода}: импорт --- описание --- тесты --- графики
-    \item \textbf{$p$-value и CI читаются одинаково везде}: меняется таблица, принцип --- тот же
-    \item \textbf{Выбор критерия} --- три вопроса: тип данных, тип групп, нормальность
+    \item \textbf{Jamovi обеспечивает базовый анализ без программирования}: импорт, описание, тесты и графики.
+    \item \textbf{Принцип чтения $p$-значения и доверительного интервала сохраняется во всех таблицах}.
+    \item \textbf{Выбор критерия определяется типом данных, типом групп и нормальностью распределения}.
   \end{enumerate}
-  \begin{block}{Что дальше}
-    Датасет, презентация и запись --- в репозитории заседания. Вопросы --- сейчас.
+  \begin{block}{Дополнительно}
+    Датасет, презентация и запись находятся в репозитории цикла. Вопросы задаются сейчас.
   \end{block}
 \end{frame}
 
@@ -1022,17 +1034,17 @@
   \footnotesize
   \begin{columns}[T,onlytextwidth]
     \column{0.32\linewidth}
-      \textbf{Основные}\
-      Vu J., Harrington D. Introductory Statistics for the Life and Biomedical Sciences. OpenIntro, 2021.\
-      Петри А., Сэбин К. Наглядная медицинская статистика. ГЭОТАР-Медиа, 2021.\
-      Гланц С. Медико-биологическая статистика. Практика, 1999.\
+      \textbf{Основные}\\
+      Vu J., Harrington D. Introductory Statistics for the Life and Biomedical Sciences. OpenIntro, 2021.\\
+      Петри А., Сэбин К. Наглядная медицинская статистика. ГЭОТАР-Медиа, 2021.\\
+      Гланц С. Медико-биологическая статистика. Практика, 1999.\\
       Документация Jamovi: docs.jamovi.org
     \column{0.34\linewidth}
-      \textbf{Байесовский подход}\
-      Rouder J. et al. Bayesian $t$ tests. Psychon Bull Rev, 2009.\
-      Kruschke J. Bayesian estimation supersedes the $t$ test. J Exp Psychol Gen, 2013.\
-      Wagenmakers E.-J. et al. Bayesian inference for psychology. Part I--II, 2018.\
-      Greenland S. et al. Guide to misinterpretations. Eur J Epidemiol, 2016.\
+      \textbf{Байесовский статистический вывод}\\
+      Rouder J. et al. Bayesian $t$ tests. Psychon Bull Rev, 2009.\\
+      Kruschke J. Bayesian estimation supersedes the $t$ test. J Exp Psychol Gen, 2013.\\
+      Wagenmakers E.-J. et al. Bayesian inference for psychology. Part I--II, 2018.\\
+      Greenland S. et al. Guide to misinterpretations. Eur J Epidemiol, 2016.\\
       Локальные файлы: \texttt{literature/}
     \column{0.32\linewidth}
       \textbf{Чтение статьи}\
