@@ -41,8 +41,6 @@
 | `presentation/Презентация-Статистика-Jamovi-v1.tex` | Исходник презентации |
 | `data/heart-disease.csv` | Учебный датасет, 303 пациента и 14 переменных |
 | `literature/` | Локальные копии литературы |
-| `TEXT_REQUIREMENTS.md` | Требования пользователя к текстам |
-| `TODO.md` | План работ |
 
 ## Установка Jamovi
 
@@ -82,5 +80,7 @@ lualatex -interaction=nonstopmode 'Сценарий-заседания.tex'
 3. van Belle G., Fisher L., Heagerty P., Lumley T. *Biostatistics: A Methodology for the Health Sciences*. Wiley, 2008.
 4. Гланц С. *Медико-биологическая статистика*. Практика, 1999.
 5. Документация Jamovi: <https://docs.jamovi.org>.
+
+Внутренние планы и требования к текстам не публикуются.
 
 Материалы подготовил Проханин Иван Русланович, ВрИО старосты СНК Кафедры медицинской информатики и физики. ORCID: [0009-0004-5142-3975](https://orcid.org/0009-0004-5142-3975).
