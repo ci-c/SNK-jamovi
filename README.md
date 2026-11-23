@@ -27,7 +27,7 @@
 
 ## Ссылки для скачивания
 
-- Программа Jamovi: <https://www.jamovi.org/download.html>.
+- Программа Jamovi: <https://www.jamovi.org/>.
 - Источник данных: [UCI Heart Disease, dataset 45](https://archive.ics.uci.edu/dataset/45/heart+disease), DOI [10.24432/C52P4X](https://doi.org/10.24432/C52P4X).
 - Набор данных UCI Heart Disease: <https://archive.ics.uci.edu/dataset/45/heart+disease>.
 - Репозиторий заседания: <https://github.com/ci-c/SNK-jamovi>. 
@@ -53,8 +53,8 @@
 
 ## Установка Jamovi
 
-1. Откройте страницу загрузки по адресу <https://www.jamovi.org/download.html>.
-2. Для Windows и macOS выберите обычный установщик. Для Linux используйте команду `flatpak install flathub org.jamovi.jamovi`.
+1. Откройте страницу загрузки по адресу <https://www.jamovi.org/>.
+2. Для Windows и macOS выберите обычный установщик. Для Linux доступен flatpak: [https://flathub.org/apps/org.jamovi.jamovi](https://flathub.org/apps/org.jamovi.jamovi).
 3. Программа распространяется бесплатно, работает локально и не требует написания кода.
 
 ## Датасет
