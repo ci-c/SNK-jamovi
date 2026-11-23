@@ -46,6 +46,9 @@
 | `docs/STATISTICAL_ACCURACY.md` | Критерии статистической точности |
 | `docs/RELEASE_CHECKLIST.md` | Контрольный список выпуска |
 | `scripts/check_slides.py` | Проверка соответствия номеров и заголовков слайдов |
+| `scripts/check_sync.py` | Проверка текста сценария против PDF |
+| `scripts/lint_texts.py` | Формальные и содержательные проверки текстов |
+| `scripts/verify_bf.py` | Воспроизведение байесовских факторов |
 | `literature/` | Локальные копии литературы |
 
 ## Установка Jamovi
